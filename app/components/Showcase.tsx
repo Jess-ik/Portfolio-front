@@ -86,19 +86,19 @@ export default function App() {
 								<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
 									<defs>
 										<linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-										<stop offset="0%" stop-color="#7A5FFF">
-                <animate attributeName="stop-color" values="#7A5FFF; #01FF89; #7A5FFF" dur="4s" repeatCount="indefinite"></animate>
-            </stop>
+											<stop offset="10%" stopColor="#32DFC0">
+												<animate attributeName="stop-color" values="#32DFC0; #C585F8; #32DFC0" dur="4s" repeatCount="indefinite"></animate>
+											</stop>
 
-            <stop offset="100%" stop-color="#01FF89">
-                <animate attributeName="stop-color" values="#01FF89; #7A5FFF; #01FF89" dur="4s" repeatCount="indefinite"></animate>
-            </stop>
+											<stop offset="90%" stopColor="#C585F8">
+												<animate attributeName="stop-color" values="#C585F8; #32DFC0; #C585F8" dur="5s" repeatCount="indefinite"></animate>
+											</stop>
 										</linearGradient>
 									</defs>
 									<path id="blob" fill="url(#gradient)">
 										<animate
 											attributeName="d"
-											dur="10s"
+											dur="15s"
 											repeatCount="indefinite"
 											values="
 							M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z;
@@ -115,7 +115,7 @@ export default function App() {
 							<LandingLogo />
 							<div className="mouse dark:border-white dark:before:bg-white"></div>
 						</SwiperSlide>
-						
+
 						{/* 
 						SHOWCASE PROJECT SLIDES FROM JSON
 						{ShowcassesFullScreenData.map((slide) => (

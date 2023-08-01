@@ -40,9 +40,9 @@ export default async function Projects() {
 						<span data-filter=".graphic">Craft</span>
 					</div>
 					{/* Gallery Grid */}
-					<div className="projects container pt-20 flex flex-row flex-wrap content-between gap-10">
+					<div className="projects container pt-20 flex flex-row flex-wrap ">
             {data.data.map((project) => (
-                <div id={project.id} key={project.id} className={`items  ${project.attributes.size}` }>
+                <div id={project.id} key={project.id} className={`items mb-10 px-5  ${project.attributes.size}` }>
 					<div className="cover">
 						<Link href="/project-details/project-details-dark">
 							<img src={`http://127.0.0.1:1337${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} />

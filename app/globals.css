@@ -5,7 +5,7 @@
 body {
   background-color: #E7E6E2;
   color: #0D2C32;
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 .container {
@@ -41,6 +41,29 @@ nav {
 
 nav a:hover {
   color: #c0ccbb;
+}
+
+.button {
+border: solid 1px #c0ccbb;
+border-radius: 30px;
+  padding: 10px 15px;
+  color: #c0ccbb;
+}
+
+.button:hover {
+  background-color: #c0ccbb;
+  border-radius: 30px;
+  color: #0D2C32;
+
+}
+
+.button-email{
+  padding-top: 50px;
+}
+
+.button-email a:hover{
+  background-color: #E7E6E2;
+  color: #0D2C32;
 }
 
 /* ===== [ GENERAL TEXTS ] ===== */
@@ -245,6 +268,30 @@ p {
 .home-contact{
   background-color: #c0ccbb;
 }
+
+.home-contact {
+	background: linear-gradient(-45deg, #c0ccbb, #B0C6A7);
+	background-size: 400% 400%;
+	animation: gradient 5s ease infinite;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
+
 /* ===== [ END LANDING ] ===== */
 
 /* ====================== [ Start Work ] ====================== */

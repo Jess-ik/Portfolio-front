@@ -26,8 +26,8 @@ export default function OnePage() {
 				
 					<p>Hi! I’m Jess, newly front-end <strong>developer</strong>. Also <strong>creative</strong> designer for 7+ years with experiences in agencies, in-house and freelance. Oh, and I'm a born <strong>crafter</strong>, so I love to create things from scratch... by hands!
 					</p>
-					<h6 className="-mt-5 font-medium">Available for front-end developer opportunities !</h6>
-					<a href="/about" className="-mt-5 text-[#c0ccbb] dark:text-[#e7e6e2] text-right">Learn more</a>
+					<h6 className="-mt-5 font-medium dark:text-[#e7e6e2]">Available for front-end developer opportunities !</h6>
+					<a href="/about" className="button">Learn more</a>
 					
 					
 				</div>
@@ -40,7 +40,7 @@ export default function OnePage() {
 				</div>
 				<div className="w-10/21 pl-10 flex flex-col gap-10 justify-end items-start">
 	
-					<button className="dark:text-[#e7e6e2]">See my works</button>
+					<a href="/projects" className="button ">See all works</a>
 				</div>
 				
 			</div>
@@ -48,8 +48,8 @@ export default function OnePage() {
 			<div className=" home-contact mt-32 p-32 flex flex-col justify-center items-center ">
 				<div className="w-6/12 text-center">
 					<h5 className={`text-[#e7e6e2] ${yeseva.className}`}>Get in touch</h5>
-					<h2 className="leading-none dark:text-[#e7e6e2]">Want to chat ?</h2>
-					<button className="dark:text-[#e7e6e2] pt-32">Send me an email</button>
+					<h2 className="leading-none ">Want to chat ?</h2>
+					<p className="button-email"><a href="/contact" className="border py-2.5 px-4 rounded-3xl border-[#e7e6e2] text-[#e7e6e2]">Send me an email</a></p>
 				</div>
 				
 				

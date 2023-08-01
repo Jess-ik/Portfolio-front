@@ -26,9 +26,9 @@ async function getProjects() {
 export default async function Projects() {
 	const data = await getProjects();
 	return (
-		<div className="projects container pt-20 flex flex-row flex-wrap gap-10">
+		<div className="projects container pt-20 flex flex-row flex-wrap ">
             {data.data.slice(0, 5).map((project) => (
-                <div id={project.id} key={project.id} className={`items  ${project.attributes.size}` }>
+                <div id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}` }>
 					<div className="cover">
 						<Link href="/project-details/project-details-dark">
 							<img src={`http://127.0.0.1:1337${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} />
