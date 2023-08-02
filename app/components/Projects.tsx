@@ -26,7 +26,7 @@ async function getProjects() {
 export default async function Projects() {
 	const data = await getProjects();
 	return (
-		<div className="projects container pt-20 flex flex-row flex-wrap ">
+		<div className="projects px-4 md:px-9 lg:px-15 xl:px-28 pt-20 flex flex-col md:flex-row flex-wrap ">
             {data.data.slice(0, 5).map((project) => (
                 <div id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}` }>
 					<div className="cover">
@@ -36,7 +36,7 @@ export default async function Projects() {
                         </div>
 					<div className="flex justify-between items-center">
 						<h3 className="dark:text-[#E7E6E2]">{project.attributes.title}</h3>
-						<span>{project.attributes.filter}</span>
+						<span className="dark:text-[#c0ccbb]">{project.attributes.filter}</span>
 					</div>
 				</div>
 			))}

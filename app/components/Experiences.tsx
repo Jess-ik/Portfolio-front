@@ -25,25 +25,24 @@ async function getExperiences() {
 export default async function Experiences() {
 	const data = await getExperiences();
 	return (
-		<section className="experiences-section p-32">
-			
+		<section className="experiences-section px-6 md:px-10 lg:px-16 xl:px-32">
 			{data.data.map((item) => (
-				<div className="row pb-10">
-					<div className="w-4/12">
-						<div className="job-title">
-							<div className="w-2/12">
-								<p className={`text-[#c0ccbb] ${yeseva.className}`}>{item.attributes.date}</p>
+				<div className="pt-32 lg:flex lg:flex-row pb-10">
+					<div className="lg:w-4/12">
+						<div className="flex flex-col lg:flex-row lg:items-baseline">
+							<div className="lg:w-2/12">
+								<p className={`text-[#17515c] dark:text-[#c0ccbb] ${yeseva.className}`}>{item.attributes.date}</p>
 							</div>
 
-							<div className="w-10/12">
+							<div className="lg:w-10/12">
 								<h4 className="dark:text-[#E7E6E2]">{item.attributes.jobTitle}</h4>
 								<h6 className="dark:text-[#E7E6E2]">{item.attributes.company}</h6>
 							</div>
 						</div>
 					</div>
-					<div className="w-8/12  mb-30">
+					<div className=" lg:w-8/12 mt-10 lg:mt-0 mb-30">
 						<div className="text">
-							<p className="extra-text">{item.attributes.description}</p>
+							<p className="dark:text-[#999]">{item.attributes.description}</p>
 						</div>
 					</div>
 				</div>

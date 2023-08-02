@@ -38,11 +38,11 @@ export default async function Skills() {
         variableWidth: true,
 	};
 	return (
-		<div className="skills-container mt-32 p-10">
+		<div className="hidden md:block skills-container mt-32 p-10">
 			<Slider {...settings}>
 				{data.data.map((skill) => (
                     <div key={skill.id} className="item text-center">						
-						<h3 className="uppercase text-6xl text-[#c0ccbb]">{skill.attributes.skillName}</h3>
+						<h4 className="uppercase font-light tracking-widest text-[#17515c]">{skill.attributes.skillName}</h4>
 					</div>
 				))}
 				

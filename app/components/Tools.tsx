@@ -36,11 +36,11 @@ export default async function Tools() {
 		cssEase: "linear",
 	};
 	return (
-		<div className="tools-container mt-32 p-10">
+		<div className="tools-container mt-32 px-4 p-10">
 			<Slider {...settings}>
 				{data.data.map((tool) => (
-					<div className="item text-center">
-						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/235347/white`} />
+					<div className="item text-center px-4">
+						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c/white`} />
 						<p className="tech">{tool.attributes.iconName}</p>
 					</div>
 				))}

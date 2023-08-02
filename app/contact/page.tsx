@@ -29,9 +29,9 @@ export default function Contact() {
 		<>
 			<PageHead subtitle="Get in touch" title="Contact me" />
 			<section className="contact-sec">
-				<div className="row px-32 py-16 justify-center">
-					<div className="w-10/12">
-						<div className="form wow fadeInUp" data-wow-delay=".5s">
+				
+					
+						
 							<Formik
 								initialValues={{
 									name: "",
@@ -67,13 +67,13 @@ export default function Contact() {
 										<div className="messages" ref={messageRef}></div>
 
 										<div className="controls">
-											<div className="row">
-												<div className="w-6/12 px-4">
+											<div className="flex flex-col md:flex-row md:flex-wrap">
+												<div className="md:w-6/12 ">
 													<div className="form-group ">
 														<Field className="border-b border-[#0d2c32] dark:border-[#E7E6E2]"id="form_name" type="text" name="name" placeholder="Name" required="required" />
 													</div>
 												</div>
-												<div className="w-6/12 px-4">
+												<div className="md:w-6/12 px-4">
 													<div className="form-group">
 														<Field className="border-b border-[#0d2c32] dark:border-[#E7E6E2]"id="form_email" type="email" name="email" validate={validateEmail} placeholder="Email" required="required" />
 														{errors.email && touched.email && <div>{errors.email}</div>}
@@ -96,9 +96,9 @@ export default function Contact() {
 									</Form>
 								)}
 							</Formik>
-						</div>
-					</div>
-				</div>
+						
+					
+				
 			</section>
 		</>
 	);
