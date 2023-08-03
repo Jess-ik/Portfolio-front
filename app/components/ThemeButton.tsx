@@ -22,10 +22,11 @@ const ThemeButton = () => {
     <button
       aria-label='Toggle Dark Mode'
       type='button'
+      className='pb-10 lg:pb-0'
       onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {resolvedTheme === 'dark' ? (
-        <FiSun className='h-5 w-5 text-white]' />
+        <FiSun className='h-5 w-5 text-white ' />
       ) : (
         <BsMoonStarsFill className='h-5 w-5 text-[#0f0316]' />
       )}

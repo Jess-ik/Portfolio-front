@@ -23,57 +23,24 @@ async function getTools() {
 
 export default async function Tools() {
 	const data = await getTools();
-	
 
 	const settings = {
 		dots: false,
 		arrows: false,
 		infinite: true,
-		slidesToShow: 5,
-		slidesToScroll: 5,
+		slidesToShow: 6,
+		slidesToScroll: 1,
 		autoplay: true,
 		speed: 2000,
-		autoplaySpeed: 4000,
-		cssEase:  'cubic-bezier(0.61, 1, 0.88, 1)',
-		responsive: [
-			{
-			  breakpoint: 1024,
-			  settings: {
-				slidesToShow: 4,
-				slidesToScroll: 4,
-			  }
-			},
-			{
-				breakpoint: 768,
-				settings: {
-				  slidesToShow: 3,
-				  slidesToScroll: 3,
-				  initialSlide: 3
-				}
-			  },
-			{
-			  breakpoint: 600,
-			  settings: {
-				slidesToShow: 2,
-				slidesToScroll: 2,
-				initialSlide: 2
-			  }
-			},
-			{
-			  breakpoint: 480,
-			  settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1
-			  }
-			}
-		  ]
+		autoplaySpeed: 1000,
+		cssEase: "linear",
 	};
 	return (
 		<div className="tools-container mt-32 px-4 p-10">
 			<Slider {...settings}>
 				{data.data.map((tool) => (
 					<div className="item text-center px-4">
-						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} />
+						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c/white`} />
 						<p className="tech">{tool.attributes.iconName}</p>
 					</div>
 				))}
