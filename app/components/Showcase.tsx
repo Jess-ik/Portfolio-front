@@ -16,7 +16,7 @@ import { Autoplay, Navigation } from "swiper/modules";
 //font awesome icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronLeft, faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import ShowcaseProjects from "./Showcase-projects";
+
 import LandingLogo from "./LandingLogo";
 
 export default function App() {
@@ -121,7 +121,7 @@ export default function App() {
 						{/* SHOWCASE PROJECTS SLIDES FROM STRAPI */}
 						{ShowcaseProjects.filter((project) => project.attributes.showcase === true).map((project) => (
 							<SwiperSlide key={project.id} className="h-full slide" data-swiper-autoplay="3000">
-								<Link href={"/projects"}>
+								<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
 									<div className="slide">
 										<div className="blob">
 											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
