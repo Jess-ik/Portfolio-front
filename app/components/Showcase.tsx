@@ -95,7 +95,8 @@ export default function App() {
 											</stop>
 										</linearGradient>
 									</defs>
-									<path id="blob" fill="url(#gradient)">
+									<path d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z;
+" id="blob" fill="url(#gradient)">
 										<animate
 											attributeName="d"
 											dur="15s"
@@ -124,13 +125,14 @@ export default function App() {
 								<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
 									<div className="slide">
 										<div className="blob">
-											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
+											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id={`blobSvg${project.id}`}>
 												<defs>
 													<pattern id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
 														<image href={`http://127.0.0.1:1337${project.attributes.showcaseImage.data.attributes.url}`} x="0" y="0" />
 													</pattern>
 												</defs>
-												<path id="blob" fill={`url(#${project.id})`}>
+												<path d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z;
+" id={project.id} fill={`url(#${project.id})`}>
 													<animate
 														attributeName="d"
 														dur="10s"

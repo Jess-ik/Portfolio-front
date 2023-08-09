@@ -35,22 +35,22 @@ const Contact = () => {
 	return (
 		<>
 			<PageHead subtitle="Get in touch" title="Contact me" />
-			<section className="contact-sec px-4 md:px-16 lg:px-32 xl:px-72 text-center">
-				<div className="py-32">
+			<section className="contact-sec px-10 md:px-16 lg:px-32 xl:px-72 text-center">
+				<div className=" py-20 md:py-32">
 					<form id="contact-form" onSubmit={handleSubmit}>
 						
 							<div className="flex flex-col md:flex-row md:flex-wrap">
-								<div className="md:w-6/12 pr-4 ">
+								<div className="w-full md:w-6/12 md:pr-4 ">
 									<label className="form-group ">
 										<input placeholder="Name" className="border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white" type="text" name="name" value={modifiedData.name} onChange={handleChange} required />
 									</label>
 								</div>
-								<div className="md:w-6/12 pl-4">
+								<div className="w-full md:w-6/12 md:pl-4">
 									<div className="form-group">
 										<input placeholder="Email" className="border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white" type="email" name="email" value={modifiedData.email} onChange={handleChange} required />
 									</div>
 								</div>
-								<div className="w-full pt-10">
+								<div className="w-full md:pt-10">
 									<div className="form-group">
 										<input placeholder="Message" className="border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white" type="textarea" name="message" value={modifiedData.message} onChange={handleChange} required />
 									</div>
