@@ -47,10 +47,10 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
 
-  margin-top: 20px;
+  flex-wrap: nowrap;
+
+
 
 }
 
@@ -204,6 +204,10 @@ h2 {
 }
 
 @media screen and (max-width: 767px) {
+ h1 {
+  font-size: 50px;
+ }
+ 
   h2 {
     font-size: 38px;
   }
@@ -512,21 +516,23 @@ p {
   color: #17515C;
   border-bottom: solid 1px #17515c;
 } */
-
-.portfolio-section .filtering span:after {
-  content: '';
-  width: 7px;
-  height: 7px;
-  /* background: #17515c; */
-  border-radius: 50%;
-  position: absolute;
-  right: -24px;
-  top: 30%;
+@media only screen and (min-width: 768px) {
+  .portfolio-section .filtering span:after {
+    content: '';
+    width: 7px;
+    height: 7px;
+    /* background: #17515c; */
+    border-radius: 50%;
+    position: absolute;
+    right: -24px;
+    top: 30%;
+  }
+  
+  .portfolio-section .filtering span:last-of-type:after {
+    display: none;
+  }
 }
 
-.portfolio-section .filtering span:last-of-type:after {
-  display: none;
-}
 
 .portfolio-section .filtering.smplx span {
   font-weight: 500;
@@ -817,11 +823,13 @@ margin: 0;
   /* border: 0;
   border-bottom: 1px solid rgba(13, 44, 50, 0.7); */
   background: transparent;
-  color: #c8c8c8;
+
   font-size: 12px;
 }
 
-.contact-sec button {
+
+
+/* .contact-sec button {
 
   font-size: 17px;
   background: transparent;
@@ -832,7 +840,7 @@ margin: 0;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: 300;
-}
+} */
 
 
 
