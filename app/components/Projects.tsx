@@ -1,4 +1,6 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Yeseva_One } from "next/font/google";
 import PageHead from "../components/PageHead";
@@ -11,11 +13,27 @@ export const yeseva = Yeseva_One({
 });
 
 
-export default async function Projects() {
-	const data = await getProjects();
+export default function Projects() {
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+	  const getProjects = async () => {
+		try {
+		  const response = await fetch('http://127.0.0.1:1337/api/projects?populate=*', { cache: "no-store" });
+		  const data = await response.json();
+			setData(data.data);
+			console.log(data)
+		} catch (error) {
+		  console.error('Erreur lors du chargement des données', error);
+		}
+	  };
+  
+	  getProjects();
+	}, []);
+	// const data = await getProjects();
 	return (
 		<div className="projects px-4 md:px-9 lg:px-15 xl:px-28 pt-20 flex flex-col md:flex-row flex-wrap ">
-            {data.data.slice(0, 5).map((project) => (
+            {data?.slice(0, 5).map((project) => (
                 <div id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}` }>
 					<div className="cover">
 						<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>

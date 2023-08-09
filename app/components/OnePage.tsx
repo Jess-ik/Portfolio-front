@@ -14,6 +14,7 @@ export const yeseva = Yeseva_One({
 });
 
 export default function OnePage() {
+	
 	return (
 		<section className="onepage-section">
 			<div className="px-6 md:px-10 lg:px-16 xl:px-32 pt-32 flex flex-col lg:flex-row justify-between">

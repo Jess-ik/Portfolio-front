@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Slider from "react-slick";
@@ -10,8 +10,26 @@ import getTools from "../lib/getTools";
 
 
 
-export default async function Tools() {
-	const data = await getTools();
+export default function Tools() {
+	
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+	  const getTools = async () => {
+		try {
+		  const response = await fetch('http://127.0.0.1:1337/api/tools', { cache: "no-store" });
+		  const data = await response.json();
+			setData(data.data);
+			console.log(data)
+		} catch (error) {
+		  console.error('Erreur lors du chargement des données', error);
+		}
+	  };
+  
+	  getTools();
+	}, []);
+	
+	// const data = await getTools();
 	
 
 	const settings = {
@@ -60,7 +78,7 @@ export default async function Tools() {
 	return (
 		<div className="tools-container mt-32 px-4 p-10">
 			<Slider {...settings}>
-				{data.data.map((tool) => (
+				{data?.map((tool) => (
 					<div className="item text-center px-4">
 						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} />
 						<p className="tech">{tool.attributes.iconName}</p>

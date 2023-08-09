@@ -1,17 +1,36 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import getSkills from "../lib/getSkills";
+import { get } from "http";
 
 
 
-export default async function Skills() {
-	const data = await getSkills();
+export default function Skills() {
+
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+	  const getSkills = async () => {
+		try {
+		  const response = await fetch('http://127.0.0.1:1337/api/skills', { cache: "no-store" });
+		  const data = await response.json();
+			setData(data.data);
+			console.log(data)
+		} catch (error) {
+		  console.error('Erreur lors du chargement des données', error);
+		}
+	  };
+  
+	  getSkills();
+	}, []);
+
+	// const data = await getSkills();
 
 	const settings = {
 		dots: false,
@@ -29,7 +48,7 @@ export default async function Skills() {
 	return (
 		<div className="hidden md:block skills-container mt-32 p-10">
 			<Slider {...settings}>
-				{data.data.map((skill) => (
+				{data?.map((skill) => (
                     <div key={skill.id} className="item text-center">						
 						<h4 className="uppercase font-light tracking-widest text-[#17515c]">{skill.attributes.skillName}</h4>
 					</div>

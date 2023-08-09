@@ -7,4 +7,5 @@ export default async function getOneProject(slug: string) {
 	}
 
 	return res.json();
+	
 }

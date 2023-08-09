@@ -1,4 +1,6 @@
-import React from "react";
+"use client"
+
+import React, { useEffect, useState } from "react";
 
 import { Yeseva_One } from "next/font/google";
 import getExperiences from "../lib/getExperiences";
@@ -11,11 +13,29 @@ export const yeseva = Yeseva_One({
 
 
 
-export default async function Experiences() {
-	const data = await getExperiences();
+export default  function Experiences() {
+
+	const [data, setData] = useState(null);
+
+	useEffect(() => {
+	  const getExperiences = async () => {
+		try {
+		  const response = await fetch('http://127.0.0.1:1337/api/services', { cache: "no-store" });
+		  const data = await response.json();
+			setData(data.data);
+			console.log(data)
+		} catch (error) {
+		  console.error('Erreur lors du chargement des données', error);
+		}
+	  };
+  
+	  getExperiences();
+	}, []);
+
+	// const data = await getExperiences();
 	return (
 		<section className="experiences-section px-6 md:px-10 lg:px-16 xl:px-32">
-			{data.data.map((item) => (
+			{data?.map((item) => (
 				<div className="pt-32 lg:flex lg:flex-row pb-10">
 					<div className="lg:w-4/12">
 						<div className="flex flex-col lg:flex-row lg:items-baseline">
