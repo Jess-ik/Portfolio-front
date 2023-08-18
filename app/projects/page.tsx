@@ -25,7 +25,7 @@ export default function Projects() {
 	}, []);
 
 	const fetchProjects = async () => {
-		const data = await fetch("http://127.0.0.1:1337/api/projects?populate=*", { cache: "no-store" });
+		const data = await fetch("http://127.0.0.1:1337/api/projects?populate=*&sort=order", { cache: "no-store" });
 		const projects = await data.json();
 		setPortfolio(projects.data);
 		setFiltered(projects.data);
@@ -50,9 +50,9 @@ export default function Projects() {
 											<img src={`http://127.0.0.1:1337${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} />
 										</Link>
 									</div>
-									<div className="pt-4 flex justify-between items-center">
+									<div className="pt-4 flex flex-col justify-between items-center">
 										<h3 className="dark:text-[#E7E6E2]">{project.attributes.title}</h3>
-										<span className="dark:text-[#c0ccbb]">{project.attributes.filter}</span>
+										<span className=" dark:text-[#c0ccbb]">{project.attributes.category}</span>
 									</div>
 								</motion.div>
 							))}

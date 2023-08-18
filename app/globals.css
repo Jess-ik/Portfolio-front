@@ -251,7 +251,7 @@ p {
   font-size: 15px;
   font-weight: 300;
   margin-top: 10px;
-  color: #555555;
+  /* color: #555555; */
   line-height: 2;
 }
 

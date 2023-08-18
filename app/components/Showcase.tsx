@@ -150,8 +150,8 @@ M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340
 											</svg>
 										</div>
 
-										<h2 className="text-center absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
-										<h2 className="top dark:dark-outline">{project.attributes.title}</h2>
+										<h2 className="text-9xl text-center absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
+										<h2 className="text-9xl top dark:dark-outline">{project.attributes.title}</h2>
 									</div>
 								</Link>
 							</SwiperSlide>
