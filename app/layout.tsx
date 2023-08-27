@@ -25,6 +25,7 @@ export const yeseva = Yeseva_One({
 	weight: ["400"],
 	style: ["normal"],
 	subsets: ["latin"],
+	preload: false,
 });
 
 export const metadata: Metadata = {
