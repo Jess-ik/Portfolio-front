@@ -7,18 +7,12 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import useSWR from 'swr';
 
 type Params = {
-	params: {
+	params?: {
 		slug: string;
 	};
 };
 
-export async function generateStaticParams() {
-	const projects = await fetch('http://127.0.0.1:1337/api/projects/').then((res) => res.json())
-   
-	return projects.map((project) => ({
-	  slug: project.slug,
-	}))
-  }
+
 
 export const yeseva = Yeseva_One({
 	weight: ["400"],
@@ -26,8 +20,7 @@ export const yeseva = Yeseva_One({
 	subsets: ["latin"],
 });
 
-export default function ProjectDetails({ params }) {
-	const { slug } = params
+export default  function ProjectDetails({ params: { slug } }: Params) {
 	
 	const fetcher = async (url) => {
 		const response = await fetch(url);
