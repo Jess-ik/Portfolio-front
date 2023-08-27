@@ -3,6 +3,7 @@
 import getOneProject from "@/app/lib/getOneProject";
 import { Yeseva_One } from "next/font/google";
 import { useEffect, useState } from "react";
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import useSWR from 'swr';
 
 type Params = {
@@ -84,19 +85,34 @@ export default  function ProjectDetails({ params: { slug } }: Params) {
 					</div>
 					<div className=" lg:w-8/12 mt-10 lg:mt-0 mb-30">
 						<div className="text">
-							<p className="dark:text-[#999]">{data?.data.attributes.description}</p>
+							<ReactMarkdown className="dark:text-[#999]">{data?.data.attributes.description}</ReactMarkdown>
 						</div>
 					</div>
 				</div>
 			</section>
 			<section className="detail-gallery pt-20 ">
-				<div className="flex">
+				<div className="flex gap-2">
 					{data?.data.attributes.gallery.data.slice(0, 2).map((image) => (
 						<img className="w-1/2" src={`http://127.0.0.1:1337${image.attributes.url}`} />
 					))}
                 </div>
-                <div className="flex flex-wrap">
-					{data?.data.attributes.gallery.data.slice(2,10).map((image) => (
+                <div className="flex flex-nowrap gap-2 mt-2">
+					{data?.data.attributes.gallery.data.slice(2, 5).map((image) => (
+						<img className="w-1/3" src={`http://127.0.0.1:1337${image.attributes.url}`} />
+					))}
+				</div>
+				<div className="flex flex-nowrap gap-2 mt-2">
+					{data?.data.attributes.gallery.data.slice(5, 8).map((image) => (
+						<img className="w-1/3" src={`http://127.0.0.1:1337${image.attributes.url}`} />
+					))}
+				</div>
+				<div className="flex flex-nowrap gap-2 mt-2">
+					{data?.data.attributes.gallery.data.slice(8, 10).map((image) => (
+						<img className="w-1/2" src={`http://127.0.0.1:1337${image.attributes.url}`} />
+					))}
+				</div>
+				<div className="flex flex-nowrap gap-2 mt-2">
+					{data?.data.attributes.gallery.data.slice(10, 13).map((image) => (
 						<img className="w-1/3" src={`http://127.0.0.1:1337${image.attributes.url}`} />
 					))}
 				</div>
