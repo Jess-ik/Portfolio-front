@@ -1,36 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import PageHead from "../components/PageHead";
 
 const Contact = () => {
-	const [modifiedData, setModifiedData] = useState({
-		name: "",
-		email: "",
-		message: "",
-	});
-	const [errorRestaurants, setErrorRestaurants] = useState(null);
+  const [modifiedData, setModifiedData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [errorRestaurants, setErrorRestaurants] = useState(null);
 
-	const handleChange = ({ target: { name, value } }) => {
-		setModifiedData((prev) => ({
-			...prev,
-			[name]: value,
-		}));
-	};
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setModifiedData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
 
-		try {
-			const response = await axios.post("http://localhost:1337/api/contacts", {
-				data: modifiedData,
-			});
-			console.log(response);
-		} catch (error) {
-			setErrorRestaurants(error);
-		}
-	};
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post("http://localhost:1337/api/contacts", {
+        data: modifiedData,
+      });
+      console.log(response);
+    } catch (error) {
+      setErrorRestaurants(error);
+    }
+  };
 
 	return (
 		<>
