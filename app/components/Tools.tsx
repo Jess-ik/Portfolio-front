@@ -4,6 +4,15 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+interface Tool {
+	id: string;
+	attributes: {
+	  iconShort: string;
+	  iconName: string;
+	  // Add other attributes here
+	};
+  }
+
 async function getToolsData() {
 	try {
 	  const response = await fetch("http://127.0.0.1:1337/api/tools", { cache: "no-store" });
@@ -18,7 +27,7 @@ async function getToolsData() {
 	}
   }
 export default function Tools() {
-	const [toolsData, setToolsData] = useState([]);
+	const [toolsData, setToolsData] = useState<Tool[]>([]); // Explicitly define the type here
 
 	useEffect(() => {
 		async function fetchData() {
