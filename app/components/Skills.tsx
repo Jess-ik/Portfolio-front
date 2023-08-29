@@ -9,11 +9,17 @@ import "slick-carousel/slick/slick-theme.css";
 import getSkills from "../lib/getSkills";
 import { get } from "http";
 
-
+interface Skill {
+	id: number;
+	attributes: {
+	  skillName: string;
+	  // Add other attribute types if needed
+	};
+  }
 
 export default function Skills() {
 
-	const [data, setData] = useState([]);
+	const [data, setData] =  useState<Skill[]>([]);
 
 	useEffect(() => {
 	  const getSkills = async () => {
