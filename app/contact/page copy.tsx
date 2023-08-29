@@ -3,14 +3,14 @@ import React from "react";
 import Split from "../components/Split";
 import { Formik, Form, Field } from "formik";
 import axios from "axios";
-import { Yeseva_One } from "next/font/google";
+// import { Yeseva_One } from "next/font/google";
 import PageHead from "../components/PageHead";
 
-export const yeseva = Yeseva_One({
-	weight: ["400"],
-	style: ["normal"],
-	subsets: ["latin"],
-});
+// export const yeseva = Yeseva_One({
+// 	weight: ["400"],
+// 	style: ["normal"],
+// 	subsets: ["latin"],
+// });
 
 export default function Contact() {
 	const messageRef = React.useRef(null);

@@ -1,14 +1,14 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Yeseva_One } from "next/font/google";
+// import { Yeseva_One } from "next/font/google";
 import getServices from "../lib/getServices";
 
-export const yeseva = Yeseva_One({
-	weight: ["400"],
-	style: ["normal"],
-	subsets: ["latin"],
-});
+// export const yeseva = Yeseva_One({
+// 	weight: ["400"],
+// 	style: ["normal"],
+// 	subsets: ["latin"],
+// });
 
 
 

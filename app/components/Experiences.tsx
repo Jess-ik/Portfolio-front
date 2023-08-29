@@ -3,15 +3,15 @@
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from 'react-markdown';
 
-import { Yeseva_One } from "next/font/google";
+// import { Yeseva_One } from "next/font/google";
 import getExperiences from "../lib/getExperiences";
 import { FaLocationDot } from "react-icons/fa6";
 
-export const yeseva = Yeseva_One({
-	weight: ["400"],
-	style: ["normal"],
-	subsets: ["latin"],
-});
+// export const yeseva = Yeseva_One({
+// 	weight: ["400"],
+// 	style: ["normal"],
+// 	subsets: ["latin"],
+// });
 
 export default function Experiences() {
 	const [data, setData] = useState(null);
@@ -38,7 +38,9 @@ export default function Experiences() {
 				<div className="pt-32 lg:flex lg:flex-row pb-10 px-16">
 					<div className="flex flex-col lg:w-1/3">
 						<div className="flex flex-row ">
-							<p className={`text-[#17515c] dark:text-[#c0ccbb]  ${yeseva.className}`}>{item.attributes.date}</p>
+							{/* <p className={`text-[#17515c] dark:text-[#c0ccbb]  ${yeseva.className}`}>{item.attributes.date}</p> */}
+
+							<p className={`text-[#17515c] dark:text-[#c0ccbb]  yeseva`}>{item.attributes.date}</p>
 						</div>
 
 						<div className="">

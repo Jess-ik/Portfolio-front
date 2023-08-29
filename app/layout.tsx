@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-import { Poppins, Yeseva_One } from "next/font/google";
+// import { Poppins, Yeseva_One } from "next/font/google";
 import Providers from "./providers";
 import Link from "next/link";
 import ThemeButton from "./components/ThemeButton";
@@ -14,19 +14,19 @@ import Navbar from "./components/Navbar";
 
 
 
-export const poppins = Poppins({
-	weight: ["200", "300", "400", "500", "600", "700"],
-	style: ["normal", "italic"],
-	subsets: ["latin"],
-	preload: false,
-});
+// export const poppins = Poppins({
+// 	weight: ["200", "300", "400", "500", "600", "700"],
+// 	style: ["normal", "italic"],
+// 	subsets: ["latin"],
+// 	preload: false
+// });
 
-export const yeseva = Yeseva_One({
-	weight: ["400"],
-	style: ["normal"],
-	subsets: ["latin"],
-	preload: false,
-});
+// export const yeseva = Yeseva_One({
+// 	weight: ["400"],
+// 	style: ["normal"],
+// 	subsets: ["latin"],
+// 	preload: false
+// });
 
 export const metadata: Metadata = {
 	title: "Jess • Creative + Developer",
@@ -40,7 +40,8 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en' suppressHydrationWarning>
-		  <body className={ `${poppins.className} dark:bg-[#0d2c32]` } >
+		  {/* <body className={`${poppins.className} dark:bg-[#0d2c32]`} > */}
+		  <body className={ ` dark:bg-[#0d2c32]` } >
         <Providers>
 				  <Navbar />
 				  {children}

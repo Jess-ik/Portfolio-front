@@ -1,7 +1,7 @@
 "use client"
 
 import getOneProject from "@/app/lib/getOneProject";
-import { Yeseva_One } from "next/font/google";
+// import { Yeseva_One } from "next/font/google";
 import { useEffect, useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import useSWR from 'swr';
@@ -14,11 +14,11 @@ type Params = {
 
 
 
-export const yeseva = Yeseva_One({
-	weight: ["400"],
-	style: ["normal"],
-	subsets: ["latin"],
-});
+// export const yeseva = Yeseva_One({
+// 	weight: ["400"],
+// 	style: ["normal"],
+// 	subsets: ["latin"],
+// });
 
 export default  function ProjectDetails({ params: { slug } }: Params) {
 	
@@ -46,7 +46,8 @@ export default  function ProjectDetails({ params: { slug } }: Params) {
 		<>
 			<section className={`detail-hero w-full pt-32 `}>
 				<div className="pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
-					<h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5>
+					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
+					<h5 className={`yeseva dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5>
 					<h1 className="dark:text-[#e7e6e2]">{data?.data.attributes.title}</h1>
 					<ul className="py-10 w-6/12 flex justify-between dark:text-[#e7e6e2]">
 						<li>

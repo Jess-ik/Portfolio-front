@@ -1,17 +1,18 @@
 import React from "react";
 import SectionHead from "../components/SectionHead";
-import { Yeseva_One } from "next/font/google";
+// import { Yeseva_One } from "next/font/google";
 import Services from "./Services";
 import Skills from "./Skills";
 import Tools from "./Tools";
 import { Link } from "react-router-dom";
 import Projects from "./Projects";
 
-export const yeseva = Yeseva_One({
-	weight: ["400"],
-	style: ["normal"],
-	subsets: ["latin"],
-});
+// export const yeseva = Yeseva_One({
+// 	weight: ["400"],
+// 	style: ["normal"],
+// 	subsets: ["latin"],
+// 	preload: false
+// });
 
 export default function OnePage() {
 	
@@ -19,7 +20,8 @@ export default function OnePage() {
 		<section className="onepage-section">
 			<div className="px-6 md:px-10 lg:px-16 xl:px-32 pt-32 flex flex-col lg:flex-row justify-between">
 				<div className="lg:w-5/12">
-					<h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>Who I am</h5>
+					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>Who I am</h5> */}
+					<h5 className={`yeseva dark:text-[#c0ccbb]`}>Who I am</h5>
 
 					<section className="animation">
 						<div className="first">
@@ -44,7 +46,8 @@ export default function OnePage() {
 			<Skills />
 			<div className="px-6 md:px-10 lg:px-16 xl:px-32 pt-32 flex flex-col md:flex-row justify-between">
 				<div className="w-6/12">
-					<h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>What I do</h5>
+					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>What I do</h5> */}
+					<h5 className={`yeseva dark:text-[#c0ccbb]`}>What I do</h5>
 					<h2 className="leading-none  dark:text-[#e7e6e2]">Latest works</h2>
 				</div>
 				<div className="md:w-10/21 pt-10 flex flex-col gap-10 justify-end items-start">
@@ -56,7 +59,8 @@ export default function OnePage() {
 			<Projects />
 			<div className=" home-contact mt-32 py-32 px-6 md:px-10 lg:px-16 xl:px-32 flex flex-col justify-center items-center ">
 				<div className="md:w-6/12 text-center">
-					<h5 className={`text-[#17515C] ${yeseva.className}`}>Get in touch</h5>
+					{/* <h5 className={`text-[#17515C] ${yeseva.className}`}>Get in touch</h5> */}
+					<h5 className={`text-[#17515C] yeseva`}>Get in touch</h5>
 					<h2 className="leading-none ">Want to chat ?</h2>
 					<p className="button mt-12">
 						<a href="/contact" className="py-2.5 px-4 ">

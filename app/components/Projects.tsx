@@ -2,15 +2,15 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { Yeseva_One } from "next/font/google";
+// import { Yeseva_One } from "next/font/google";
 import PageHead from "../components/PageHead";
 import getProjects from "../lib/getProjects";
 
-export const yeseva = Yeseva_One({
-	weight: ["400"],
-	style: ["normal"],
-	subsets: ["latin"],
-});
+// export const yeseva = Yeseva_One({
+// 	weight: ["400"],
+// 	style: ["normal"],
+// 	subsets: ["latin"],
+// });
 
 
 export default function Projects() {
