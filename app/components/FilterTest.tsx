@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 
 interface FilterProps {
-	setActiveFilter: (filter: string) => void;
+
 	activeFilter: string;
 	setFiltered: (filtered: string) => void; // Remplacez "any" par le type approprié
 	portfolio: string; // Remplacez "any" par le type approprié
