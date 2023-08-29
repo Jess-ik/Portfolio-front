@@ -5,17 +5,17 @@ import axios from "axios";
 import PageHead from "../components/PageHead";
 
 const Contact = () => {
-  const [modifiedData, setModifiedData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [errorRestaurants, setErrorRestaurants] = useState(null);
+  const [modifiedData, setModifiedData] = useState<{
+    name: string;
+    email: string;
+    message: string;
+}>({ name: "", email: "", message: "" });
+  const [errorRestaurants, setErrorRestaurants] = useState<Error | null>(null);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setModifiedData((prev) => ({
-      ...prev,
+      ...prev!,
       [name]: value,
     }));
   };
@@ -26,7 +26,7 @@ const Contact = () => {
 
     try {
       const response = await axios.post("http://localhost:1337/api/contacts", {
-        data: modifiedData,
+        data: modifiedData!,
       });
       console.log(response);
     } catch (error) {
