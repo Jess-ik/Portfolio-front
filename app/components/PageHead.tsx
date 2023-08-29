@@ -1,5 +1,10 @@
 import React from 'react'
 
+interface PageHeadProps {
+  subtitle: string;
+  title: string;
+}
+
 // import { Yeseva_One } from "next/font/google";
 
 // export const yeseva = Yeseva_One({
@@ -8,7 +13,7 @@ import React from 'react'
 // 	subsets: ["latin"],
 // });
 
-export default function PageHead(props) {
+export default function PageHead(props: PageHeadProps) {
   return (
     <div className="px-4 md:px-32 pt-40 text-center">
       {/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{props.subtitle}</h5> */}
