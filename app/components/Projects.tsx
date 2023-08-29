@@ -6,6 +6,25 @@ import Link from "next/link";
 import PageHead from "../components/PageHead";
 import getProjects from "../lib/getProjects";
 
+interface Project {
+	id: string;
+	attributes: {
+	  size: string;
+	  title: string;
+	  filter: string;
+	  heroImage: {
+		data: {
+		  attributes: {
+			url: string;
+			alternativeText: string;
+		  };
+		};
+	  };
+	  slug: string;
+	  // Autres attributs
+	};
+  }
+
 // export const yeseva = Yeseva_One({
 // 	weight: ["400"],
 // 	style: ["normal"],
@@ -14,7 +33,7 @@ import getProjects from "../lib/getProjects";
 
 
 export default function Projects() {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState<Project[] | null>(null);;
 
 	useEffect(() => {
 	  const getProjects = async () => {
