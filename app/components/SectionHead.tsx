@@ -7,7 +7,12 @@ import React from "react";
 // 	subsets: ["latin"],
 // });
 
-export default function ServicesHead(props) {
+interface PageHeadProps {
+	subtitle: string;
+	title: string;
+  }
+
+export default function ServicesHead(props: PageHeadProps) {
 	return (
 		<div className="px-4 md:px-32 pt-40 text-center">
 			{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{props.subtitle}</h5> */}
