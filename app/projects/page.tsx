@@ -39,8 +39,12 @@ export default function Projects() {
 			<section className="portfolio-section md:pt-16">
 				<div className="px-4 md:px-9 lg:px-15 xl:px-28">
 					{/* Filter */}
-					<Filtertest portfolio={portfolio} setFiltered={(filtered) => setFiltered(filtered)} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
-					{/* Gallery Grid */}
+					<Filtertest
+  portfolio={portfolio}
+  setFiltered={(filtered: any[]) => setFiltered(filtered)} // Explicitly define the type as any[]
+  activeFilter={activeFilter}
+  setActiveFilter={setActiveFilter}
+/>					{/* Gallery Grid */}
 					<motion.div layout className="projects pt-10 flex flex-col md:flex-row flex-wrap ">
 						<AnimatePresence>
 							{filtered?.toReversed().map((project) => (
