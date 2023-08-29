@@ -2,7 +2,13 @@
 
 import React, { useEffect } from "react";
 
-
+interface Project {
+	porfolio: string[]
+	attributes: {
+	  filter: string[];
+	  // Autres attributs
+	};
+  }
 interface FilterProps {
 	attributes: {
 		filter: string[];
@@ -11,7 +17,7 @@ interface FilterProps {
 	setActiveFilter: (activeFilter: string) => void;
 	activeFilter: string;
 	setFiltered: (filtered: string[]) => void; // Remplacez "any" par le type approprié
-	portfolio: string[]; // Remplacez "any" par le type approprié
+	portfolio: Project[]; // Remplacez "any" par le type approprié
   }
 
 const Filtertest: React.FC<FilterProps> = ({ setActiveFilter, activeFilter, setFiltered, portfolio }) => {
