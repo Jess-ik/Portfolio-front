@@ -1,38 +1,34 @@
-"use client";
-
+"use client"
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import getTools from "../lib/getTools";
 
-
+async function getTools() {
+  const response = await fetch("http://127.0.0.1:1337/api/tools", { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  const data = await response.json();
+  return data.data;
+}
 
 export default function Tools() {
-	
-	const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
-	useEffect(() => {
-	  const getTools = async () => {
-		try {
-		  const response = await fetch('http://127.0.0.1:1337/api/tools', { cache: "no-store" });
-		  const data = await response.json();
-			setData(data.data);
-			console.log(data)
-		} catch (error) {
-		  console.error('Erreur lors du chargement des données', error);
-		}
-	  };
-  
-	  getTools();
-	}, []);
-	
-	// const data = await getTools();
-	
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const toolsData = await getTools();
+        setData(toolsData);
+      } catch (error) {
+        console.error("Error loading data", error);
+      }
+    }
+    fetchData();
+  }, []);
 
-	const settings = {
+  const settings = {
 		dots: false,
 		arrows: false,
 		infinite: true,
@@ -77,19 +73,17 @@ export default function Tools() {
 	};
 	return (
 		<div className="tools-container mt-32 px-4 p-10">
-			<Slider {...settings}>
-				{data?.map((tool) => (
-					<div className="item text-center px-4">
-						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} />
-						<p className="tech">{tool.attributes.iconName}</p>
-					</div>
-				))}
-				
-			</Slider>
+		  <Slider {...settings}>
+			{data.map((tool) => (
+			  <div key={tool.id} className="item text-center px-4">
+				<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} />
+				<p className="tech">{tool.attributes.iconName}</p>
+			  </div>
+			))}
+		  </Slider>
 		</div>
-	);
-
-}
+	  );
+	}
 
 /* <div className="w-8/12">
 				<div className="mt-5  grid grid-cols-8 justify-between">
