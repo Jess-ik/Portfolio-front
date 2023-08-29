@@ -1,41 +1,35 @@
 "use client"
 
 import getOneProject from "@/app/lib/getOneProject";
-// import { Yeseva_One } from "next/font/google";
 import { useEffect, useState } from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import useSWR from 'swr';
+import useSWR from "swr";
 
 type Params = {
-	params?: {
-		slug: string;
-	};
+  params: {
+    slug: string;
+  };
 };
 
+export default function ProjectDetails({ params }: Params) {
+  const { slug } = params; // Extract the slug
+  const fetcher = async (url) => {
+    const response = await fetch(url);
+    return response.json();
+  };
 
+  const { data, error } = useSWR(
+    `http://127.0.0.1:1337/api/projects/${slug}`,
+    fetcher
+  );
 
-// export const yeseva = Yeseva_One({
-// 	weight: ["400"],
-// 	style: ["normal"],
-// 	subsets: ["latin"],
-// });
+  if (error) {
+    return <div>Erreur lors du chargement des données</div>;
+  }
 
-export default  function ProjectDetails({ params: { slug } }: Params) {
-	
-	const fetcher = async (url) => {
-		const response = await fetch(url);
-		return response.json();
-	  };
-	
-	  const { data, error } = useSWR(`http://127.0.0.1:1337/api/projects/${slug}`, fetcher);
-	
-	  if (error) {
-		return <div>Erreur lors du chargement des données</div>;
-	  }
-	
-	  if (!data) {
-		return <div>Chargement...</div>;
-	  }
+  if (!data) {
+    return <div>Chargement...</div>;
+  }
 	
 	
 	// const projectData = await getOneProject(slug);
