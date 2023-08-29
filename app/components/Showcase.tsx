@@ -18,6 +18,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronLeft, faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 import LandingLogo from "./LandingLogo";
+import { NavigationOptions } from "swiper/types";
 
 export default function App() {
 	const [ShowcaseProjects, setShowcaseProjects] = useState([]);
@@ -61,8 +62,9 @@ export default function App() {
 							nextEl: navigationNextRef.current,
 						}}
 						onBeforeInit={(swiper) => {
-							swiper.params.navigation!.prevEl = navigationPrevRef.current;
-							swiper.params.navigation!.nextEl = navigationNextRef.current;
+							const navigation = swiper.params.navigation as NavigationOptions;
+							navigation.prevEl = navigationPrevRef.current;
+							navigation.nextEl = navigationNextRef.current;
 						}}
 						breakpoints={{
 							0: {
