@@ -48,7 +48,7 @@ export default function Projects() {
 					{/* Filter */}
 					<Filtertest
   portfolio={portfolio}
-  setFiltered={(filtered: string[]) => setFiltered(filtered)}
+  setFiltered={(filtered) => setFiltered(filtered)}
   activeFilter={activeFilter}
   setActiveFilter={setActiveFilter}
 />
