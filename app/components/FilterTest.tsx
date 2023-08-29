@@ -15,7 +15,7 @@ const Filtertest: React.FC<FilterProps> = ({ setActiveFilter, activeFilter, setF
 			setFiltered(portfolio);
 			return;
 		}
-		const filtered = (portfolio as string[])?.filter((project) => project.attributes.filter.includes(activeFilter));
+		const filtered = (portfolio)?.filter((project) => project.attributes.filter.includes(activeFilter));
 		setFiltered(filtered);
 		console.log(filtered);
 	}, [activeFilter]);
