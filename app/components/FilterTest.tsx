@@ -2,6 +2,12 @@
 
 import React, { useEffect } from "react";
 
+interface Project {
+	attributes: {
+	  filter: string[];
+	  // Autres attributs
+	};
+  }
 interface FilterProps {
 	setActiveFilter: (activeFilter: string) => void;
 	activeFilter: string;
