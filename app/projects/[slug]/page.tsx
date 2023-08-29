@@ -46,8 +46,8 @@ export default function ProjectDetails({ params }: Params) {
 						<li className="flex flex-col">
 							<span>Tech</span>
 							<div className="tech flex gap-4 items-center">
-								{data?.data.attributes.tools.data.map((tech: string) => (
-									<img src={`https://cdn.simpleicons.org/${tech}/17515c/c0ccbb`} />
+								{data?.data.attributes.tools.data.map((tech: string[]) => (
+									<img src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} />
 								))}
 							</div>
 						</li>
