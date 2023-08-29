@@ -33,11 +33,13 @@ export const metadata: Metadata = {
 	description: "Portfolio of Jess Louvel - Creative & Developer",
 };
 
+interface RootLayoutProps {
+	children: React.ReactNode; // Define the type of children
+  }
 
 
 
-
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en' suppressHydrationWarning>
 		  {/* <body className={`${poppins.className} dark:bg-[#0d2c32]`} > */}
