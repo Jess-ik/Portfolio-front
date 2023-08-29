@@ -2,13 +2,12 @@
 
 import React, { useEffect } from "react";
 
-interface Project {
-	attributes: {
-	  filter: string[];
-	  // Autres attributs
-	};
-  }
+
 interface FilterProps {
+	attributes: {
+		filter: string[];
+		// Autres attributs
+	  };
 	setActiveFilter: (activeFilter: string) => void;
 	activeFilter: string;
 	setFiltered: (filtered: string[]) => void; // Remplacez "any" par le type approprié
