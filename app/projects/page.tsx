@@ -48,10 +48,12 @@ export default function Projects() {
 					{/* Filter */}
 					<Filtertest
   portfolio={portfolio}
-  setFiltered={(filtered: FilterProps[]) => setFiltered(filtered)}
+  setFiltered={(filtered: string[]) => setFiltered(filtered)}
   activeFilter={activeFilter}
   setActiveFilter={setActiveFilter}
 />
+
+
 					{/* Gallery Grid */}
 					<motion.div layout className="projects pt-10 flex flex-col md:flex-row flex-wrap ">
 						<AnimatePresence>
