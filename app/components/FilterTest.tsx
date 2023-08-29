@@ -3,32 +3,32 @@
 import React, { useEffect } from "react";
 
 interface Project {
-	porfolio: string[]
 	attributes: {
 	  filter: string[];
-	  // Autres attributs
+	  // Other attributes
 	};
   }
-interface FilterProps {
-	attributes: {
-		filter: string[];
-		// Autres attributs
-	  };
+  
+  interface FilterProps {
 	setActiveFilter: (activeFilter: string) => void;
 	activeFilter: string;
-	setFiltered: (filtered: string[]) => void; // Remplacez "any" par le type approprié
-	portfolio: Project[]; // Remplacez "any" par le type approprié
+	setFiltered: (filtered: string[]) => void;
+	portfolio: Project[];
   }
-
-const Filtertest: React.FC<FilterProps> = ({ setActiveFilter, activeFilter, setFiltered, portfolio }) => {
+  
+  const Filtertest: React.FC<FilterProps> = ({ setActiveFilter, activeFilter, setFiltered, portfolio }) => {
 	useEffect(() => {
-		if (activeFilter === "*") {
-			setFiltered(portfolio);
-			return;
-		}
-		const filtered = (portfolio)?.filter((project) => project.attributes.filter.includes(activeFilter));
-		setFiltered(filtered);
-		console.log(filtered);
+	  if (activeFilter === "*") {
+		const allFilters = portfolio.flatMap(project => project.attributes.filter);
+		setFiltered(allFilters);
+		return;
+	  }
+  
+	  const filtered = portfolio
+		.filter(project => project.attributes.filter.includes(activeFilter))
+		.flatMap(project => project.attributes.filter);
+	  setFiltered(filtered);
+	  console.log(filtered);
 	}, [activeFilter]);
 
 	return (
