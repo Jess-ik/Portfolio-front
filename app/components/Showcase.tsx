@@ -20,8 +20,26 @@ import { faChevronRight, faChevronLeft, faArrowRight, faArrowLeft } from "@forta
 import LandingLogo from "./LandingLogo";
 import { NavigationOptions } from "swiper/types";
 
+// Define a type for your project data
+interface Project {
+	id: string;
+	attributes: {
+	  showcase: boolean;
+	  showcaseImage: {
+		data: {
+		  attributes: {
+			url: string;
+		  };
+		};
+	  };
+	  title: string;
+	  // ... other attributes
+	};
+	// ... other fields
+  }
+
 export default function App() {
-	const [ShowcaseProjects, setShowcaseProjects] = useState([]);
+	const [ShowcaseProjects, setShowcaseProjects] = useState<Project[]>([]);
 
 	useEffect(() => {
 		async function fetchData() {
