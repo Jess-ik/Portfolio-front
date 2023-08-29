@@ -10,11 +10,19 @@ import getServices from "../lib/getServices";
 // 	subsets: ["latin"],
 // });
 
-
+interface Service {
+	id: string;
+	attributes: {
+	  title: string;
+	  description: string;
+	  icon: string;
+	  // Other attributes
+	};
+  }
 
 export default function Services() {
 
-	const [data, setData] = useState(null);
+	const [data, setData] = useState<Service[]>([]);;
 
 	useEffect(() => {
 	  const getServices = async () => {
