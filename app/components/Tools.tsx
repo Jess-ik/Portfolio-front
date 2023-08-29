@@ -4,29 +4,29 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-async function getTools() {
-  const response = await fetch("http://127.0.0.1:1337/api/tools", { cache: "no-store" });
-  if (!response.ok) {
-    throw new Error("Failed to fetch data");
+async function getToolsData() {
+	try {
+	  const response = await fetch("http://127.0.0.1:1337/api/tools", { cache: "no-store" });
+	  if (!response.ok) {
+		throw new Error("Failed to fetch data");
+	  }
+	  const responseData = await response.json();
+	  return responseData.data;
+	} catch (error) {
+	  console.error("Error loading data", error);
+	  return [];
+	}
   }
-  const data = await response.json();
-  return data.data;
-}
-
 export default function Tools() {
-  const [data, setData] = useState([]);
+	const [toolsData, setToolsData] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const toolsData = await getTools();
-        setData(toolsData);
-      } catch (error) {
-        console.error("Error loading data", error);
-      }
-    }
-    fetchData();
-  }, []);
+	useEffect(() => {
+		async function fetchData() {
+		  const fetchedData = await getToolsData();
+		  setToolsData(fetchedData);
+		}
+		fetchData();
+	  }, []);
 
   const settings = {
 		dots: false,
@@ -74,9 +74,9 @@ export default function Tools() {
 	return (
 		<div className="tools-container mt-32 px-4 p-10">
 		  <Slider {...settings}>
-			{data.map((tool) => (
+			{toolsData.map((tool) => (
 			  <div key={tool.id} className="item text-center px-4">
-				<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} />
+				<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} alt={tool.attributes.iconName} />
 				<p className="tech">{tool.attributes.iconName}</p>
 			  </div>
 			))}
