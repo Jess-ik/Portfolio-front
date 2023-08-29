@@ -13,8 +13,18 @@ import { FaLocationDot } from "react-icons/fa6";
 // 	subsets: ["latin"],
 // });
 
+interface Experience {
+	attributes: {
+	  date: string;
+	  jobTitle: string;
+	  company: string;
+	  location: string;
+	  description: string;
+	};
+  }
+
 export default function Experiences() {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState<Experience[] | null>(null);
 
 	useEffect(() => {
 		const getExperiences = async () => {
