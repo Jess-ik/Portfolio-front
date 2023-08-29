@@ -2,7 +2,14 @@
 
 import React, { useEffect } from "react";
 
-const Filtertest = ({ setActiveFilter, activeFilter, setFiltered, portfolio }) => {
+interface FilterProps {
+	setActiveFilter: (filter: string) => void;
+	activeFilter: string;
+	setFiltered: (filtered: string) => void; // Remplacez "any" par le type approprié
+	portfolio: string; // Remplacez "any" par le type approprié
+  }
+
+const Filtertest: React.FC<FilterProps> = ({ setActiveFilter, activeFilter, setFiltered, portfolio }) => {
 	useEffect(() => {
 		if (activeFilter === "*") {
 			setFiltered(portfolio);
