@@ -61,8 +61,8 @@ export default function App() {
 							nextEl: navigationNextRef.current,
 						}}
 						onBeforeInit={(swiper) => {
-							swiper.params.navigation.prevEl = navigationPrevRef.current;
-							swiper.params.navigation.nextEl = navigationNextRef.current;
+							swiper.params.navigation!.prevEl = navigationPrevRef.current;
+							swiper.params.navigation!.nextEl = navigationNextRef.current;
 						}}
 						breakpoints={{
 							0: {
