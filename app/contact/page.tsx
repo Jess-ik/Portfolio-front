@@ -29,9 +29,11 @@ const Contact = () => {
         data: modifiedData!,
       });
       console.log(response);
-    } catch (error) {
-      setErrorRestaurants(error);
-    }
+    } catch (error: unknown) {
+		if (error instanceof Error) {
+		  setErrorRestaurants(error);
+		}
+	  }
   };
 
 	return (
