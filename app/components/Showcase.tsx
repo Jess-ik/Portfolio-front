@@ -32,7 +32,8 @@ interface Project {
 		  };
 		};
 	  };
-	  title: string;
+		title: string;
+		slug: string;
 	  // ... other attributes
 	};
 	// ... other fields
