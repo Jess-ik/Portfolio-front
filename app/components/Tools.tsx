@@ -15,7 +15,7 @@ interface Tool {
 
 async function getToolsData() {
 	try {
-	  const response = await fetch("http://127.0.0.1:1337/api/tools", { cache: "no-store" });
+	  const response = await fetch(`${process.env.API_UR}/tools`, { cache: "no-store" });
 	  if (!response.ok) {
 		throw new Error("Failed to fetch data");
 	  }

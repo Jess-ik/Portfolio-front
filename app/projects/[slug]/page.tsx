@@ -18,7 +18,7 @@ export default function ProjectDetails({ params }: Params) {
 		return response.json();
 	};
 
-	const { data, error } = useSWR(`http://127.0.0.1:1337/api/projects/${slug}`, fetcher);
+	const { data, error } = useSWR(`${process.env.API_UR}/projects/${slug}`, fetcher);
 
 	if (error) {
 		return <div>Erreur lors du chargement des données</div>;

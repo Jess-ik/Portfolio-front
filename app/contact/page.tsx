@@ -30,7 +30,7 @@ const Contact = () => {
 		// Move the API request here
 		const sendContactMessage = async () => {
 		  try {
-			const response = await axios.post("http://localhost:1337/api/contacts", {
+			const response = await axios.post(`${process.env.API_UR}/contacts`, {
 			  data: modifiedData,
 			});
 			console.log(response);

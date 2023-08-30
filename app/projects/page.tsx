@@ -35,7 +35,7 @@ export default function Projects() {
 
   const fetchProjects = async () => {
     try {
-      const data = await fetch("http://127.0.0.1:1337/api/projects?populate=*&sort=order:desc", { cache: "no-store" });
+      const data = await fetch(`${process.env.API_UR}/projects?populate=*&sort=order:desc`, { cache: "no-store" });
       const projects = await data.json();
       setPortfolio(projects.data);
       setFiltered(projects.data);
