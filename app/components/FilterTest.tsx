@@ -34,7 +34,6 @@ const Filtertest: React.FC<Props> = ({ setActiveFilter, activeFilter, setFiltere
     }
     const filtered = portfolio?.filter((project) => project.attributes.filter.includes(activeFilter));
     setFiltered(filtered || []);
-    console.log(filtered);
   }, [activeFilter, portfolio, setFiltered]);
 
   return (
