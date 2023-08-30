@@ -30,7 +30,7 @@ export default function Experiences() {
 	useEffect(() => {
 		const getExperiences = async () => {
 			try {
-				const response = await fetch(`${process.env.API_URL}/api/experiences?sort=order:desc`, { cache: "no-store" });
+				const response = await fetch(`${process.env.API_URL}/experiences?sort=order:desc`, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
 				// console.log(data);

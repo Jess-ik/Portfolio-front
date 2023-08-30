@@ -35,7 +35,7 @@ export default function Projects() {
 
 	const fetchProjects = async () => {
 		try {
-			const data = await fetch(`${process.env.API_URL}/api/projects?populate=*&sort=order:desc`, { cache: "no-store" });
+			const data = await fetch(`${process.env.API_URL}/projects?populate=*&sort=order:desc`, { cache: "no-store" });
 			const projects = await data.json();
 			setPortfolio(projects.data);
 			setFiltered(projects.data);
@@ -51,56 +51,25 @@ export default function Projects() {
 				<div className="px-4 md:px-9 lg:px-15 xl:px-28">
 					<Filtertest portfolio={portfolio} setFiltered={(filteredProjects) => setFiltered(filteredProjects)} activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
 					<motion.div layout className="projects pt-10 flex flex-col md:flex-row flex-wrap ">
-            <AnimatePresence>
-              {filtered?.map((project) => (
-                <motion.div
-                  animate={{ opacity: 1 }}
-                  initial={{ opacity: 0 }}
-                  exit={{ opacity: 0 }}
-                  layout
-                  id={project.id}
-                  key={project.id}
-                  className={`items mb-10 px-5  ${project.attributes.size}`}
-                >
-                  <div className="cover">
-                    <Link
-                      href={`/projects/[slug]`}
-                      as={`/projects/${project.attributes.slug}`}
-                    >
-                      {/* Check if heroImage exists before accessing its properties */}
-                      {project.attributes.heroImage?.data ? (
-                        <img
-                          src={`${process.env.API_URL}${project.attributes.heroImage.data.attributes.url}`}
-                          alt={
-                            project.attributes.heroImage.data.attributes
-                              .alternativeText
-                          }
-                        />
-                      ) : (
-                        <p>No hero image available</p>
-                      )}
-                    </Link>
-                  </div>
-                  <div className="pt-4 flex flex-col justify-between items-center">
-                    <h3 className="dark:text-[#E7E6E2]">
-                      {project.attributes.title}
-                    </h3>
-                    <span className="dark:text-[#c0ccbb]">
-                      {project.attributes.category}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </motion.div>
+						<AnimatePresence>
+							{filtered?.map((project) => (
+								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout id={project.id} key={project.id} className={`items mb-10 px-5  ${project.attributes.size}`}>
+									<div className="cover">
+										<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
+											{/* Check if heroImage exists before accessing its properties */}
+											{project.attributes.heroImage?.data ? <img src={`${process.env.IMAGES_URL}${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} /> : <p>No hero image available</p>}
+										</Link>
+									</div>
+									<div className="pt-4 flex flex-col justify-between items-center">
+										<h3 className="dark:text-[#E7E6E2]">{project.attributes.title}</h3>
+										<span className="dark:text-[#c0ccbb]">{project.attributes.category}</span>
+									</div>
+								</motion.div>
+							))}
+						</AnimatePresence>
+					</motion.div>
 				</div>
 			</section>
 		</>
 	);
 }
-
-
-
-
-          
-     

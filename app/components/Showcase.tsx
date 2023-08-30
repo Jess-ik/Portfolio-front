@@ -45,7 +45,7 @@ export default function App() {
 	useEffect(() => {
 		async function fetchData() {
 			// You can await here
-			const response = await fetch(`${process.env.API_URL}/api/projects?populate=*`, { cache: "no-store" });
+			const response = await fetch(`${process.env.API_URL}/projects?populate=*`, { cache: "no-store" });
 			// ...
 			const data = await response.json();
 			// console.log(data);

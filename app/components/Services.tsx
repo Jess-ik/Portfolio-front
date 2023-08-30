@@ -26,7 +26,7 @@ export default function Services() {
 	useEffect(() => {
 		const getServices = async () => {
 			try {
-				const response = await fetch(`${process.env.API_URL}/api/services`, { cache: "no-store" });
+				const response = await fetch(`${process.env.API_URL}/services`, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
 				// console.log(data);
