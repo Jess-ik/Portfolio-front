@@ -14,6 +14,7 @@ import { FaLocationDot } from "react-icons/fa6";
 // });
 
 interface Experience {
+	id: string;
 	attributes: {
 		date: string;
 		jobTitle: string;
