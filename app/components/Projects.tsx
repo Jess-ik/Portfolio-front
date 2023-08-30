@@ -40,7 +40,7 @@ export default function Projects() {
 				const response = await fetch(`${process.env.API_URL}/projects?populate=*&sort=order:desc`, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
-				console.log(data);
+				// console.log(data);
 			} catch (error) {
 				console.error("Erreur lors du chargement des données", error);
 			}

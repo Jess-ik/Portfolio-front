@@ -12,29 +12,26 @@ import { get } from "http";
 interface Skill {
 	id: number;
 	attributes: {
-	  skillName: string;
-	  // Add other attribute types if needed
+		skillName: string;
+		// Add other attribute types if needed
 	};
-  }
+}
 
 export default function Skills() {
-
-	const [data, setData] =  useState<Skill[]>([]);
+	const [data, setData] = useState<Skill[]>([]);
 
 	useEffect(() => {
-	  const getSkills = async () => {
-		  try {
-			console.log(process.env.API_URL)
-		  const response = await fetch(`${process.env.API_URL}/skills`, { cache: "no-store" });
-		  const responseData = await response.json();
-			setData(responseData.data);
-			
-		} catch (error) {
-		  console.error('Erreur lors du chargement des données', error);
-		}
-	  };
-  
-	  getSkills();
+		const getSkills = async () => {
+			try {
+				const response = await fetch(`${process.env.API_URL}/skills`, { cache: "no-store" });
+				const responseData = await response.json();
+				setData(responseData.data);
+			} catch (error) {
+				console.error("Erreur lors du chargement des données", error);
+			}
+		};
+
+		getSkills();
 	}, []);
 
 	// const data = await getSkills();
@@ -48,19 +45,18 @@ export default function Skills() {
 		autoplay: true,
 		speed: 2000,
 		autoplaySpeed: 1000,
-        cssEase: "linear",
-        row: 1,
-        variableWidth: true,
+		cssEase: "linear",
+		row: 1,
+		variableWidth: true,
 	};
 	return (
 		<div className="hidden md:block skills-container mt-32 p-10">
 			<Slider {...settings}>
 				{data.map((skill) => (
-                    <div key={skill.id} className="item text-center">						
+					<div key={skill.id} className="item text-center">
 						<h4 className="uppercase font-light tracking-widest text-[#17515c]">{skill.attributes.skillName}</h4>
 					</div>
 				))}
-				
 			</Slider>
 		</div>
 	);

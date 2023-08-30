@@ -48,7 +48,7 @@ export default function App() {
 			const response = await fetch(`${process.env.API_URL}/projects?populate=*`, { cache: "no-store" });
 			// ...
 			const data = await response.json();
-			console.log(data);
+			// console.log(data);
 			setShowcaseProjects(data.data);
 		}
 		fetchData();

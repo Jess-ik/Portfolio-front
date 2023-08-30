@@ -32,7 +32,7 @@ const Contact = () => {
 				const response = await axios.post(`${process.env.API_URL}/contacts`, {
 					data: modifiedData,
 				});
-				console.log(response);
+				// console.log(response);
 			} catch (error: unknown) {
 				if (error instanceof Error) {
 					setErrorContact(error);

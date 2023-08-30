@@ -32,7 +32,7 @@ export default function Experiences() {
 				const response = await fetch(`${process.env.API_URL}/experiences?sort=order:desc`, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
-				console.log(data);
+				// console.log(data);
 			} catch (error) {
 				console.error("Erreur lors du chargement des données", error);
 			}
@@ -45,7 +45,7 @@ export default function Experiences() {
 	return (
 		<section className="experiences-section px-6 md:px-10 lg:px-16 xl:px-32">
 			{data?.map((item) => (
-				<div className="pt-32 lg:flex lg:flex-row pb-10 px-16">
+				<div key={item.id} className="pt-32 lg:flex lg:flex-row pb-10 px-16">
 					<div className="flex flex-col lg:w-1/3">
 						<div className="flex flex-row ">
 							{/* <p className={`text-[#17515c] dark:text-[#c0ccbb]  ${yeseva.className}`}>{item.attributes.date}</p> */}

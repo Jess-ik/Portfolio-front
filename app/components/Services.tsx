@@ -29,7 +29,7 @@ export default function Services() {
 				const response = await fetch(`${process.env.API_URL}/services`, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
-				console.log(data);
+				// console.log(data);
 			} catch (error) {
 				console.error("Erreur lors du chargement des données", error);
 			}
