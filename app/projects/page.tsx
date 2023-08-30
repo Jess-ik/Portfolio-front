@@ -35,7 +35,7 @@ export default function Projects() {
 
 	const fetchProjects = async () => {
 		try {
-			const data = await fetch(`${process.env.API_URL}/projects?populate=*&sort=order:desc`, { cache: "no-store" });
+			const data = await fetch(`${process.env.API_URL}/api/projects?populate=*&sort=order:desc`, { cache: "no-store" });
 			const projects = await data.json();
 			setPortfolio(projects.data);
 			setFiltered(projects.data);
@@ -70,7 +70,7 @@ export default function Projects() {
                       {/* Check if heroImage exists before accessing its properties */}
                       {project.attributes.heroImage?.data ? (
                         <img
-                          src={`http://127.0.0.1:1337${project.attributes.heroImage.data.attributes.url}`}
+                          src={`${process.env.API_URL}${project.attributes.heroImage.data.attributes.url}`}
                           alt={
                             project.attributes.heroImage.data.attributes
                               .alternativeText

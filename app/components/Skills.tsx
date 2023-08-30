@@ -23,7 +23,7 @@ export default function Skills() {
 	useEffect(() => {
 		const getSkills = async () => {
 			try {
-				const response = await fetch(`${process.env.API_URL}/skills`, { cache: "no-store" });
+				const response = await fetch(`${process.env.API_URL}/api/skills`, { cache: "no-store" });
 				const responseData = await response.json();
 				setData(responseData.data);
 			} catch (error) {

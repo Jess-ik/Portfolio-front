@@ -37,7 +37,7 @@ export default function Projects() {
 	useEffect(() => {
 	  const getProjects = async () => {
 		try {
-		  const response = await fetch(`${process.env.API_URL}/projects?populate=*&sort=order:desc`, { cache: "no-store" });
+		  const response = await fetch(`${process.env.API_URL}/api/projects?populate=*&sort=order:desc`, { cache: "no-store" });
 		  const data = await response.json();
 		  setData(data.data);
 		} catch (error) {
@@ -55,7 +55,7 @@ export default function Projects() {
 			<div className="cover">
 			  <Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
 				{project.attributes.heroImage.data ? (
-				  <img src={`http://127.0.0.1:1337${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} />
+				  <img src={`${process.env.API_URL}${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} />
 				) : (
 				  <img src="" alt="" /> // Placeholder or fallback image
 				)}
