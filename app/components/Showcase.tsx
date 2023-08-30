@@ -24,20 +24,20 @@ import { NavigationOptions } from "swiper/types";
 interface Project {
 	id: string;
 	attributes: {
-	  showcase: boolean;
-	  showcaseImage: {
-		data: {
-		  attributes: {
-			url: string;
-		  };
+		showcase: boolean;
+		showcaseImage: {
+			data: {
+				attributes: {
+					url: string;
+				};
+			};
 		};
-	  };
 		title: string;
 		slug: string;
-	  // ... other attributes
+		// ... other attributes
 	};
 	// ... other fields
-  }
+}
 
 export default function App() {
 	const [ShowcaseProjects, setShowcaseProjects] = useState<Project[]>([]);
@@ -45,7 +45,7 @@ export default function App() {
 	useEffect(() => {
 		async function fetchData() {
 			// You can await here
-			const response = await fetch(`${process.env.API_UR}/projects?populate=*`, { cache: "no-store" });
+			const response = await fetch(`${process.env.API_URL}/projects?populate=*`, { cache: "no-store" });
 			// ...
 			const data = await response.json();
 			console.log(data);
@@ -116,8 +116,12 @@ export default function App() {
 											</stop>
 										</linearGradient>
 									</defs>
-									<path d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z;
-" id="blob" fill="url(#gradient)">
+									<path
+										d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z;
+"
+										id="blob"
+										fill="url(#gradient)"
+									>
 										<animate
 											attributeName="d"
 											dur="15s"
@@ -138,8 +142,6 @@ export default function App() {
 							<div className="mouse dark:border-white dark:before:bg-white"></div>
 						</SwiperSlide>
 
-						
-
 						{/* SHOWCASE PROJECTS SLIDES FROM STRAPI */}
 						{ShowcaseProjects.filter((project) => project.attributes.showcase === true).map((project) => (
 							<SwiperSlide key={project.id} className="h-full slide" data-swiper-autoplay="3000">
@@ -152,8 +154,12 @@ export default function App() {
 														<image href={`http://127.0.0.1:1337${project.attributes.showcaseImage.data.attributes.url}`} x="0" y="0" />
 													</pattern>
 												</defs>
-												<path d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z;
-" id={project.id} fill={`url(#${project.id})`}>
+												<path
+													d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z;
+"
+													id={project.id}
+													fill={`url(#${project.id})`}
+												>
 													<animate
 														attributeName="d"
 														dur="10s"
@@ -199,7 +205,8 @@ M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340
 		</section>
 	);
 }
-{/* 
+{
+	/* 
 						SHOWCASE PROJECT SLIDES FROM JSON
 						{ShowcassesFullScreenData.map((slide) => (
 							<SwiperSlide key={slide.id} className="h-full slide">
@@ -235,4 +242,5 @@ M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340
 									</div>
 								</Link>
 							</SwiperSlide>
-						))} */}
+						))} */
+}

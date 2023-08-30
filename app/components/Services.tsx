@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { Yeseva_One } from "next/font/google";
@@ -13,30 +13,29 @@ import getServices from "../lib/getServices";
 interface Service {
 	id: string;
 	attributes: {
-	  title: string;
-	  description: string;
-	  icon: string;
-	  // Other attributes
+		title: string;
+		description: string;
+		icon: string;
+		// Other attributes
 	};
-  }
+}
 
 export default function Services() {
-
-	const [data, setData] = useState<Service[]>([]);;
+	const [data, setData] = useState<Service[]>([]);
 
 	useEffect(() => {
-	  const getServices = async () => {
-		try {
-		  const response = await fetch(`${process.env.API_UR}/services`, { cache: "no-store" });
-		  const data = await response.json();
-			setData(data.data);
-			console.log(data)
-		} catch (error) {
-		  console.error('Erreur lors du chargement des données', error);
-		}
-	  };
-  
-	  getServices();
+		const getServices = async () => {
+			try {
+				const response = await fetch(`${process.env.API_URL}/services`, { cache: "no-store" });
+				const data = await response.json();
+				setData(data.data);
+				console.log(data);
+			} catch (error) {
+				console.error("Erreur lors du chargement des données", error);
+			}
+		};
+
+		getServices();
 	}, []);
 
 	// const data = await getServices();

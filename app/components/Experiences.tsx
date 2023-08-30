@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from "react-markdown";
 
 // import { Yeseva_One } from "next/font/google";
 import getExperiences from "../lib/getExperiences";
@@ -15,13 +15,13 @@ import { FaLocationDot } from "react-icons/fa6";
 
 interface Experience {
 	attributes: {
-	  date: string;
-	  jobTitle: string;
-	  company: string;
-	  location: string;
-	  description: string;
+		date: string;
+		jobTitle: string;
+		company: string;
+		location: string;
+		description: string;
 	};
-  }
+}
 
 export default function Experiences() {
 	const [data, setData] = useState<Experience[] | null>(null);
@@ -29,7 +29,7 @@ export default function Experiences() {
 	useEffect(() => {
 		const getExperiences = async () => {
 			try {
-				const response = await fetch(`${process.env.API_UR}/experiences?sort=order:desc`, { cache: "no-store" });
+				const response = await fetch(`${process.env.API_URL}/experiences?sort=order:desc`, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
 				console.log(data);
