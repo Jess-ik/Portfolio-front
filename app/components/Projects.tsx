@@ -49,7 +49,7 @@ export default function Projects() {
 	}, []);
 
 	return (
-		<div className="projects px-4 md:px-9 lg:px-15 xl:px-28 pt-20 flex flex-col md:flex-row flex-wrap ">
+		<div className="projects  md:px-9 lg:px-15 xl:px-28 pt-12 md:pt-20 flex flex-col md:flex-row flex-wrap ">
 			{data?.slice(0, 6).map((project) => (
 				<div id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
 					<div className="cover">

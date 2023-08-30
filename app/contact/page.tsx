@@ -19,30 +19,29 @@ const Contact = () => {
 			[name]: value,
 		}));
 	};
+	const handleMessageChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+		const { name, value } = e.target;
+		setModifiedData((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+	};
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		// Handle form submission client-side, not during build
-	};
 
-	useEffect(() => {
-		// Move the API request here
-		const sendContactMessage = async () => {
-			try {
-				const response = await axios.post(`${process.env.API_URL}/contacts`, {
-					data: modifiedData,
-				});
-				// console.log(response);
-			} catch (error: unknown) {
-				if (error instanceof Error) {
-					setErrorContact(error);
-				}
+		try {
+			const response = await axios.post(`${process.env.API_URL}/contacts`, {
+				data: modifiedData,
+			});
+			// Handle successful response if needed
+			// console.log(response);
+		} catch (error: unknown) {
+			if (error instanceof Error) {
+				setErrorContact(error);
 			}
-		};
-
-		// Call the function to send the contact message
-		sendContactMessage();
-	}, [modifiedData]); // Run the effect when modifiedData changes
+		}
+	};
 
 	return (
 		<>
@@ -56,14 +55,22 @@ const Contact = () => {
 									<input placeholder="Name" className="border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white" type="text" name="name" value={modifiedData.name} onChange={handleChange} required />
 								</label>
 							</div>
-							<div className="w-full md:w-6/12 md:pl-4">
+							<div className="w-full pt-6 md:pt-0 md:w-6/12 md:pl-4">
 								<div className="form-group">
 									<input placeholder="Email" className="border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white" type="email" name="email" value={modifiedData.email} onChange={handleChange} required />
 								</div>
 							</div>
 							<div className="w-full md:pt-10">
 								<div className="form-group">
-									<input placeholder="Message" className="border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white" type="textarea" name="message" value={modifiedData.message} onChange={handleChange} required />
+									<textarea
+										placeholder="Message"
+										className="border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white"
+										name="message"
+										value={modifiedData.message}
+										onChange={handleMessageChange}
+										rows={4} // Vous pouvez ajuster ce nombre en fonction du nombre de lignes souhaité
+										required
+									/>{" "}
 								</div>
 							</div>
 							<div className="w-full">

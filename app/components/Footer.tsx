@@ -9,7 +9,7 @@ export default function Footer() {
 				<div>
 					<p className="text-xs dark:text-[#e7e6e2]">Designed and developed by Jessica Louvel - 2023</p>
 				</div>
-				<div className="flex gap-6">
+				<div className="py-5 md:py-0 flex gap-6">
 					<Link href={"https://www.linkedin.com/in/jesslouvel/"}>
 						<FaLinkedinIn className="dark:text-[#e7e6e2]" />
 					</Link>

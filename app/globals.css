@@ -405,6 +405,14 @@ p {
   overflow:hidden;
 }
 
+@media only screen and (max-width: 767px) {
+  .animation {
+    height:80px;
+    overflow:hidden;  
+  }
+  
+}
+
 .animation > div > h2 {
   
   height:120px;
@@ -766,6 +774,23 @@ p {
   }
 }
 
+.collapsible-content {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.collapsible-content.open {
+  max-height: 1000px; /* Ou toute autre valeur appropriée */
+  opacity: 1;
+  visibility: visible;
+  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+
+
 /* ====================== [ Start Tools ] ====================== */
 
 .tools-container {
@@ -791,7 +816,7 @@ p {
   font-size: 18px;
   font-weight: 600;
   color: #17515c;
-line-height: 2px;
+line-height: 18px;
 padding-top: 0px;
 margin: 0;
   padding-left: 10px;
