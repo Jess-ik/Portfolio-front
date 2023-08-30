@@ -1,40 +1,49 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, ChangeEvent, FormEvent, useEffect } from "react";
 import axios from "axios";
 import PageHead from "../components/PageHead";
 
 const Contact = () => {
-  const [modifiedData, setModifiedData] = useState<{
-    name: string;
-    email: string;
-    message: string;
-}>({ name: "", email: "", message: "" });
-  const [errorRestaurants, setErrorRestaurants] = useState<Error | null>(null);
+	const [modifiedData, setModifiedData] = useState({
+	  name: "",
+	  email: "",
+	  message: "",
+	});
+	const [errorContact, setErrorContact] = useState<Error | null>(null);
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setModifiedData((prev) => ({
-      ...prev!,
-      [name]: value,
-    }));
-  };
+	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = e.target;
+		setModifiedData((prev) => ({
+		  ...prev,
+		  [name]: value,
+		}));
+	  };
 
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+	  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		// Handle form submission client-side, not during build
+	  };
+	
+	  useEffect(() => {
+		// Move the API request here
+		const sendContactMessage = async () => {
+		  try {
+			const response = await axios.post("http://localhost:1337/api/contacts", {
+			  data: modifiedData,
+			});
+			console.log(response);
+		  } catch (error: unknown) {
+			if (error instanceof Error) {
+			  setErrorContact(error);
+			}
+		  }
+		};
 
-    try {
-      const response = await axios.post("http://localhost:1337/api/contacts", {
-        data: modifiedData!,
-      });
-      console.log(response);
-    } catch (error: unknown) {
-		if (error instanceof Error) {
-		  setErrorRestaurants(error);
-		}
-	  }
-  };
+   // Call the function to send the contact message
+   sendContactMessage();
+}, [modifiedData]); // Run the effect when modifiedData changes
 
 	return (
 		<>
