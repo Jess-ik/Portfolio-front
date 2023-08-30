@@ -18,7 +18,7 @@ export default function OnePage() {
 	
 	return (
 		<section className="onepage-section">
-			<div className="px-6 md:px-10 lg:px-16 xl:px-32 pt-32 flex flex-col lg:flex-row justify-between">
+			<div className="max-w-screen-2xl m-auto px-6 md:px-10 lg:px-16 xl:px-32 pt-32 flex flex-col lg:flex-row justify-between">
 				<div className="lg:w-5/12">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>Who I am</h5> */}
 					<h5 className={`yeseva dark:text-[#c0ccbb]`}>Who I am</h5>
@@ -44,7 +44,7 @@ export default function OnePage() {
 				</div>
 			</div>
 			<Skills />
-			<div className="px-6 md:px-10 lg:px-16 xl:px-32 pt-32 flex flex-col md:flex-row justify-between">
+			<div className="max-w-screen-2xl m-auto px-6 md:px-10 lg:px-16 xl:px-32 pt-32 flex flex-col md:flex-row justify-between">
 				<div className="w-6/12">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>What I do</h5> */}
 					<h5 className={`yeseva dark:text-[#c0ccbb]`}>What I do</h5>

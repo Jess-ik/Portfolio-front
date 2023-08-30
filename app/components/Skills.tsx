@@ -51,10 +51,10 @@ export default function Skills() {
 	};
 	return (
 		<div className="hidden md:block skills-container mt-32 p-10">
-			<Slider {...settings}>
+			<Slider {...settings} className="max-w-screen-2xl m-auto">
 				{data.map((skill) => (
 					<div key={skill.id} className="item text-center">
-						<h4 className="uppercase font-light tracking-widest text-[#17515c]">{skill.attributes.skillName}</h4>
+						<h4 className="uppercase font-light tracking-widest text-lg text-[#17515c]">{skill.attributes.skillName}</h4>
 					</div>
 				))}
 			</Slider>

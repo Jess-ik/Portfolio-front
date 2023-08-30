@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
+import classNames from "classnames";
 
 // import { Yeseva_One } from "next/font/google";
 import getExperiences from "../lib/getExperiences";
@@ -29,9 +30,9 @@ export default function Experiences() {
 	const [data, setData] = useState<Experience[] | null>(null);
 	const [openDetails, setOpenDetails] = useState<string | null>(null);
 
-  const toggleJobDetails = (itemId: string) => {
-    setOpenDetails((prevOpenDetails) => (prevOpenDetails === itemId ? null : itemId));
-  };
+	const toggleJobDetails = (itemId: string) => {
+		setOpenDetails((prevOpenDetails) => (prevOpenDetails === itemId ? null : itemId));
+	};
 
 	useEffect(() => {
 		const getExperiences = async () => {
@@ -50,9 +51,9 @@ export default function Experiences() {
 
 	// const data = await getExperiences();
 	return (
-		<section className="experiences-section  pt-32 px-6 md:px-10 lg:px-16 xl:px-32">
+		<section className="max-w-screen-2xl m-auto experiences-section  pt-32 px-6 md:px-10 lg:px-16 xl:px-32">
 			{data?.map((item) => (
-				<div key={item.id} className=" lg:flex lg:flex-row pb-10 md:px-16">
+				<div key={item.id} className=" lg:flex lg:flex-row pb-10 lg:pb-32 md:px-16">
 					<div className="flex flex-col lg:w-1/3">
 						<div className="flex flex-row ">
 							{/* <p className={`text-[#17515c] dark:text-[#c0ccbb]  ${yeseva.className}`}>{item.attributes.date}</p> */}
@@ -72,24 +73,14 @@ export default function Experiences() {
 						</div>
 					</div>
 
-					<div className="pt-6 md:pt-0 lg:w-2/3 md:pl-12 mb-30">
-            <button
-              className="md:hidden flex items-center text-[#0d2c32] dark:text-[#e7e6e2] mb-2"
-              onClick={() => toggleJobDetails(item.id)}
-            >
-              Job details{" "}
-              {openDetails === item.id ? (
-                <BsChevronUp className="ml-2" />
-              ) : (
-                <BsChevronDown className="ml-2" />
-              )}
-            </button>
-            <div className={`collapsible-content text text-[#555]  dark:text-[#999] ${openDetails === item.id ? "open" : ""}`}>
-              <ReactMarkdown>{item.attributes.description}</ReactMarkdown>
-            </div>
-          </div>
-
-
+					<div className="pt-6 lg:pt-0 lg:w-2/3 lg:pl-12 mb-30">
+						<button className="md:hidden flex items-center text-[#0d2c32] dark:text-[#e7e6e2] mb-2" onClick={() => toggleJobDetails(item.id)}>
+							Job details {openDetails === item.id ? <BsChevronUp className="ml-2" /> : <BsChevronDown className="ml-2" />}
+						</button>
+						<div className={classNames("collapsible-content text text-[#555] dark:text-[#999]", { open: openDetails === item.id })}>
+							<ReactMarkdown>{item.attributes.description}</ReactMarkdown>
+						</div>
+					</div>
 				</div>
 			))}
 		</section>

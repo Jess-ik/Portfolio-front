@@ -5,7 +5,7 @@ import { FaInstagram, FaGithub, FaLinkedinIn } from "react-icons/fa";
 export default function Footer() {
 	return (
 		<footer className="bg-gradient-to-b from-[#DFDED9] dark:from-[#0B282E]">
-			<section className="footer-section px-6 md:px-10 lg:px-16 xl:px-32  py-5 flex flex-col md:flex-row justify-between items-center">
+			<section className="max-w-screen-2xl m-auto footer-section px-6 md:px-10 lg:px-16 xl:px-32  py-5 flex flex-col md:flex-row justify-between items-center">
 				<div>
 					<p className="text-xs dark:text-[#e7e6e2]">Designed and developed by Jessica Louvel - 2023</p>
 				</div>

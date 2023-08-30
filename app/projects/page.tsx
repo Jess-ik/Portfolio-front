@@ -51,7 +51,7 @@ export default function Projects() {
 	return (
 		<>
 			<PageHead subtitle="My works" title="Portfolio" />
-			<section className="portfolio-section md:pt-16">
+			<section className="max-w-screen-2xl m-auto portfolio-section md:pt-16">
 				<div className="px-4 md:px-9 lg:px-15 xl:px-28">
 				<Filtertest
         setActiveFilter={setActiveFilter}

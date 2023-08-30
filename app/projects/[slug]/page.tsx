@@ -34,24 +34,24 @@ export default function ProjectDetails({ params }: Params) {
 	return (
 		<>
 			<section className={`detail-hero w-full pt-32 `}>
-				<div className="pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
+				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
 					<h5 className={`yeseva dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5>
 					<h1 className="dark:text-[#e7e6e2]">{data?.data.attributes.title}</h1>
-					<ul className="py-10 w-6/12 flex justify-between dark:text-[#e7e6e2]">
+					<ul className="py-10   flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
 						<li>
 							<span>Category</span>
 							<p className="dark:text-[#999]">{data?.data.attributes.category}</p>
 						</li>
-						<li className="flex flex-col">
+						<li className="flex flex-col  pt-6 md:pt-0">
 							<span>Tech</span>
-							<div className="tech flex gap-4 items-center">
+							<div className="tech flex gap-4 pt-2 items-center">
 								{data?.data.attributes.tools.data.map((tech: {id: string,  attributes: { iconShort: string } }) => (
 									<img key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} />
 								))}
 							</div>
 						</li>
-						<li>
+						<li className="py-12 md:py-0 ">
 							<span>Links</span>
 							<div className=" flex gap-10 cursor-pointer mt-2.5 ">
 								<a href={data?.data.attributes.link1}>
@@ -64,9 +64,9 @@ export default function ProjectDetails({ params }: Params) {
 						</li>
 					</ul>
 				</div>
-				<img className="w-full" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} />
+				<img className="w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} />
 			</section>
-			<section className="detail-description pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
+			<section className="max-w-screen-2xl m-auto detail-description pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 				<div className="lg:flex lg:flex-row pb-10">
 					<div className="lg:w-4/12">
 						<div className="flex flex-col lg:flex-row lg:items-baseline">
@@ -82,7 +82,7 @@ export default function ProjectDetails({ params }: Params) {
 					</div>
 				</div>
 			</section>
-			<section className="detail-gallery pt-20 ">
+			<section className="max-w-screen-2xl m-auto detail-gallery pt-20 ">
 				<div className="flex gap-2">
 					{data?.data.attributes.gallery.data.slice(0, 2).map((image: {id: string, attributes: { url: string } }) => (
 						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`}/>

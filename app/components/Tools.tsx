@@ -76,7 +76,7 @@ export default function Tools() {
 	};
 	return (
 		<div className="tools-container mt-32 px-4 p-10">
-			<Slider {...settings}>
+			<Slider {...settings} className="max-w-screen-2xl m-auto">
 				{toolsData.map((tool) => (
 					<div key={tool.id} className="item text-center px-4">
 						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} alt={tool.attributes.iconName} />

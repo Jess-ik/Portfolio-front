@@ -46,7 +46,7 @@ const Contact = () => {
 	return (
 		<>
 			<PageHead subtitle="Get in touch" title="Contact me" />
-			<section className="contact-sec px-10 md:px-16 lg:px-32 xl:px-72 text-center">
+			<section className="max-w-screen-2xl m-auto contact-sec px-10 md:px-16 lg:px-32 xl:px-72 text-center">
 				<div className=" py-20 md:py-32">
 					<form id="contact-form" onSubmit={handleSubmit}>
 						<div className="flex flex-col md:flex-row md:flex-wrap">

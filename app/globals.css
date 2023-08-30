@@ -19,7 +19,7 @@
     color: #0d2c32;
   }
 
-  .dark-button::before{
+  .dark-button::before {
     background-color: #c0ccbb;
   }
 }
@@ -129,6 +129,7 @@ nav {
     padding: 0.5rem 0;
   }
 }
+
 /*  */
 
 
@@ -209,10 +210,10 @@ h2 {
 }
 
 @media screen and (max-width: 767px) {
- h1 {
-  font-size: 50px;
- }
- 
+  h1 {
+    font-size: 50px;
+  }
+
   h2 {
     font-size: 38px;
   }
@@ -401,23 +402,23 @@ p {
 
 /* Intro title anim */
 .animation {
-  height:120px;
-  overflow:hidden;
+  height: 120px;
+  overflow: hidden;
 }
 
 @media only screen and (max-width: 767px) {
   .animation {
-    height:80px;
-    overflow:hidden;  
+    height: 80px;
+    overflow: hidden;
   }
-  
+
 }
 
-.animation > div > h2 {
-  
-  height:120px;
+.animation>div>h2 {
+
+  height: 120px;
   /* margin-bottom: 2.81rem; */
-  display:inline-block;
+  display: inline-block;
 
 }
 
@@ -426,16 +427,45 @@ p {
 }
 
 @keyframes text-animation {
-  0% {margin-top: 0;}
-  10% {margin-top: 0;}
-  20% {margin-top: -7.5rem;}
-  30% {margin-top: -7.5rem;}
-  40% {margin-top: -15rem;}
-  60% {margin-top: -15rem;}
-  70% {margin-top: -7.5rem;}
-  80% {margin-top: -7.5rem;}
-  90% {margin-top: 0;}
-  100% {margin-top: 0;}
+  0% {
+    margin-top: 0;
+  }
+
+  10% {
+    margin-top: 0;
+  }
+
+  20% {
+    margin-top: -7.5rem;
+  }
+
+  30% {
+    margin-top: -7.5rem;
+  }
+
+  40% {
+    margin-top: -15rem;
+  }
+
+  60% {
+    margin-top: -15rem;
+  }
+
+  70% {
+    margin-top: -7.5rem;
+  }
+
+  80% {
+    margin-top: -7.5rem;
+  }
+
+  90% {
+    margin-top: 0;
+  }
+
+  100% {
+    margin-top: 0;
+  }
 }
 
 
@@ -545,7 +575,7 @@ p {
     right: -24px;
     top: 30%;
   }
-  
+
   .portfolio-section .filtering span:last-of-type:after {
     display: none;
   }
@@ -758,7 +788,13 @@ p {
   border-radius: 50%;
   position: absolute;
   margin-left: 23px;
-  top: 36%;
+  top: 30%;
+}
+
+@media screen and (max-width: 768px) {
+  .skills-container .item h4 {
+    font-size: inherit;
+  }
 }
 
 @media screen and (max-width: 1023px) {
@@ -774,20 +810,24 @@ p {
   }
 }
 
-.collapsible-content {
-  max-height: 0;
-  opacity: 0;
-  visibility: hidden;
-  overflow: hidden;
-  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+@media screen and (max-width: 768px) {
+  .collapsible-content {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .collapsible-content.open {
+    max-height: 1000px;
+    /* Ou toute autre valeur appropriée */
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  }
 }
 
-.collapsible-content.open {
-  max-height: 1000px; /* Ou toute autre valeur appropriée */
-  opacity: 1;
-  visibility: visible;
-  transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
-}
 
 
 
@@ -816,9 +856,9 @@ p {
   font-size: 18px;
   font-weight: 600;
   color: #17515c;
-line-height: 18px;
-padding-top: 0px;
-margin: 0;
+  line-height: 18px;
+  padding-top: 0px;
+  margin: 0;
   padding-left: 10px;
 
 
@@ -826,7 +866,7 @@ margin: 0;
 
 
 
-/* ====================== [ End Skills ] ====================== */
+/* ====================== [ End Tools ] ====================== */
 
 .job-title {
   display: flex;
@@ -883,29 +923,29 @@ margin: 0;
 
 
 
-.detail-hero img{
-  
+.detail-hero img {
+
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
   margin: auto;
 }
 
-.detail-hero span{
+.detail-hero span {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
 }
 
-.detail-hero .tech img{
+.detail-hero .tech img {
   height: 24px;
-width: 24px;
+  width: 24px;
   padding: 0;
   margin: 0;
 }
 
 .detail-hero .tech {
-height: 100%;
+  height: 100%;
 }
 
 .detail-hero li {
@@ -953,6 +993,6 @@ height: 100%;
   transform-origin: left;
 }
 
-.detail-gallery img{
+.detail-gallery img {
   object-fit: cover;
 }
