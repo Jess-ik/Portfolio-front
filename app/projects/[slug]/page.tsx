@@ -64,7 +64,7 @@ export default function ProjectDetails({ params }: Params) {
 						</li>
 					</ul>
 				</div>
-				<img className="w-full" src={`http://127.0.0.1:1337${data?.data.attributes.heroImage.data.attributes.url}`} />
+				<img className="w-full" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} />
 			</section>
 			<section className="detail-description pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 				<div className="lg:flex lg:flex-row pb-10">
