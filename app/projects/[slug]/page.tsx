@@ -85,7 +85,7 @@ export default function ProjectDetails({ params }: Params) {
 			<section className="detail-gallery pt-20 ">
 				<div className="flex gap-2">
 					{data?.data.attributes.gallery.data.slice(0, 2).map((image: {id: string, attributes: { url: string } }) => (
-						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} key={image.attributes.url} />
+						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`}/>
 					))}
 				</div>
 				<div className="flex flex-nowrap gap-2 mt-2">
