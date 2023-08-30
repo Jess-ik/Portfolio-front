@@ -44,9 +44,9 @@ export default function Projects() {
 		}
 	};
 
-	const memoizedSetFiltered = useCallback((filteredProjects) => {
+	const memoizedSetFiltered = useCallback((filteredProjects: Project[]) => {
 		setFiltered(filteredProjects);
-	  }, []);
+	}, []);
 
 	return (
 		<>
