@@ -112,9 +112,9 @@ const Contact = () => {
 										{errors.message && <p className="text-red-500">{errors.message}</p>}
 									</div>
 								</div>
-								<div className="w-full">
+								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
-										<ReCAPTCHA className="text-center mx-auto" sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
+										<ReCAPTCHA className="mb-6" sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 										<button type="submit" className="button dark:dark-button cursor-pointer">
 											Send Message
 										</button>
@@ -146,9 +146,9 @@ const Contact = () => {
 										{errors.message && <p className="text-red-500">{errors.message}</p>}
 									</div>
 								</div>
-								<div className="w-full">
+								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
-										<ReCAPTCHA className="text-center mx-auto" sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
+										<ReCAPTCHA className="mb-6" sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 										<button type="submit" className="button dark:dark-button cursor-pointer">
 											Send Message
 										</button>
