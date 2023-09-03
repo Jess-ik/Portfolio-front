@@ -1,9 +1,11 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent, useEffect } from "react";
+import { useState, ChangeEvent, FormEvent, useRef, useEffect } from "react";
 import axios from "axios";
 import PageHead from "../components/PageHead";
 import ReCAPTCHA from "react-google-recaptcha";
+
+
 
 const Contact = () => {
 	const [modifiedData, setModifiedData] = useState({
@@ -15,7 +17,15 @@ const Contact = () => {
 	const [errorContact, setErrorContact] = useState<Error | null>(null);
 	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
 	const [mailSent, setMailSent] = useState(false); // État pour contrôler l'affichage du message de confirmation
+	const errorRef = useRef<HTMLElement | null>(null);
 
+
+	useEffect(() => {
+		if (formError && errorRef.current) { // Vérifiez si errorRef.current est défini
+		  (errorRef.current as HTMLElement).scrollIntoView({ behavior: "smooth" });
+		}
+	  }, [formError]);
+	
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
 		setModifiedData((prev) => ({
@@ -83,10 +93,11 @@ const Contact = () => {
 					<div className=" py-20 md:py-32">
 						<div className="text-center text-[#17515c] dark:text-[#c0ccbb] font-bold pb-20">Mail sent successfully!</div>
 						<form id="contact-form" onSubmit={handleSubmit}>
-							{formError && (
-								// Affichez le message d'erreur s'il y en a un
-								<div className="text-red-500">{formError}</div>
-							)}
+						<div ref={errorRef}></div> {/* Référence à l'élément pour le défilement */}
+      {formError && (
+        // Affichez le message d'erreur s'il y en a un
+        <div className="text-red-500">{formError}</div>
+      )}
 							<div className="flex flex-col md:flex-row md:flex-wrap">
 								<div className="w-full md:w-6/12 md:pr-4 ">
 									<label className="form-group hidden" htmlFor="name">
@@ -134,10 +145,11 @@ const Contact = () => {
 				) : (
 					<div className=" py-20 md:py-32">
 						<form id="contact-form" onSubmit={handleSubmit}>
-							{formError && (
-								// Affichez le message d'erreur s'il y en a un
-								<div className="text-red-500">{formError}</div>
-							)}
+						<div ref={errorRef}></div> {/* Référence à l'élément pour le défilement */}
+      {formError && (
+        // Affichez le message d'erreur s'il y en a un
+        <div className="text-red-500">{formError}</div>
+      )}
 							<div className="flex flex-col md:flex-row md:flex-wrap">
 								<div className="w-full md:w-6/12 md:pr-4 ">
 									<label className="form-group hidden" htmlFor="name">
