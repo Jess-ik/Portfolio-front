@@ -93,7 +93,7 @@ const Contact = () => {
 							<div className="text-center mx-auto">
 									<ReCAPTCHA
 										className="text-center mx-auto"
-    sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+										sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
     onChange={handleRecaptchaChange}
 									/>
 									
