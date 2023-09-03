@@ -45,8 +45,10 @@ const Contact = () => {
 				data: modifiedData,
 				recaptcha: recaptchaValue, // Incluez la valeur du reCAPTCHA dans la requête
 			});
-			// Handle successful response if needed
-			// console.log(response);
+			// Vérifiez si le mail a été envoyé avec succès
+			if (response.status === 200) {
+				setMailSent(true); // Définit l'état pour afficher le message de confirmation
+			  }
 		} catch (error: unknown) {
 			if (error instanceof Error) {
 				setErrorContact(error);
