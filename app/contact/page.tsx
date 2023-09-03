@@ -11,6 +11,7 @@ const Contact = () => {
 		email: "",
 		message: "",
 	});
+	const [formError, setFormError] = useState<string | null>(null);
 	const [errorContact, setErrorContact] = useState<Error | null>(null);
 	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
 	const [mailSent, setMailSent] = useState(false); // État pour contrôler l'affichage du message de confirmation
@@ -33,6 +34,12 @@ const Contact = () => {
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
+		// Vérifiez que tous les champs sont remplis
+		if (!modifiedData.name || !modifiedData.email || !modifiedData.message || recaptchaValue === null) {
+			setFormError("Please fill in all fields and complete the reCAPTCHA.");
+			return;
+		}
+
 		if (recaptchaValue === null) {
 			// Si recaptchaValue est null, l'utilisateur n'a pas réussi le reCAPTCHA.
 			// Vous pouvez afficher un message d'erreur ou prendre d'autres mesures nécessaires.
@@ -48,6 +55,14 @@ const Contact = () => {
 			// Vérifiez si le mail a été envoyé avec succès
 			if (response.status === 200) {
 				setMailSent(true); // Définit l'état pour afficher le message de confirmation
+				setFormError(null); // Réinitialisez le message d'erreur en cas de succès
+
+				// Réinitialisez le formulaire en vidant les valeurs
+				setModifiedData({
+					name: "",
+					email: "",
+					message: "",
+				});
 			}
 		} catch (error: unknown) {
 			if (error instanceof Error) {
@@ -66,8 +81,12 @@ const Contact = () => {
 			<section className="max-w-screen-2xl m-auto contact-sec px-10 md:px-16 lg:px-32 xl:px-72 text-center">
 				{mailSent ? (
 					<div className=" py-20 md:py-32">
-						<div className="text-center text-[#17515c] dark:text-[#c0ccbb] font-bold">Mail sent successfully!</div>
+						<div className="text-center text-[#17515c] dark:text-[#c0ccbb] font-bold pb-20">Mail sent successfully!</div>
 						<form id="contact-form" onSubmit={handleSubmit}>
+							{formError && (
+								// Affichez le message d'erreur s'il y en a un
+								<div className="text-red-500">{formError}</div>
+							)}
 							<div className="flex flex-col md:flex-row md:flex-wrap">
 								<div className="w-full md:w-6/12 md:pr-4 ">
 									<label className="form-group hidden" htmlFor="name">
@@ -115,6 +134,10 @@ const Contact = () => {
 				) : (
 					<div className=" py-20 md:py-32">
 						<form id="contact-form" onSubmit={handleSubmit}>
+							{formError && (
+								// Affichez le message d'erreur s'il y en a un
+								<div className="text-red-500">{formError}</div>
+							)}
 							<div className="flex flex-col md:flex-row md:flex-wrap">
 								<div className="w-full md:w-6/12 md:pr-4 ">
 									<label className="form-group hidden" htmlFor="name">
