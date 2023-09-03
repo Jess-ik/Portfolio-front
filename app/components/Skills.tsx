@@ -62,17 +62,4 @@ export default function Skills() {
 	);
 }
 
-/* <div className="w-8/12">
-				<div className="mt-5  grid grid-cols-8 justify-between">
-					{data.data.map((item) => (
-						<div key={item.id} className="mb-9 ">
-							<div className="item flex justify-center items-center dark:border-white">
-								<div className="img ">
-									<img src={`https://cdn.simpleicons.org/${item.attributes.iconShort}/235347/white`} />
-									<p className="tech">{item.attributes.iconName}</p>
-								</div>
-							</div>
-						</div>
-					))}
-				</div>
-			</div> */
+

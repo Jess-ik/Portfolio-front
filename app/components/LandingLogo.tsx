@@ -14,10 +14,11 @@ export default function LandingLogo() {
 	}
 	return (
 		<div className="logo-hero">
+			<h1 className='hidden'>Jess Louvel - Creative + Developer</h1>
 				{resolvedTheme === 'dark' ? (
-        <img src="./logo-landing.png" alt="" />
+        <img src="./logo-landing.png" alt="Logo of Jess Louvel in white" />
       ) : (
-        <img src="./logo-landing-black.png" alt="" />
+        <img src="./logo-landing-black.png" alt="Logo of Jess Louvel in black" />
       )}
 		</div>
 	);

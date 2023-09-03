@@ -65,9 +65,9 @@ export default function Experiences() {
 							<h4 className="dark:text-[#E7E6E2] pr-4">{item.attributes.jobTitle}</h4>
 							<h6 className="dark:text-[#E7E6E2]">{item.attributes.company}</h6>
 							<div className="flex flex-row flex-nowrap ">
-								<h6 className="text-[#17515c] dark:text-[#c0ccbb] mt-1 mr-1">
+								<span className="text-[#17515c] dark:text-[#c0ccbb] mt-1 mr-1">
 									<FaLocationDot className="h-5 w-5" />
-								</h6>
+								</span>
 								<h6 className="text-[#17515c] dark:text-[#c0ccbb] mt-1">{item.attributes.location}</h6>
 							</div>
 						</div>

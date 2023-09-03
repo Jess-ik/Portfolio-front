@@ -79,7 +79,7 @@ export default function Tools() {
 			<Slider {...settings} className="max-w-screen-2xl m-auto">
 				{toolsData.map((tool) => (
 					<div key={tool.id} className="item text-center px-4">
-						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} alt={tool.attributes.iconName} />
+						<img src={`https://cdn.simpleicons.org/${tool.attributes.iconShort}/17515c`} alt={`Icon of ${tool.attributes.iconName}`} />
 						<p className="tech">{tool.attributes.iconName}</p>
 					</div>
 				))}
@@ -88,17 +88,4 @@ export default function Tools() {
 	);
 }
 
-/* <div className="w-8/12">
-				<div className="mt-5  grid grid-cols-8 justify-between">
-					{data.data.map((item) => (
-						<div key={item.id} className="mb-9 ">
-							<div className="item flex justify-center items-center dark:border-white">
-								<div className="img ">
-									<img src={`https://cdn.simpleicons.org/${item.attributes.iconShort}/235347/white`} />
-									<p className="tech">{item.attributes.iconName}</p>
-								</div>
-							</div>
-						</div>
-					))}
-				</div>
-			</div> */
+

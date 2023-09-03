@@ -63,9 +63,9 @@ export default function Projects() {
 							{filtered?.map((project) => (
 								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout id={project.id} key={project.id} className={`items mb-10 px-5  ${project.attributes.size}`}>
 									<div className="cover">
-										<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
+										<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
 											{/* Check if heroImage exists before accessing its properties */}
-											{project.attributes.heroImage?.data ? <img src={`${process.env.IMAGES_URL}${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} /> : <p>No hero image available</p>}
+											<img src={`${process.env.IMAGES_URL}${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} /> 
 										</Link>
 									</div>
 									<div className="pt-4 flex flex-col justify-between items-center">

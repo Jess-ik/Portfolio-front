@@ -53,12 +53,10 @@ export default function Projects() {
 			{data?.slice(0, 6).map((project) => (
 				<div id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
 					<div className="cover">
-						<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
-							{project.attributes.heroImage.data ? (
+						<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
+							
 								<img src={`${process.env.IMAGES_URL}${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} />
-							) : (
-								<img src="" alt="" /> // Placeholder or fallback image
-							)}
+							
 						</Link>
 					</div>
 					<div className="flex justify-between items-center">

@@ -31,7 +31,7 @@ https://medium.com/@sidbentifraouine/responsive-animated-top-navigation-bar-with
 				<NavLogo />
 			</Link>
 
-			<button className="nav-toggle-btn" onClick={handleClick}>
+			<button className="nav-toggle-btn px-6 py-2" onClick={handleClick} aria-label="Mobile menu">
 				{open ? <BsXLg className="h-5 w-5 text-[#0d2c32] dark:text-[#e7e6e2]" /> : <BsList className="h-5 w-5 text-[#0d2c32] dark:text-[#e7e6e2]" />}{" "}
 			</button>
 

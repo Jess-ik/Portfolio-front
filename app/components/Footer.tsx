@@ -10,14 +10,14 @@ export default function Footer() {
 					<p className="text-xs dark:text-[#e7e6e2]">Designed and developed by Jessica Louvel - 2023</p>
 				</div>
 				<div className="py-5 md:py-0 flex gap-6">
-					<Link href={"https://www.linkedin.com/in/jesslouvel/"}>
-						<FaLinkedinIn className="dark:text-[#e7e6e2]" />
+					<Link href={"https://www.linkedin.com/in/jesslouvel/"} aria-label="Go to my Linkedin profile">
+						<FaLinkedinIn className="dark:text-[#e7e6e2]" aria-hidden="true"/>
 					</Link>
-					<Link href={"https://github.com/Jess-ik"}>
-						<FaGithub className="dark:text-[#e7e6e2]" />
+					<Link href={"https://github.com/Jess-ik"} aria-label="Go to my GitHub page">
+						<FaGithub className="dark:text-[#e7e6e2]" aria-hidden="true"/>
 					</Link>
-					<Link href={"https://www.instagram.com/jess_louvel/"}>
-						<FaInstagram className="dark:text-[#e7e6e2]" />
+					<Link href={"https://www.instagram.com/jess_louvel/"} aria-label="Go to my Instagram profile">
+						<FaInstagram className="dark:text-[#e7e6e2]" aria-hidden="true"/>
 					</Link>
 				</div>
 			</section>

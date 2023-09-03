@@ -46,8 +46,8 @@ export default function ProjectDetails({ params }: Params) {
 						<li className="flex flex-col  pt-6 md:pt-0">
 							<span>Tech</span>
 							<div className="tech flex gap-4 pt-2 items-center">
-								{data?.data.attributes.tools.data.map((tech: {id: string,  attributes: { iconShort: string } }) => (
-									<img key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} />
+								{data?.data.attributes.tools.data.map((tech: {id: string,  attributes: { iconShort: string, iconName: string } }) => (
+									<img key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} alt={`${tech.attributes.iconName} icon` } />
 								))}
 							</div>
 						</li>
@@ -64,7 +64,7 @@ export default function ProjectDetails({ params }: Params) {
 						</li>
 					</ul>
 				</div>
-				<img className="w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} />
+				<img className="w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText}/>
 			</section>
 			<section className="max-w-screen-2xl m-auto detail-description pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 				<div className="lg:flex lg:flex-row pb-10">
@@ -84,28 +84,28 @@ export default function ProjectDetails({ params }: Params) {
 			</section>
 			<section className="max-w-screen-2xl m-auto detail-gallery pt-20 ">
 				<div className="flex gap-2">
-					{data?.data.attributes.gallery.data.slice(0, 2).map((image: {id: string, attributes: { url: string } }) => (
-						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`}/>
+					{data?.data.attributes.gallery.data.slice(0, 2).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
+						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
 					))}
 				</div>
 				<div className="flex flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(2, 5).map((image: {id: string, attributes: { url: string } }) => (
-						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} />
+					{data?.data.attributes.gallery.data.slice(2, 5).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
+						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
 					))}
 				</div>
 				<div className="flex flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(5, 8).map((image: {id: string, attributes: { url: string } }) => (
-						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} />
+					{data?.data.attributes.gallery.data.slice(5, 8).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
+						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
 					))}
 				</div>
 				<div className="flex flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(8, 10).map((image: {id: string, attributes: { url: string } }) => (
-						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} />
+					{data?.data.attributes.gallery.data.slice(8, 10).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
+						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
 					))}
 				</div>
 				<div className="flex flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(10, 13).map((image: {id: string, attributes: { url: string } }) => (
-						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} />
+					{data?.data.attributes.gallery.data.slice(10, 13).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
+						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
 					))}
 				</div>
 			</section>

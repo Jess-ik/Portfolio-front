@@ -6,7 +6,7 @@
 @layer utilities {
   .dark-outline {
     -webkit-text-stroke: 1.2px #e7e6e2;
-    -webkit-text-fill-color: rgba(255, 255, 255, 0.2);
+    -webkit-text-fill-color: rgba(10, 10, 10, 0);
   }
 
   .dark-button {
@@ -222,9 +222,6 @@ h2 {
     font-size: 26px !important;
   }
 }
-
-
-
 
 
 
@@ -891,8 +888,8 @@ p {
   margin-bottom: 30px;
 }
 
-.contact-sec .form-group input,
-.contact-sec .form-group textarea {
+.contact-sec  input,
+.contact-sec  textarea {
   width: 100%;
   padding: 15px 0;
   /* border: 0;
