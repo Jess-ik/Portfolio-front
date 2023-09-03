@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, ChangeEvent, FormEvent, useRef, useEffect } from "react";
+import React, { useRef } from 'react';
 import axios from "axios";
 import PageHead from "../components/PageHead";
 import ReCAPTCHA from "react-google-recaptcha";
@@ -17,7 +18,7 @@ const Contact = () => {
 	const [errorContact, setErrorContact] = useState<Error | null>(null);
 	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
 	const [mailSent, setMailSent] = useState(false); // État pour contrôler l'affichage du message de confirmation
-	const errorRef = useRef<HTMLElement | null>(null);
+	const errorRef = useRef<HTMLDivElement | null>(null);
 
 
 	useEffect(() => {
