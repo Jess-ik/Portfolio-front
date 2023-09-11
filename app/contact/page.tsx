@@ -88,7 +88,7 @@ const Contact = () => {
 			<PageHead subtitle="Get in touch" title="Contact me" />
 			<section className="max-w-screen-2xl m-auto contact-sec px-10 md:px-16 lg:px-32 xl:px-72 text-center">
 				{isMailSent ? (
-					<div className=" py-20 md:py-32">
+					<div className="py-20">
 						<p className="text-[#17515c] dark:text-[#c0ccbb] pb-20">
 							Your message has been sent successfully, <br /> I'll get back to you shortly!
 						</p>
@@ -114,7 +114,7 @@ const Contact = () => {
 								</div>
 								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
-										<ReCAPTCHA className="mb-6" sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
+										<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 										<button type="submit" className="button dark:dark-button cursor-pointer">
 											Send Message
 										</button>
