@@ -148,7 +148,7 @@ const Contact = () => {
 								</div>
 								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
-										<ReCAPTCHA className="mb-6" sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
+										<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 										<button type="submit" className="button dark:dark-button cursor-pointer">
 											Send Message
 										</button>
