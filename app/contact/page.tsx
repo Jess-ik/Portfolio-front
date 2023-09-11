@@ -18,6 +18,7 @@ const Contact = () => {
 		message: "",
 	});
 	const [errorContact, setErrorContact] = useState<Error | null>(null);
+	const [isSending, setIsSending] = useState(false);
 	const [isMailSent, setIsMailSent] = useState(false);
 	const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
 
@@ -61,7 +62,7 @@ const Contact = () => {
 			console.error("Please complete the reCAPTCHA.");
 			return;
 		}
-
+		setIsSending(true); // Set isSending to true to show the loader
 		try {
 			const response = await axios.post(`${process.env.API_URL}/contacts`, {
 				data: modifiedData,
@@ -114,11 +115,17 @@ const Contact = () => {
 								</div>
 								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
-										<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
-										<button type="submit" className="button dark:dark-button cursor-pointer">
-											Send Message
-										</button>
-										{errorContact && <p className="text-red-500">{errorContact.message}</p>}
+										{isSending ? (
+											<div className="loader">Loading...</div> // Add your loader component or CSS class here
+										) : (
+											<>
+												<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
+												<button type="submit" className="button dark:dark-button cursor-pointer">
+													Send Message
+												</button>
+												{errorContact && <p className="text-red-500">{errorContact.message}</p>}
+											</>
+										)}
 									</div>
 								</div>
 							</div>
@@ -148,11 +155,17 @@ const Contact = () => {
 								</div>
 								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
-										<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
-										<button type="submit" className="button dark:dark-button cursor-pointer">
-											Send Message
-										</button>
-										{errorContact && <p className="text-red-500">{errorContact.message}</p>}
+										{isSending ? (
+											<div className="loader">Loading...</div> // Add your loader component or CSS class here
+										) : (
+											<>
+												<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
+												<button type="submit" className="button dark:dark-button cursor-pointer">
+													Send Message
+												</button>
+												{errorContact && <p className="text-red-500">{errorContact.message}</p>}
+											</>
+										)}
 									</div>
 								</div>
 							</div>
