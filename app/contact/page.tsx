@@ -118,12 +118,12 @@ const Contact = () => {
 								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
 										{isSending ? (
-											<div className="loader">Loading...</div> // Add your loader component or CSS class here
+											<div className="loader">Sending...</div> // Add your loader component or CSS class here
 										) : (
 											<>
 												<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 												<button type="submit" className="button dark:dark-button cursor-pointer">
-													{isMailSent ? "Message Sent" : "Send Message"}
+													Send message
 												</button>
 												{errorContact && <p className="text-red-500">{errorContact.message}</p>}
 											</>
@@ -158,12 +158,12 @@ const Contact = () => {
 								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
 										{isSending ? (
-											<div className="loader">Loading...</div> // Add your loader component or CSS class here
+											<div className="loader">Sending...</div> // Add your loader component or CSS class here
 										) : (
 											<>
 												<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 												<button type="submit" className="button dark:dark-button cursor-pointer">
-													{isMailSent ? "Message Sent" : "Send Message"}
+													Send message
 												</button>
 												{errorContact && <p className="text-red-500">{errorContact.message}</p>}
 											</>
