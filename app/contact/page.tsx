@@ -77,6 +77,8 @@ const Contact = () => {
 			if (error instanceof Error) {
 				setErrorContact(error);
 			}
+		} finally {
+			setIsSending(false); // Hide the loader after the request is completed
 		}
 	};
 
@@ -121,7 +123,7 @@ const Contact = () => {
 											<>
 												<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 												<button type="submit" className="button dark:dark-button cursor-pointer">
-													Send Message
+													{isMailSent ? "Message Sent" : "Send Message"}
 												</button>
 												{errorContact && <p className="text-red-500">{errorContact.message}</p>}
 											</>
@@ -161,7 +163,7 @@ const Contact = () => {
 											<>
 												<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 												<button type="submit" className="button dark:dark-button cursor-pointer">
-													Send Message
+													{isMailSent ? "Message Sent" : "Send Message"}
 												</button>
 												{errorContact && <p className="text-red-500">{errorContact.message}</p>}
 											</>
