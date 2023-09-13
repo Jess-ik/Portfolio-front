@@ -62,13 +62,13 @@ export default function Projects() {
 						<AnimatePresence>
 							{filtered?.map((project) => (
 								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout id={project.id} key={project.id} className={`items mb-10 px-5  ${project.attributes.size}`}>
-									<div className="cover">
+									<div className="cover cursor-pointer">
 										<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
 											{/* Check if heroImage exists before accessing its properties */}
 											<img src={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} alt={project.attributes.showcaseImage.data.attributes.alternativeText} /> 
 										</Link>
 									</div>
-									<div className="pt-4 flex flex-col justify-between items-center">
+									<div className="pt-4 flex flex-col justify-between items-center cursor-pointer">
 										<h3 className="dark:text-[#E7E6E2]">{project.attributes.title}</h3>
 										<span className="dark:text-[#c0ccbb]">{project.attributes.category}</span>
 									</div>

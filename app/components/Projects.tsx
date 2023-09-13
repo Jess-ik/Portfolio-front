@@ -52,14 +52,14 @@ export default function Projects() {
 		<div className="projects max-w-screen-2xl m-auto md:px-9 lg:px-15 xl:px-28 pt-12 md:pt-20 flex flex-col md:flex-row flex-wrap ">
 			{data?.slice(0, 6).map((project) => (
 				<div id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
-					<div className="cover">
+					<div className="cover cursor-pointer">
 						<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
 							
 								<img src={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} alt={project.attributes.showcaseImage.data.attributes.alternativeText} />
 							
 						</Link>
 					</div>
-					<div className="flex justify-between items-center">
+					<div className="flex justify-between items-center cursor-pointer">
 						<h3 className="dark:text-[#E7E6E2]">{project.attributes.title}</h3>
 						<span className="dark:text-[#c0ccbb]">{project.attributes.filter}</span>
 					</div>
