@@ -8,7 +8,7 @@ interface Project {
     filter: string;
     category: string;
     size: string;
-    heroImage: {
+    showcaseImage: {
       data: {
         attributes: {
           url: string;
