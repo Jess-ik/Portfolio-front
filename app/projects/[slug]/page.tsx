@@ -85,7 +85,7 @@ export default function ProjectDetails({ params }: Params) {
 			<section className="max-w-screen-2xl m-auto detail-gallery pt-20 ">
 				<div className="flex gap-2">
 					{data?.data.attributes.gallery.data.slice(0, 2).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+						<img key={image.id} className="w-full md:w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
 					))}
 				</div>
 				<div className="flex flex-nowrap gap-2 mt-2">
@@ -100,7 +100,7 @@ export default function ProjectDetails({ params }: Params) {
 				</div>
 				<div className="flex flex-nowrap gap-2 mt-2">
 					{data?.data.attributes.gallery.data.slice(8, 10).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+						<img key={image.id} className="w-full md:w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
 					))}
 				</div>
 				<div className="flex flex-nowrap gap-2 mt-2">

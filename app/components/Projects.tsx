@@ -12,7 +12,7 @@ interface Project {
 		size: string;
 		title: string;
 		filter: string;
-		heroImage: {
+		showcaseImage: {
 			data: {
 				attributes: {
 					url: string;
@@ -55,7 +55,7 @@ export default function Projects() {
 					<div className="cover">
 						<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
 							
-								<img src={`${process.env.IMAGES_URL}${project.attributes.heroImage.data.attributes.url}`} alt={project.attributes.heroImage.data.attributes.alternativeText} />
+								<img src={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} alt={project.attributes.showcaseImage.data.attributes.alternativeText} />
 							
 						</Link>
 					</div>
