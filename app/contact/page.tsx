@@ -118,7 +118,7 @@ const Contact = () => {
 								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
 										{isSending ? (
-											<div className="loader">Sending...</div> // Add your loader component or CSS class here
+											<div className="loader dark:text-[#c0ccbb]">Sending...</div> // Add your loader component or CSS class here
 										) : (
 											<>
 												<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
@@ -158,7 +158,7 @@ const Contact = () => {
 								<div className="w-full flex justify-center m-auto">
 									<div className="text-center mt-6">
 										{isSending ? (
-											<div className="loader">Sending...</div> // Add your loader component or CSS class here
+											<div className="loader dark:text-[#c0ccbb]">Sending...</div> // Add your loader component or CSS class here
 										) : (
 											<>
 												<ReCAPTCHA className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />

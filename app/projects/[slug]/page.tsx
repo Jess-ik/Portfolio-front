@@ -108,6 +108,16 @@ export default function ProjectDetails({ params }: Params) {
 						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
 					))}
 				</div>
+				<div className="flex flex-nowrap gap-2 mt-2">
+					{data?.data.attributes.gallery.data.slice(10, 13).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
+						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					))}
+				</div>
+				<div className="flex flex-nowrap gap-2 mt-2">
+					{data?.data.attributes.gallery.data.slice(10, 13).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
+						<img key={image.id} className="w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					))}
+				</div>
 			</section>
 		</>
 	);
