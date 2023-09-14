@@ -179,6 +179,8 @@ export default function App() {
 
 										<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
 										<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
+
+										<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute shadow">{project.attributes.title}</h2>
 									</div>
 								</Link>
 							</SwiperSlide>
