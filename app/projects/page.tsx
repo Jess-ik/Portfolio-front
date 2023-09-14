@@ -21,6 +21,14 @@ interface Project {
 				};
 			};
 		};
+		showcaseImage: {
+			data: {
+				attributes: {
+					url: string;
+					alternativeText: string;
+				};
+			};
+		};
 	};
 }
 
