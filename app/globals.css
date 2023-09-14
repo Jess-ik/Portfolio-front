@@ -982,7 +982,7 @@ p {
 
 
 
-.detail-hero a::before {
+.detail-hero .links a::before {
   background: #c0ccbb;
   content: "";
   inset: 0;
@@ -994,7 +994,7 @@ p {
   z-index: -1;
 }
 
-.detail-hero a:hover::before {
+.detail-hero .links a:hover::before {
   transform: scaleX(1);
   transform-origin: left;
 }

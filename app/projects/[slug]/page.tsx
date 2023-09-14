@@ -39,7 +39,7 @@ export default function ProjectDetails({ params }: Params) {
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
 					
-					<Link href="/projects" aria-label="Go back to all projects">
+					<Link className="flex flex-nowrap" href="/projects" aria-label="Go back to all projects">
 					<BsArrowLeftShort /> Back to all projects
 					</Link>
 					
@@ -60,7 +60,7 @@ export default function ProjectDetails({ params }: Params) {
 						</li>
 						<li className="py-12 md:py-0 ">
 							<span>Links</span>
-							<div className=" flex gap-10 cursor-pointer mt-2.5 ">
+							<div className="links flex gap-10 cursor-pointer mt-2.5 ">
 								<a href={data?.data.attributes.link1}>
 									<p className="m-0 dark:text-[#999] dark:hover:text-[#0d2c32]">{data?.data.attributes.link1Name}</p>
 								</a>
