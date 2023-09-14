@@ -35,15 +35,15 @@ export default function ProjectDetails({ params }: Params) {
 
 	return (
 		<>
-			<section className={`detail-hero w-full pt-32 `}>
+			<section className={`detail-hero w-full pt-28 md:pt-32 `}>
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
 					
-					<Link className="flex flex-nowrap items-center dark:text-[#999] pb-2" href="/projects" aria-label="Go back to all projects">
+					<Link className="flex flex-nowrap items-center gap-2 dark:text-[#999]" href="/projects" aria-label="Go back to all projects">
 					<BsArrowLeft /> Back to all projects
 					</Link>
 					
-					<h5 className={`yeseva dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5>
+					<h5 className={`yeseva dark:text-[#c0ccbb] pt-6`}>{data?.data.attributes.subtitle}</h5>
 					<h1 className="dark:text-[#e7e6e2]">{data?.data.attributes.title}</h1>
 					<ul className="py-10   flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
 						<li>
