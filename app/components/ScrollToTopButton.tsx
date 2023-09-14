@@ -31,12 +31,12 @@ const ScrollToTopButton = () => {
 
   return (
     <button
-      className={`fixed bottom-4 right-4 text-[#0d2c32] dark:text-[#e7e6e2] transition-opacity duration-200 ${
+      className={`fixed bottom-4 right-4 transition-opacity duration-200 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
       onClick={scrollToTop}
     >
-      <BsArrowUpCircle/>
+      <BsArrowUpCircle className="h-5 w-5 text-[#0d2c32] dark:text-[#e7e6e2]"/>
     </button>
   )
 }
