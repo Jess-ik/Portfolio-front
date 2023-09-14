@@ -35,7 +35,7 @@ https://medium.com/@sidbentifraouine/responsive-animated-top-navigation-bar-with
 				{open ? <BsXLg className="h-5 w-5 text-[#0d2c32] dark:text-[#e7e6e2]" /> : <BsList className="h-5 w-5 text-[#0d2c32] dark:text-[#e7e6e2]" />}{" "}
 			</button>
 
-			<div className={open ? "nav-links block active bg-[#e7e6e2] dark:bg-[#0d2c32] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.1)]" : "nav-links !hidden"}>
+			<div className={open ? "nav-links block active bg-[#e7e6e2] dark:bg-[#0d2c32] shadow-[0_35px_60px_-15px_rgba(0,0,0,0.1)]" : "nav-links !hidden md:block"}>
 				<ul className="ml-auto flex items-center gap-10 text-xs font-medium tracking-wide font-sm dark:text-white">
 					<li className="nav-item">
 						<Link href="/projects" onClick={handleLinkClick} className={pathname === "/projects" ? "font-semibold" : "text-[#0d2c32] dark:text-[#e7e6e2] dark:hover:text-[#c0ccbb]"}>
