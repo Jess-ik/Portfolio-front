@@ -2,9 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-// import { Yeseva_One } from "next/font/google";
-import PageHead from "../components/PageHead";
-import getProjects from "../lib/getProjects";
+
 
 interface Project {
 	id: string;

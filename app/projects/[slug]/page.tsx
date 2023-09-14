@@ -4,7 +4,7 @@ import getOneProject from "@/app/lib/getOneProject";
 import { useEffect, useState } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import useSWR from "swr";
 
 type Params = {
@@ -38,8 +38,10 @@ export default function ProjectDetails({ params }: Params) {
 			<section className={`detail-hero w-full pt-32 `}>
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
-					<p><BsArrowLeftShort /> Back to all projects</p>
-						
+					
+					<Link href="/projects" aria-label="Go back to all projects">
+					<BsArrowLeftShort /> Back to all projects
+					</Link>
 					
 					<h5 className={`yeseva dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5>
 					<h1 className="dark:text-[#e7e6e2]">{data?.data.attributes.title}</h1>
