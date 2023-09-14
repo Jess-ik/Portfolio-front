@@ -39,7 +39,7 @@ export default function ProjectDetails({ params }: Params) {
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
 					
-					<Link className="flex flex-nowrap items-center gap-2 dark:text-[#999] !z-20" href="/projects" aria-label="Go back to all projects">
+					<Link className="flex flex-nowrap items-center gap-2 dark:text-[#999]" href="/projects" aria-label="Go back to all projects">
 					<BsArrowLeft /> Back to all projects
 					</Link>
 					
