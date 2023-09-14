@@ -980,6 +980,11 @@ p {
 
 }
 
+.detail-hero a:hover {
+  text-decoration: underline;
+}
+
+
 
 
 .detail-hero .links a::before {
