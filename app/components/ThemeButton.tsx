@@ -18,12 +18,25 @@ const ThemeButton = () => {
     return null
   }
 
+  const [open, setOpen] = useState(false);
+
+	
+
+	const handleLinkClick = () => {
+		if (open) {
+		  setOpen(false);
+		}
+	  };
+
   return (
     <button
       aria-label='Toggle Dark Mode'
       type='button'
       className='pb-10 md:pb-0'
-      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+      onClick={() => {
+        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+        handleLinkClick()
+      }}
     >
       {resolvedTheme === 'dark' ? (
         <FiSun className='h-5 w-5 text-white ' />
