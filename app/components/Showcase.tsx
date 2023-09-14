@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import { Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation, Parallax } from "swiper/modules";
 
 //font awesome icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -68,7 +68,7 @@ export default function App() {
 			<div className="h-full test flex justify-center items-center">
 				{!load ? (
 					<Swiper
-						modules={[Autoplay, Navigation]}
+						modules={[Autoplay, Navigation, Parallax]}
 						loop={true}
 						speed={1000}
 						mousewheel={true}
@@ -104,7 +104,7 @@ export default function App() {
 					>
 						{/* LANDING SLIDE */}
 						<SwiperSlide className="h-full slide" data-swiper-autoplay="3000">
-							<div className="blob">
+							<div className="blob" data-swiper-parallax="-100">
 								<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
 									<defs>
 										<linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -122,7 +122,6 @@ export default function App() {
 "
 										id="blob"
 										fill="url(#gradient)"
-										className="blob-animation"
 									>
 										<animate
 											attributeName="d"
@@ -148,7 +147,7 @@ export default function App() {
 							<SwiperSlide key={project.id} className="h-full slide" data-swiper-autoplay="3000">
 								<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
 									<div className="slide">
-										<div className="blob">
+										<div className="blob" data-swiper-parallax="-100">
 											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id={`blobSvg${project.id}`}>
 												<defs>
 													<pattern id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
@@ -160,7 +159,6 @@ export default function App() {
 "
 													id={project.id}
 													fill={`url(#${project.id})`}
-													className="blob-animation"
 												>
 													<animate
 														attributeName="d"
@@ -179,8 +177,8 @@ export default function App() {
 											</svg>
 										</div>
 
-										<h2 className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
-										<h2 className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
+										<h2 data-swiper-parallax="-300" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
+										<h2 data-swiper-parallax="-300" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
 									</div>
 								</Link>
 							</SwiperSlide>
@@ -203,7 +201,7 @@ export default function App() {
 						{/* <span>Prev Slide</span> */}
 					</div>
 				</div>
-				<div className="mouse bottom-28 md:bottom-16 dark:border-white dark:before:bg-white"></div>
+									<div className="mouse bottom-28 md:bottom-16 dark:border-white dark:before:bg-white"></div>
 
 			</div>
 		</section>
