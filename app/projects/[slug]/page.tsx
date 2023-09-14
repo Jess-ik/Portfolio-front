@@ -35,7 +35,7 @@ export default function ProjectDetails({ params }: Params) {
 
 	return (
 		<>
-			<section className={`detail-hero w-full pt-28 md:pt-32 `}>
+			<section className={`detail-hero w-full pt-24 md:pt-32 `}>
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
 					
@@ -45,6 +45,8 @@ export default function ProjectDetails({ params }: Params) {
 					
 					<h5 className={`yeseva dark:text-[#c0ccbb] pt-6`}>{data?.data.attributes.subtitle}</h5>
 					<h1 className="dark:text-[#e7e6e2]">{data?.data.attributes.title}</h1>
+					<img className="w-full max-w-screen-2xl m-auto md:hidden" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText} />
+
 					<ul className="py-10   flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
 						<li>
 							<span>Category</span>
@@ -71,7 +73,7 @@ export default function ProjectDetails({ params }: Params) {
 						</li>
 					</ul>
 				</div>
-				<img className="w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText} />
+				<img className="hidden md:block w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText} />
 			</section>
 			<section className="max-w-screen-2xl m-auto detail-description pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 				<div className="lg:flex lg:flex-row pb-10">
