@@ -147,11 +147,11 @@ export default function App() {
 							<SwiperSlide key={project.id} className="h-full slide" data-swiper-autoplay="3000">
 								<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
 									<div className="slide">
-										<div className="blob">
+										<div className="blob bg-white">
 											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id={`blobSvg${project.id}`}>
 												<defs>
 													<pattern id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
-														<image className="backdrop-opacity-10 bg-white/30 dark:brightness-75 dark:bg-none" href={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} x="0" y="0" />
+														<image className="opacity-10 dark:opacity-100 dark:brightness-75 dark:bg-none" href={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} x="0" y="0" />
 													</pattern>
 												</defs>
 												<path
