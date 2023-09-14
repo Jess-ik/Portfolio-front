@@ -104,7 +104,7 @@ export default function App() {
 					>
 						{/* LANDING SLIDE */}
 						<SwiperSlide className="h-full slide" data-swiper-autoplay="3000">
-							<div className="blob" data-swiper-parallax="-100">
+							<div className="blob">
 								<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
 									<defs>
 										<linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -147,7 +147,7 @@ export default function App() {
 							<SwiperSlide key={project.id} className="h-full slide" data-swiper-autoplay="3000">
 								<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
 									<div className="slide">
-										<div className="blob" data-swiper-parallax="-100">
+										<div className="blob">
 											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id={`blobSvg${project.id}`}>
 												<defs>
 													<pattern id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
@@ -177,8 +177,8 @@ export default function App() {
 											</svg>
 										</div>
 
-										<h2 data-swiper-parallax="-800" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
-										<h2 data-swiper-parallax="-800" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
+										<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
+										<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
 									</div>
 								</Link>
 							</SwiperSlide>
