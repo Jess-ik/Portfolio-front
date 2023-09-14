@@ -5,7 +5,7 @@
 
 @layer utilities {
   .dark-outline {
-    -webkit-text-stroke: 1.2px #e7e6e2;
+    -webkit-text-stroke: 1.5px #e7e6e2;
     -webkit-text-fill-color: rgba(10, 10, 10, 0);
   }
 
