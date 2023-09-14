@@ -140,7 +140,6 @@ export default function App() {
 								</svg>
 							</div>
 							<LandingLogo />
-							
 						</SwiperSlide>
 
 						{/* SHOWCASE PROJECTS SLIDES FROM STRAPI */}
@@ -201,8 +200,9 @@ export default function App() {
 
 						{/* <span>Prev Slide</span> */}
 					</div>
-					<div className="mouse bottom-28 md:bottom-16 dark:border-white dark:before:bg-white"></div>
 				</div>
+				<div className="mouse bottom-28 md:bottom-16 dark:border-white dark:before:bg-white"></div>
+
 			</div>
 		</section>
 	);
