@@ -54,7 +54,7 @@ https://medium.com/@sidbentifraouine/responsive-animated-top-navigation-bar-with
 							Contact
 						</Link>
 					</li>
-					<li><ThemeButton /></li>
+					<li onClick={handleLinkClick}><ThemeButton /></li>
 				</ul>
 			</div>
 		</nav>

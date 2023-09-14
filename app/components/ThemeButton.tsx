@@ -18,15 +18,7 @@ const ThemeButton = () => {
     return null
   }
 
-  const [open, setOpen] = useState(false);
 
-	
-
-	const handleLinkClick = () => {
-		if (open) {
-		  setOpen(false);
-		}
-	  };
 
   return (
     <button
@@ -35,7 +27,6 @@ const ThemeButton = () => {
       className='pb-10 md:pb-0'
       onClick={() => {
         setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-        handleLinkClick()
       }}
     >
       {resolvedTheme === 'dark' ? (
