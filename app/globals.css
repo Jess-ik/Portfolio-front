@@ -270,8 +270,8 @@ p {
 
 .blob {
   position: absolute;
-  width: 500px;
-  height: 500px;
+  width: 800px;
+  height: 800px;
   z-index: 2;
 }
 
@@ -287,9 +287,6 @@ p {
     height: 300px;
     z-index: 2;
   }
-}
-
-@media screen and (max-width: 767px) {
   .logo-hero {
     position: absolute;
     z-index: 3;
@@ -300,8 +297,9 @@ p {
     width: 200px;
     margin: 0 auto;
   }
-
 }
+
+
 
 
 
