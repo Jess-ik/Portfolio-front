@@ -147,12 +147,10 @@ export default function App() {
 							<SwiperSlide key={project.id} className="h-full slide" data-swiper-autoplay="3000">
 								<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`}>
 									<div className="slide">
-									<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
-
 										<div className="blob ">
 											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id={`blobSvg${project.id}`}>
 												<defs>
-													<pattern className="bg-white" id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
+													<pattern id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
 														<image className="opacity-80 dark:opacity-100 dark:brightness-75 dark:bg-none" href={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} x="0" y="0" />
 													</pattern>
 												</defs>
@@ -179,6 +177,7 @@ export default function App() {
 											</svg>
 										</div>
 
+										<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
 										<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
 									</div>
 								</Link>
