@@ -56,7 +56,7 @@ export default function ProjectDetails({ params }: Params) {
 							<span>Tech</span>
 							<div className="tech flex gap-4 pt-2 items-center">
 								{data?.data.attributes.tools.data.map((tech: { id: string; attributes: { iconShort: string; iconName: string } }) => (
-									<img key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} alt={`${tech.attributes.iconName} icon`} />
+									<img key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} alt={`${tech.attributes.iconName} icon`} title={`${tech.attributes.iconName}`}/>
 								))}
 							</div>
 						</li>
