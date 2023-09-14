@@ -2,7 +2,7 @@
 
 import getOneProject from "@/app/lib/getOneProject";
 import { useEffect, useState } from "react";
-import { BsArrowLeftShort } from "react-icons/bs";
+import { BsArrowLeft, BsArrowLeftShort } from "react-icons/bs";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Link from "next/link";
 import useSWR from "swr";
@@ -39,8 +39,8 @@ export default function ProjectDetails({ params }: Params) {
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
 					
-					<Link className="flex flex-nowrap align-center dark:text-[#999] pb-2" href="/projects" aria-label="Go back to all projects">
-					<BsArrowLeftShort /> Back to all projects
+					<Link className="flex flex-nowrap items-center dark:text-[#999] pb-2" href="/projects" aria-label="Go back to all projects">
+					<BsArrowLeft /> Back to all projects
 					</Link>
 					
 					<h5 className={`yeseva dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5>
