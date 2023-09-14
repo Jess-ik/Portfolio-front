@@ -122,6 +122,7 @@ export default function App() {
 "
 										id="blob"
 										fill="url(#gradient)"
+										className="blob-animation"
 									>
 										<animate
 											attributeName="d"
@@ -159,6 +160,7 @@ export default function App() {
 "
 													id={project.id}
 													fill={`url(#${project.id})`}
+													className="blob-animation"
 												>
 													<animate
 														attributeName="d"

@@ -367,6 +367,27 @@ p {
   flex-direction: column;
 }
 
+@keyframes blobAnimation {
+  0% {
+    transform: translateX(0); /* Début de l'animation */
+  }
+  100% {
+    transform: translateX(-100%); /* Fin de l'animation */
+  }
+}
+
+/* Appliquer l'animation au blob */
+.blob-animation {
+  animation: blobAnimation 10s linear infinite; /* Durée de l'animation personnalisée */
+  animation-delay: 1s; /* Délai pour le blob */
+}
+
+/* Appliquer une autre animation aux titres h2 */
+.slide .h2 {
+  animation: titleAnimation 5s linear infinite; /* Durée de l'animation personnalisée */
+  animation-delay: 2s; /* Délai pour les titres */
+}
+
 .darken {
   filter: brightness(0.7);
 }
