@@ -11,6 +11,7 @@ import Link from "next/link";
 import ThemeButton from "./components/ThemeButton";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import ScrollToTopButton from "./components/ScrollToTopButton"
 
 
 
@@ -46,7 +47,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 		  <body className={ ` dark:bg-[#0d2c32]` } >
         <Providers>
 				  <Navbar />
-				  {children}
+          {children}
+          <ScrollToTopButton />
 				  <Footer />
         </Providers>
       </body>
