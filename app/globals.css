@@ -367,6 +367,10 @@ p {
   flex-direction: column;
 }
 
+.darken {
+  filter: brightness(0.7);
+}
+
 .showcase-section .top {
   z-index: 5;
   -webkit-text-stroke: 1.5px #0d2c32;

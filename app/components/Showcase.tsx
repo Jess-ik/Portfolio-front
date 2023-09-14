@@ -151,7 +151,7 @@ export default function App() {
 											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id={`blobSvg${project.id}`}>
 												<defs>
 													<pattern id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
-														<image href={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} x="0" y="0" />
+														<image className="darken" href={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} x="0" y="0" />
 													</pattern>
 												</defs>
 												<path
@@ -177,8 +177,8 @@ export default function App() {
 											</svg>
 										</div>
 
-										<h2 className="text-6xl px-16 md:text-7xl lg:text-8xl text-center lowercase absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
-										<h2 className="text-6xl px-16 md:text-7xl lg:text-8xl text-center lowercase absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
+										<h2 className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
+										<h2 className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
 									</div>
 								</Link>
 							</SwiperSlide>
