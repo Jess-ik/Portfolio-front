@@ -299,7 +299,7 @@ p {
   }
 }
 
-@media screen and (max-width: 1700px) {
+@media screen and (min-width: 768px) and (max-width: 1700px) {
   .blob {
     position: absolute;
     width: 600px;
