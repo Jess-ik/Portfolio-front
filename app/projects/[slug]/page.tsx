@@ -47,7 +47,7 @@ export default function ProjectDetails({ params }: Params) {
 					<h1 className="dark:text-[#e7e6e2]">{data?.data.attributes.title}</h1>
 					<img className="w-full max-w-screen-2xl m-auto md:!hidden" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText} />
 
-					<ul className="py-10   flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
+					<ul className="bg-gradient-to-b from-[#DFDED9] dark:from-[#0B282E] md:bg-transparent py-10   flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
 						<li>
 							<span>Category</span>
 							<p className="dark:text-[#999]">{data?.data.attributes.category}</p>
