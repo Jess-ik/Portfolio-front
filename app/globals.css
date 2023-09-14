@@ -299,7 +299,14 @@ p {
   }
 }
 
-
+@media screen and (max-width: 1700px) {
+  .blob {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    z-index: 2;
+  }
+}
 
 
 
