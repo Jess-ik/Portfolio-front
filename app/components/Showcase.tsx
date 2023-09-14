@@ -177,8 +177,8 @@ export default function App() {
 											</svg>
 										</div>
 
-										<h2 data-swiper-parallax="-300" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
-										<h2 data-swiper-parallax="-300" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
+										<h2 data-swiper-parallax="-800" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2]">{project.attributes.title}</h2>
+										<h2 data-swiper-parallax="-800" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top dark:dark-outline">{project.attributes.title}</h2>
 									</div>
 								</Link>
 							</SwiperSlide>
