@@ -2,7 +2,9 @@
 
 import getOneProject from "@/app/lib/getOneProject";
 import { useEffect, useState } from "react";
+import { BsArrowLeftShort } from "react-icons/bs";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import { Link } from "react-router-dom";
 import useSWR from "swr";
 
 type Params = {
@@ -36,6 +38,9 @@ export default function ProjectDetails({ params }: Params) {
 			<section className={`detail-hero w-full pt-32 `}>
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
+					<Link to={`/projects/`} aria-label={`Back to all projects`}>
+						<BsArrowLeftShort /> Back to all projects
+					</Link>
 					<h5 className={`yeseva dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5>
 					<h1 className="dark:text-[#e7e6e2]">{data?.data.attributes.title}</h1>
 					<ul className="py-10   flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
@@ -46,8 +51,8 @@ export default function ProjectDetails({ params }: Params) {
 						<li className="flex flex-col  pt-6 md:pt-0">
 							<span>Tech</span>
 							<div className="tech flex gap-4 pt-2 items-center">
-								{data?.data.attributes.tools.data.map((tech: {id: string,  attributes: { iconShort: string, iconName: string } }) => (
-									<img key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} alt={`${tech.attributes.iconName} icon` } />
+								{data?.data.attributes.tools.data.map((tech: { id: string; attributes: { iconShort: string; iconName: string } }) => (
+									<img key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} alt={`${tech.attributes.iconName} icon`} />
 								))}
 							</div>
 						</li>
@@ -64,7 +69,7 @@ export default function ProjectDetails({ params }: Params) {
 						</li>
 					</ul>
 				</div>
-				<img className="w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText}/>
+				<img className="w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText} />
 			</section>
 			<section className="max-w-screen-2xl m-auto detail-description pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 				<div className="lg:flex lg:flex-row pb-10">
@@ -84,38 +89,38 @@ export default function ProjectDetails({ params }: Params) {
 			</section>
 			<section className="max-w-screen-2xl m-auto detail-gallery pt-20 ">
 				<div className="flex flex-wrap md:flex-nowrap gap-2">
-					{data?.data.attributes.gallery.data.slice(0, 2).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-full md:w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					{data?.data.attributes.gallery.data.slice(0, 2).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
+						<img key={image.id} className="w-full md:w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
 				</div>
 				<div className="flex flex-wrap md:flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(2, 5).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					{data?.data.attributes.gallery.data.slice(2, 5).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
+						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
 				</div>
 				<div className="flex flex-wrap md:flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(5, 8).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					{data?.data.attributes.gallery.data.slice(5, 8).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
+						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
 				</div>
 				<div className="flex flex-wrap md:flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(8, 10).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-full md:w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					{data?.data.attributes.gallery.data.slice(8, 10).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
+						<img key={image.id} className="w-full md:w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
 				</div>
 				<div className="flex flex-wrap md:flex-nowrapgap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(10, 13).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					{data?.data.attributes.gallery.data.slice(10, 13).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
+						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
 				</div>
 				<div className="flex flex-wrap md:flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(13, 16).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					{data?.data.attributes.gallery.data.slice(13, 16).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
+						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
 				</div>
 				<div className="flex flex-wrap md:flex-nowrap gap-2 mt-2">
-					{data?.data.attributes.gallery.data.slice(16, 19).map((image: {id: string, attributes: { url: string, alternativeText: string } }) => (
-						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText}/>
+					{data?.data.attributes.gallery.data.slice(16, 19).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
+						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
 				</div>
 			</section>
