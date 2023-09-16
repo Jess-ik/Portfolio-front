@@ -11,8 +11,11 @@ const nextConfig = {
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: 'strapi-h2ev.onrender.com',
-            port: '',
+            hostname: '**',
+                port: '',
+                pathname: '**',
+                domains: ['strapi-h2ev.onrender.com'],
+                formats: ["image/webp"],
           },
         ],
       },
