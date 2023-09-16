@@ -7,16 +7,7 @@ const nextConfig = {
         RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
         RECAPTCHA_SECRET_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY
     },
-    images: {
-        remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: 'strapi-h2ev.onrender.com', // Remplacez par le nom d'hôte correct
-            port: '',
-            pathname: '/**', // Remplacez par le chemin correct
-          },
-        ],
-      },
+    
   };
   
   module.exports = nextConfig;
