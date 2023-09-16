@@ -17,9 +17,9 @@ export default function LandingLogo() {
 		<div className="logo-hero">
 			<h1 className='hidden'>Jess Louvel - Creative + Developer</h1>
 				{resolvedTheme === 'dark' ? (
-        <Image src="./logo-landing.webp" alt="Logo of Jess Louvel in white" fill={true}/>
+        <img src="./logo-landing.webp" alt="Logo of Jess Louvel in white" />
       ) : (
-        <Image src="./logo-landing-black.webp" alt="Logo of Jess Louvel in black" fill={true}/>
+        <img src="./logo-landing-black.webp" alt="Logo of Jess Louvel in black" />
       )}
 		</div>
 	);
