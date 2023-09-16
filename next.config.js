@@ -13,7 +13,7 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'strapi-h2ev.onrender.com', // Remplacez par le nom d'hôte correct
             port: '',
-            pathname: '/uploads/**', // Remplacez par le chemin correct
+            pathname: '/**', // Remplacez par le chemin correct
           },
         ],
       },
