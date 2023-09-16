@@ -61,19 +61,19 @@ export default function Projects() {
 			<PageHead subtitle="My works" title="Portfolio" />
 			<section className="max-w-screen-2xl m-auto portfolio-section md:pt-16">
 				<div className="px-4 md:px-9 lg:px-15 xl:px-28">
-				<Filtertest
-        setActiveFilter={setActiveFilter}
-        activeFilter={activeFilter}
-        setFiltered={memoizedSetFiltered} // Use the memoized function here
-        portfolio={portfolio}
-      />					<motion.div layout className="projects pt-10 flex flex-col md:flex-row flex-wrap ">
+					<Filtertest
+						setActiveFilter={setActiveFilter}
+						activeFilter={activeFilter}
+						setFiltered={memoizedSetFiltered} // Use the memoized function here
+						portfolio={portfolio}
+					/>{" "}
+					<motion.div layout className="projects pt-10 flex flex-col md:flex-row flex-wrap ">
 						<AnimatePresence>
 							{filtered?.map((project) => (
-								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout id={project.id} key={project.id} className={`items mb-10 px-5  ${project.attributes.size}`}>
+								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
 									<div className="cover cursor-pointer">
 										<Link href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
-											{/* Check if heroImage exists before accessing its properties */}
-											<img src={`${process.env.IMAGES_URL}${project.attributes.coverImage.data.attributes.url}`} alt={project.attributes.coverImage.data.attributes.alternativeText} /> 
+											<img src={`${process.env.IMAGES_URL}${project.attributes.coverImage.data.attributes.url}`} alt={project.attributes.coverImage.data.attributes.alternativeText} />
 										</Link>
 									</div>
 									<div className="pt-4 flex flex-col justify-between items-center cursor-pointer">

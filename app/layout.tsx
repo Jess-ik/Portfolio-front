@@ -14,21 +14,6 @@ import Navbar from "./components/Navbar";
 import ScrollToTopButton from "./components/ScrollToTopButton"
 
 
-
-// export const poppins = Poppins({
-// 	weight: ["200", "300", "400", "500", "600", "700"],
-// 	style: ["normal", "italic"],
-// 	subsets: ["latin"],
-// 	preload: false
-// });
-
-// export const yeseva = Yeseva_One({
-// 	weight: ["400"],
-// 	style: ["normal"],
-// 	subsets: ["latin"],
-// 	preload: false
-// });
-
 export const metadata: Metadata = {
 	title: "Jess • Creative + Developer",
 	description: "Portfolio of Jess Louvel - Creative & Developer",
@@ -43,7 +28,6 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang='en' suppressHydrationWarning>
-		  {/* <body className={`${poppins.className} dark:bg-[#0d2c32]`} > */}
 		  <body className={ ` dark:bg-[#0d2c32]` } >
         <Providers>
 				  <Navbar />

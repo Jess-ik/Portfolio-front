@@ -31,6 +31,7 @@ const ScrollToTopButton = () => {
 
   return (
     <button
+    aria-label="Scroll to top button"
       className={`fixed bottom-6 right-6 transition-opacity duration-200 cursor-pointer ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}

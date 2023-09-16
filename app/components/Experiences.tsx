@@ -5,7 +5,7 @@ import ReactMarkdown from "react-markdown";
 import classNames from "classnames";
 
 // import { Yeseva_One } from "next/font/google";
-import getExperiences from "../lib/getExperiences";
+
 import { FaLocationDot } from "react-icons/fa6";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 

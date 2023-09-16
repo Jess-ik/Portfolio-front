@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { useTheme } from 'next-themes'
+import Image from 'next/image'
 
 export default function LandingLogo() {
 	const { resolvedTheme, setTheme } = useTheme()
@@ -16,9 +17,9 @@ export default function LandingLogo() {
 		<div className="logo-hero">
 			<h1 className='hidden'>Jess Louvel - Creative + Developer</h1>
 				{resolvedTheme === 'dark' ? (
-        <img src="./logo-landing.png" alt="Logo of Jess Louvel in white" />
+        <Image src="./logo-landing.webp" alt="Logo of Jess Louvel in white" fill={true}/>
       ) : (
-        <img src="./logo-landing-black.png" alt="Logo of Jess Louvel in black" />
+        <Image src="./logo-landing-black.webp" alt="Logo of Jess Louvel in black" fill={true}/>
       )}
 		</div>
 	);
