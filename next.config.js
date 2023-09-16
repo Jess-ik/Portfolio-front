@@ -8,8 +8,14 @@ const nextConfig = {
         RECAPTCHA_SECRET_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY
     },
     images: {
-        domains: ["strapi-h2ev.onrender.com"],
-        formats: ["image/webp"],
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: '**',
+                port: '',
+                pathname: '**',
+            },
+        ],
     },
   };
   
