@@ -152,7 +152,7 @@ export default function App() {
 											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id={`blobSvg${project.id}`}>
 												<defs>
 													<pattern id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
-														<Image className="brightness-75" src={`${project.attributes.showcaseImage.data.attributes.url}`} alt={project.attributes.showcaseImage.data.attributes.alternativeText} fill={true} />
+														<Image className="brightness-75" src={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} alt={project.attributes.showcaseImage.data.attributes.alternativeText} fill={true} />
 													</pattern>
 												</defs>
 												<path
