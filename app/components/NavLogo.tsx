@@ -22,9 +22,9 @@ const NavLogo = () => {
    
     >
       {resolvedTheme === 'dark' ? (
-        <img className="w-12" src="/logo-light.png" alt="Monogram of Jess Louvel in white" />
+        <img className="w-12" src="/logo-light.png" alt="Monogram of Jess Louvel in white" width={210} height={263}/>
       ) : (
-        <img className="w-12" src="/logo-black.png" alt="Monogram of Jess Louvel in black" />
+        <img className="w-12" src="/logo-black.png" alt="Monogram of Jess Louvel in black" width={210} height={263}/>
       )}
     </button>
   )
