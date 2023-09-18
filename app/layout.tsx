@@ -74,14 +74,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				<title>{metadata.title}</title>
       </Head>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ9BMBB8KY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-QZ9BMBB8KY');
-</script>
+
 			<body className={` dark:bg-[#0d2c32]`}>
 				<Providers>
 					<Navbar />
