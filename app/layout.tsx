@@ -5,10 +5,7 @@ import "@fortawesome/fontawesome-svg-core/styles.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
-// import { Poppins, Yeseva_One } from "next/font/google";
 import Providers from "./providers";
-import Link from "next/link";
-import ThemeButton from "./components/ThemeButton";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTopButton from "./components/ScrollToTopButton"

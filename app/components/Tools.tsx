@@ -9,7 +9,6 @@ interface Tool {
 	attributes: {
 		iconShort: string;
 		iconName: string;
-		// Add other attributes here
 	};
 }
 
@@ -37,6 +36,7 @@ export default function Tools() {
 		fetchData();
 	}, []);
 
+	//Slider settings
 	const settings = {
 		dots: false,
 		arrows: false,
@@ -71,7 +71,6 @@ export default function Tools() {
 					initialSlide: 2,
 				},
 			},
-			
 		],
 	};
 	return (
@@ -87,5 +86,3 @@ export default function Tools() {
 		</div>
 	);
 }
-
-

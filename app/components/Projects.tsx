@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-
 interface Project {
 	id: string;
 	attributes: {
@@ -19,15 +18,9 @@ interface Project {
 			};
 		};
 		slug: string;
-		// Autres attributs
 	};
 }
 
-// export const yeseva = Yeseva_One({
-// 	weight: ["400"],
-// 	style: ["normal"],
-// 	subsets: ["latin"],
-// });
 
 export default function Projects() {
 	const [data, setData] = useState<Project[] | null>(null);

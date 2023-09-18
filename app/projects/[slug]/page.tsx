@@ -1,7 +1,5 @@
 "use client";
 
-import getOneProject from "@/app/lib/getOneProject";
-import { useEffect, useState } from "react";
 import { BsArrowLeft, BsArrowLeftShort } from "react-icons/bs";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Link from "next/link";
@@ -30,21 +28,18 @@ export default function ProjectDetails({ params }: Params) {
 		return <div>Chargement...</div>;
 	}
 
-	// const projectData = await getOneProject(slug);
-	// console.log(projectData)
-
 	return (
 		<>
+			{/* Details */}
 			<section className={`detail-hero w-full pt-24 md:pt-32 `}>
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
-					{/* <h5 className={`${yeseva.className} dark:text-[#c0ccbb]`}>{data?.data.attributes.subtitle}</h5> */}
-					
 					<Link className="flex flex-nowrap items-center gap-2 dark:text-[#999]" href="/projects" aria-label="Go back to all projects">
-					<BsArrowLeft /> Back to all projects
+						<BsArrowLeft /> Back to all projects
 					</Link>
-					
+
 					<h5 className={`yeseva dark:text-[#c0ccbb] pt-6`}>{data?.data.attributes.subtitle}</h5>
 					<h1 className="dark:text-[#e7e6e2]">{data?.data.attributes.title}</h1>
+
 					<img width={1920} height={1080} className="w-full max-w-screen-2xl m-auto md:!hidden pt-4" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText} />
 
 					<ul className="py-10 flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
@@ -56,7 +51,7 @@ export default function ProjectDetails({ params }: Params) {
 							<span>Tech</span>
 							<div className="tech flex gap-4 pt-2 items-center">
 								{data?.data.attributes.tools.data.map((tech: { id: string; attributes: { iconShort: string; iconName: string } }) => (
-									<img width={40} height={40} key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} alt={`${tech.attributes.iconName} icon`} title={`${tech.attributes.iconName}`}/>
+									<img width={40} height={40} key={tech.id} src={`https://cdn.simpleicons.org/${tech.attributes.iconShort}/17515c/c0ccbb`} alt={`${tech.attributes.iconName} icon`} title={`${tech.attributes.iconName}`} />
 								))}
 							</div>
 						</li>
@@ -75,6 +70,7 @@ export default function ProjectDetails({ params }: Params) {
 				</div>
 				<img width={1920} height={1080} className="!hidden md:!block w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText} />
 			</section>
+			{/* Description */}
 			<section className="max-w-screen-2xl m-auto detail-description pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 				<div className="lg:flex lg:flex-row pb-10">
 					<div className="lg:w-4/12">
@@ -91,6 +87,7 @@ export default function ProjectDetails({ params }: Params) {
 					</div>
 				</div>
 			</section>
+			{/* Gallery */}
 			<section className="max-w-screen-2xl m-auto detail-gallery pt-20 ">
 				<div className="flex flex-wrap md:flex-nowrap gap-2">
 					{data?.data.attributes.gallery.data.slice(0, 2).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
@@ -131,20 +128,3 @@ export default function ProjectDetails({ params }: Params) {
 		</>
 	);
 }
-
-// const [data, setData] = useState(null);
-
-// 	useEffect(() => {
-// 	  const getOneProject = async () => {
-// 		try {
-// 		  const response = await fetch('http://127.0.0.1:1337/api/projects/${slug}', { cache: "no-store" });
-// 		  const data = await response.json();
-// 			setData(data.data);
-// 			console.log(data)
-// 		} catch (error) {
-// 		  console.error('Erreur lors du chargement des données', error);
-// 		}
-// 	  };
-
-// 	  getOneProject();
-// 	}, [slug]);

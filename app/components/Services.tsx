@@ -1,14 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { Yeseva_One } from "next/font/google";
-import getServices from "../lib/getServices";
-
-// export const yeseva = Yeseva_One({
-// 	weight: ["400"],
-// 	style: ["normal"],
-// 	subsets: ["latin"],
-// });
 
 interface Service {
 	id: string;
@@ -16,7 +8,6 @@ interface Service {
 		title: string;
 		description: string;
 		icon: string;
-		// Other attributes
 	};
 }
 
@@ -38,7 +29,6 @@ export default function Services() {
 		getServices();
 	}, []);
 
-	// const data = await getServices();
 	return (
 		<div className="px-6 md:px-10 lg:px-16 xl:px-32 max-w-screen-2xl m-auto pt-32 flex flex-col  lg:flex-row gap-8">
 			{data?.map((feature, index) => (

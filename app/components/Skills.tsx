@@ -1,19 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import getSkills from "../lib/getSkills";
-import { get } from "http";
 
 interface Skill {
 	id: number;
 	attributes: {
 		skillName: string;
-		// Add other attribute types if needed
 	};
 }
 
@@ -34,8 +30,7 @@ export default function Skills() {
 		getSkills();
 	}, []);
 
-	// const data = await getSkills();
-
+	//Slider settings
 	const settings = {
 		dots: false,
 		arrows: false,
@@ -61,5 +56,3 @@ export default function Skills() {
 		</div>
 	);
 }
-
-

@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
-// import ShowcassesFullScreenData from "../data/showcase.json";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,7 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-// import required modules
+// import required Swiper modules
 import { Autoplay, Navigation, Parallax } from "swiper/modules";
 
 //font awesome icons
@@ -21,7 +20,7 @@ import { faChevronRight, faChevronLeft, faArrowRight, faArrowLeft } from "@forta
 import LandingLogo from "./LandingLogo";
 import { NavigationOptions } from "swiper/types";
 
-// Define a type for your project data
+// Define a type for Project data
 interface Project {
 	id: string;
 	attributes: {
@@ -36,9 +35,7 @@ interface Project {
 		};
 		title: string;
 		slug: string;
-		// ... other attributes
 	};
-	// ... other fields
 }
 
 export default function App() {
@@ -46,15 +43,13 @@ export default function App() {
 
 	useEffect(() => {
 		async function fetchData() {
-			// You can await here
 			const response = await fetch(`${process.env.API_URL}/projects?populate=*`, { cache: "no-store" });
-			// ...
 			const data = await response.json();
 			// console.log(data);
 			setShowcaseProjects(data.data);
 		}
 		fetchData();
-	}, []); // Or [] if effect doesn't need props or state
+	}, []);
 
 	const [load, setLoad] = React.useState(true);
 	React.useEffect(() => {
@@ -64,6 +59,7 @@ export default function App() {
 	}, []);
 	const navigationPrevRef = React.useRef(null);
 	const navigationNextRef = React.useRef(null);
+
 	return (
 		<section className="showcase-section h-screen">
 			<div className="h-full test flex justify-center items-center">
@@ -140,7 +136,7 @@ export default function App() {
 									</path>
 								</svg>
 							</div>
-							<LandingLogo data-swiper-parallax="-2000"/>
+							<LandingLogo />
 						</SwiperSlide>
 
 						{/* SHOWCASE PROJECTS SLIDES FROM STRAPI */}
@@ -185,18 +181,15 @@ export default function App() {
 										<h2 data-swiper-parallax="-2000" className="text-6xl px-16 md:text-7xl lg:text-8xl text-center capitalize absolute dark:text-[#e7e6e2] top">
 											{project.attributes.title}
 										</h2>
-
-					
 									</div>
 								</Link>
 							</SwiperSlide>
 						))}
 					</Swiper>
 				) : null}
+				{/* Navigation */}
 				<div className="showcase-nav">
 					<div ref={navigationNextRef} className="item right-10 dark:text-[#e7e6e2]">
-						{/* <span>Next Slide</span> */}
-
 						<i className="ml-2.5">
 							<FontAwesomeIcon icon={faChevronRight} />
 						</i>
@@ -205,10 +198,9 @@ export default function App() {
 						<i className="mr-2.5">
 							<FontAwesomeIcon icon={faChevronLeft} />
 						</i>
-
-						{/* <span>Prev Slide</span> */}
 					</div>
 				</div>
+				{/* Scroll down */}
 				<div className="mouse bottom-24 md:bottom-16 dark:border-white dark:before:bg-white"></div>
 			</div>
 		</section>
