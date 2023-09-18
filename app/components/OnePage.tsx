@@ -35,7 +35,7 @@ export default function OnePage() {
 						</div>
 					</section>
 				</div>
-				<div className="md:w-6/12 pt-6 md:pt-10 lg:pl-10 flex flex-col gap-10 justify-center items-start">
+				<div className="lg:w-6/12 pt-6 md:pt-10 lg:pl-10 flex flex-col gap-10 justify-center items-start">
 					<p className="dark:text-[#999]">Hey there! I'm Jess, a newly-minted front-end developer with 7+ years of creative design experience in agencies, in-house, and freelance. But that's not all—I'm also a born crafter, channeling my passion into creating unique handmade gems.</p>
 					<h6 className="-mt-5 font-medium dark:text-[#e7e6e2]">Let's connect and create something special together!</h6>
 					<a href="/about" className="button dark:dark-button">

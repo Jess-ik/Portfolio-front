@@ -74,7 +74,7 @@ export default function Experiences() {
 					</div>
 
 					<div className="pt-6 lg:pt-0 lg:w-2/3 lg:pl-12 mb-30">
-						<button className="md:hidden flex items-center text-[#0d2c32] dark:text-[#e7e6e2] mb-2" onClick={() => toggleJobDetails(item.id)}>
+						<button className="lg:hidden flex items-center text-[#0d2c32] dark:text-[#e7e6e2] mb-2" onClick={() => toggleJobDetails(item.id)}>
 							Job details {openDetails === item.id ? <BsChevronUp className="ml-2" /> : <BsChevronDown className="ml-2" />}
 						</button>
 						<div className={classNames("collapsible-content text text-[#555] dark:text-[#999]", { open: openDetails === item.id })}>

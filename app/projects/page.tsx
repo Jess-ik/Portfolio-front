@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import PageHead from "../components/PageHead";
 import { motion, AnimatePresence } from "framer-motion";
-import Filtertest from "../components/FilterTest";
+import Filter from "../components/Filter";
 
 interface Project {
 	id: string;
@@ -61,10 +61,10 @@ export default function Projects() {
 			<PageHead subtitle="My works" title="Portfolio" />
 			<section className="max-w-screen-2xl m-auto portfolio-section md:pt-16">
 				<div className="px-4 md:px-9 lg:px-15 xl:px-28">
-					<Filtertest
+					<Filter
 						setActiveFilter={setActiveFilter}
 						activeFilter={activeFilter}
-						setFiltered={memoizedSetFiltered} // Use the memoized function here
+						setFiltered={memoizedSetFiltered} 
 						portfolio={portfolio}
 					/>{" "}
 					<motion.div layout className="projects pt-10 flex flex-col md:flex-row flex-wrap ">

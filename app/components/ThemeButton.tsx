@@ -30,9 +30,9 @@ const ThemeButton = () => {
       }}
     >
       {resolvedTheme === 'dark' ? (
-        <FiSun className='h-5 w-5 text-white ' />
+        <FiSun className='h-5 w-5 text-[#e7e6e2] ' />
       ) : (
-        <BsMoonStarsFill className='h-5 w-5 text-[#0f0316]' />
+        <BsMoonStarsFill className='h-5 w-5 text-[#0d2c32]' />
       )}
     </button>
   )
