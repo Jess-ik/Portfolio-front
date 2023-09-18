@@ -7,7 +7,9 @@ const nextConfig = {
         RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
         RECAPTCHA_SECRET_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SECRET_KEY
     },
-    
-  };
-  
-  module.exports = nextConfig;
+    experimental: {
+        appDir: true,
+    },
+};
+
+module.exports = nextConfig;
