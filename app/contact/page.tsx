@@ -116,16 +116,16 @@ const Contact = () => {
 								</label>
 							</div>
 							<div className="w-full pt-6 md:pt-0 md:w-6/12 md:pl-4">
-								<div className="form-group">
+								<label className="form-group">
 									<input placeholder="Email" className={`border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white ${errors.email ? "border-red-500" : ""}`} type="email" name="email" value={modifiedData.email} onChange={handleChange} />
 									{errors.email && <p className="text-red-500">{errors.email}</p>}
-								</div>
+								</label>
 							</div>
 							<div className="w-full md:pt-10">
-								<div className="form-group">
+								<label className="form-group">
 									<textarea placeholder="Message" className={`border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white ${errors.message ? "border-red-500" : ""}`} name="message" value={modifiedData.message} onChange={handleMessageChange} rows={4} />
 									{errors.message && <p className="text-red-500">{errors.message}</p>}
-								</div>
+								</label>
 							</div>
 							<div className="w-full flex justify-center m-auto">
 								<div className="text-center mt-6">
