@@ -110,22 +110,29 @@ const Contact = () => {
 					<form id="contact-form" onSubmit={handleSubmit}>
 						<div className="flex flex-col md:flex-row md:flex-wrap">
 							<div className="w-full md:w-6/12 md:pr-4 ">
-								<label className="form-group" htmlFor="name">
+								<div className="form-group">
+									<label className="form-group" htmlFor="name">
+										Name
+									</label>
 									<input id="name" placeholder="Name" className={`border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white ${errors.name ? "border-red-500" : ""}`} type="text" name="name" value={modifiedData.name} onChange={handleChange} />
 									{errors.name && <p className="text-red-500">{errors.name}</p>}
-								</label>
+								</div>
 							</div>
 							<div className="w-full pt-6 md:pt-0 md:w-6/12 md:pl-4">
-								<label className="form-group" htmlFor="email">
+								<div className="form-group">
+									<label className="form-group" htmlFor="email">
+										Email
+									</label>
 									<input id="email" placeholder="Email" className={`border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white ${errors.email ? "border-red-500" : ""}`} type="email" name="email" value={modifiedData.email} onChange={handleChange} />
 									{errors.email && <p className="text-red-500">{errors.email}</p>}
-								</label>
+								</div>
 							</div>
 							<div className="w-full md:pt-10">
-								<label className="form-group" htmlFor="message">
+								<div className="form-group" >
+								<label className="form-group" htmlFor="message">Message</label>
 									<textarea id="message" placeholder="Message" className={`border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white ${errors.message ? "border-red-500" : ""}`} name="message" value={modifiedData.message} onChange={handleMessageChange} rows={4} />
 									{errors.message && <p className="text-red-500">{errors.message}</p>}
-								</label>
+								</div>
 							</div>
 							<div className="w-full flex justify-center m-auto">
 								<div className="text-center mt-6">
@@ -133,9 +140,9 @@ const Contact = () => {
 										<div className="loader dark:text-[#c0ccbb]">Sending...</div>
 									) : (
 										<>
-											<label htmlFor="recaptcha">
+											<label htmlFor="recaptcha">Recaptcha</label>
 												<ReCAPTCHA id="recaptcha" className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
-											</label>
+											
 											<button type="submit" className="button dark:dark-button cursor-pointer">
 												Send message
 											</button>
