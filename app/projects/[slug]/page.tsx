@@ -58,10 +58,10 @@ export default function ProjectDetails({ params }: Params) {
 						<li className="py-12 md:py-0 ">
 							<span>Links</span>
 							<div className="links flex gap-10 cursor-pointer mt-2.5 ">
-								<a href={data?.data.attributes.link1}>
+								<a href={data?.data.attributes.link1} target="_blank" rel="noopener noreferrer">
 									<p className="m-0 dark:text-[#999] dark:hover:text-[#0d2c32]">{data?.data.attributes.link1Name}</p>
 								</a>
-								<a href={data?.data.attributes.link2}>
+								<a href={data?.data.attributes.link2} target="_blank" rel="noopener noreferrer">
 									<p className="m-0 dark:text-[#999] dark:hover:text-[#0d2c32]">{data?.data.attributes.link2Name}</p>
 								</a>
 							</div>

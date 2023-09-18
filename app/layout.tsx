@@ -37,17 +37,15 @@ export const metadata: CustomMetadata = {
 	twitterUsername: "@Jess___ik", // Nom d'utilisateur Twitter
 };
 
-
-
-const sitedata = { 
-  "@context": "https://schema.org/",
+const sitedata = {
+	"@context": "https://schema.org/",
 	"@type": "Person",
 	name: "Jess Louvel",
 	url: "https://jess-louvel.com",
 	image: "https://jess-louvel.com/logo-landing-black.webp",
 	jobTitle: "Creative + Web Developer",
 	sameAs: ["https://www.linkedin.com/in/jesslouvel/", "https://github.com/Jess-ik", "https://www.instagram.com/jess_louvel/"],
-  }; 
+};
 
 interface RootLayoutProps {
 	children: React.ReactNode; // Define the type of children
@@ -58,10 +56,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 		<html lang="en" suppressHydrationWarning>
 			<Head>
 				<meta charSet="UTF-8" />
-        <script 
-      type="application/ld+json" 
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata) }} 
-      /> 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata) }} /> <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 				<meta name="description" content={metadata.description} />
 				<meta name="author" content={metadata.author} />
 				<meta name="keywords" content={metadata.keywords.join(", ")} />
@@ -77,7 +72,16 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				<meta name="twitter:description" content={metadata.description} />
 				<meta name="twitter:title" content={metadata.title} />
 				<title>{metadata.title}</title>
-			</Head>
+      </Head>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZ9BMBB8KY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QZ9BMBB8KY');
+</script>
 			<body className={` dark:bg-[#0d2c32]`}>
 				<Providers>
 					<Navbar />
