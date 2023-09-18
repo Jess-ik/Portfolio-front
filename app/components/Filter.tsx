@@ -27,6 +27,7 @@ interface Project {
   };
 }
 
+// On définit les types pour les props du composant Filter
 interface Props {
   setActiveFilter: (filter: string) => void;
   activeFilter: string; 
@@ -34,16 +35,17 @@ interface Props {
   portfolio: Project[];
 }
 
+// Composant Filter + props
 const Filter: React.FC<Props> = ({ setActiveFilter, activeFilter, setFiltered, portfolio }) => {
   useEffect(() => {
     
-    //Si activeFilter est égal à "*", alors tous les projets du portfolio sont passés à la fonction setFiltered.
+    // Si activeFilter est égal à "*", alors tous les projets du portfolio sont passés à la fonction setFiltered.
     if (activeFilter === "*") {
       setFiltered(portfolio);
       return;
     }
-    //Sinon, un filtre est appliqué sur le portfolio en fonction de la valeur de activeFilter. 
-    //Les projets dont la propriété filter correspond à activeFilter sont extraits et passés à la fonction setFiltered.
+    // Sinon, un filtre est appliqué sur le portfolio en fonction de la valeur de activeFilter. 
+    // Les projets dont la propriété filter correspond à activeFilter sont extraits et passés à la fonction setFiltered.
     const filtered = portfolio?.filter((project) => project.attributes.filter.includes(activeFilter));
     setFiltered(filtered || []);
   }, [activeFilter, portfolio, setFiltered]);

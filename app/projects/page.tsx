@@ -1,10 +1,13 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
-import PageHead from "../components/PageHead";
+
 import { motion, AnimatePresence } from "framer-motion";
+
+import PageHead from "../components/PageHead";
 import Filter from "../components/Filter";
 
+// On défini les types des attribus d'un Projet
 interface Project {
 	id: string;
 	attributes: {
@@ -33,25 +36,31 @@ interface Project {
 }
 
 export default function Projects() {
+	// On décalre les états pour stocker les projets, les projets filtrés et le filtre actif
 	const [portfolio, setPortfolio] = useState<Project[]>([]);
 	const [filtered, setFiltered] = useState<Project[]>([]);
 	const [activeFilter, setActiveFilter] = useState<string>("");
 
+	// On utilise useEffect pour charger les projets au moment du montage du composant
 	useEffect(() => {
 		fetchProjects();
 	}, []);
 
+	// On récupère les projets via l'API
 	const fetchProjects = async () => {
 		try {
 			const data = await fetch(`${process.env.API_URL}/projects?populate=*&sort=order:desc`, { cache: "no-store" });
 			const projects = await data.json();
+			// On stocke tous les projets dans Portfolio
 			setPortfolio(projects.data);
+			// On stocke les projets filtrés dans Filtered
 			setFiltered(projects.data);
 		} catch (error) {
 			console.error("Error fetching projects:", error);
 		}
 	};
 
+	// On utilise useCallback pour mémoriser la fonction de mise à jour des projets filtrés
 	const memoizedSetFiltered = useCallback((filteredProjects: Project[]) => {
 		setFiltered(filteredProjects);
 	}, []);
@@ -59,16 +68,15 @@ export default function Projects() {
 	return (
 		<>
 			<PageHead subtitle="My works" title="Portfolio" />
+
 			<section className="max-w-screen-2xl m-auto portfolio-section md:pt-16">
 				<div className="px-4 md:px-9 lg:px-15 xl:px-28">
-					<Filter
-						setActiveFilter={setActiveFilter}
-						activeFilter={activeFilter}
-						setFiltered={memoizedSetFiltered} 
-						portfolio={portfolio}
-					/>{" "}
+					{/* On appelle le composant Filter avec ses props, qui permet la sélection de projets par catégorie */}
+					<Filter setActiveFilter={setActiveFilter} activeFilter={activeFilter} setFiltered={memoizedSetFiltered} portfolio={portfolio} />
+
 					<motion.div layout className="projects pt-10 flex flex-col md:flex-row flex-wrap ">
 						<AnimatePresence>
+							{/* On mappe les projets filtrés (voir composant Filter) et affiche chaque projet */}
 							{filtered?.map((project) => (
 								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
 									<div className="cover cursor-pointer">
