@@ -57,7 +57,7 @@ const sitedata = {
 };
 
 
-const GTM_ID = 'G-QZ9BMBB8KY';
+
 interface RootLayoutProps {
 	children: React.ReactNode; // Define the type of children
 }
@@ -72,15 +72,15 @@ export default function RootLayout({ children }: RootLayoutProps) {
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','${GTM_ID}');
+        })(window,document,'script','dataLayer','GTM-WMNV7PW9');
         `}
       </Script>
-      <noscript
-        dangerouslySetInnerHTML={{
-        __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display: none; visibility: hidden;"></iframe>`,
-        }} 
-    />
-			<body className={` dark:bg-[#0d2c32]`}>
+
+      <body className={` dark:bg-[#0d2c32]`}>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMNV7PW9"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 				<Providers>
 					<Navbar />
 					{children}
