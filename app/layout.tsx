@@ -62,10 +62,6 @@ const sitedata = {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-
-
-
-
 			<body className={` dark:bg-[#0d2c32]`}>
 				<Providers>
 					<Navbar />
