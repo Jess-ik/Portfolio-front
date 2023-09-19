@@ -5,13 +5,6 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-// Sélectionnez les balises <link> correspondantes
-const cssLinks = document.querySelectorAll('link[href^="slick-carousel/slick/"]');
-
-// Ajoutez l'attribut `as` à chaque balise <link>
-cssLinks.forEach((linkTag) => {
-  linkTag.setAttribute('as', 'style');
-});
 
 interface Skill {
 	id: number;
