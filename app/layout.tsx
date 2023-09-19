@@ -34,7 +34,7 @@ export const metadata = {
 			},
 		],
 		locale: "en_US",
-		type: "portfolio",
+		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
