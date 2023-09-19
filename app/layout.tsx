@@ -10,6 +10,8 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Head from "next/head";
+import Script from "next/script";
+
 
 export const metadata = {
 	title: "Jess • Creative + Developer",
@@ -54,6 +56,8 @@ const sitedata = {
 	sameAs: ["https://www.linkedin.com/in/jesslouvel/", "https://github.com/Jess-ik", "https://www.instagram.com/jess_louvel/"],
 };
 
+
+const GTM_ID = 'G-QZ9BMBB8KY';
 interface RootLayoutProps {
 	children: React.ReactNode; // Define the type of children
 }
@@ -62,7 +66,20 @@ export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata) }} />
-
+      <Script id="google-tag-manager" strategy="afterInteractive">
+        {`
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','${GTM_ID}');
+        `}
+      </Script>
+      <noscript
+        dangerouslySetInnerHTML={{
+        __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=${GTM_ID}" height="0" width="0" style="display: none; visibility: hidden;"></iframe>`,
+        }} 
+    />
 			<body className={` dark:bg-[#0d2c32]`}>
 				<Providers>
 					<Navbar />
