@@ -68,14 +68,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata) }} />
-      <Suspense fallback={null}>
-        <GoogleTagManager />
-      </Suspense>
+
 
       <body className={` dark:bg-[#0d2c32]`}>
 
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMNV7PW9"
-height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
+
 
 				<Providers>
 					<Navbar />
