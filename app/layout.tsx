@@ -1,3 +1,4 @@
+import React from "react";
 import "./globals.css";
 import type { Metadata } from "next";
 //font awesome
@@ -11,30 +12,37 @@ import Navbar from "./components/Navbar";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Head from "next/head";
 
-interface CustomMetadata extends Metadata {
-	author: string;
-	image: string;
-	url: string;
-	siteName: string;
-	type: string;
-	locale: string;
-	twitterUsername: string;
-	description: string;
-	keywords: string[];
-	title: string;
-}
-
-export const metadata: CustomMetadata = {
+export const metadata = {
 	title: "Jess • Creative + Developer",
 	description: "Portfolio of Jess Louvel - Creative & Developer",
-	author: "Jess Louvel",
 	keywords: ["portfolio", "creative", "developer", "web design", "web development", "graphic designer"],
-	image: "https://jess-louvel.com/logo-landing-black.webp", // Lien vers une image représentative
-	url: "https://jess-louvel.com", // URL de la page
-	siteName: "Portfolio of Jess Louvel", // Le nom de votre site
-	type: "portfolio", // Type de contenu (peut être "website", "article", etc.)
-	locale: "en_US", // Locale de la page
-	twitterUsername: "@Jess___ik", // Nom d'utilisateur Twitter
+
+	openGraph: {
+		title: "Jess • Creative + Developer",
+		description: "Portfolio of Jess Louvel - Creative & Developer",
+		url: "https://jess-louvel.com",
+		siteName: "Portfolio of Jess Louvel",
+		images: [
+			{
+				url: "https://jess-louvel.com/logo-landing-black.webp",
+				width: 800,
+				height: 600,
+			},
+			{
+				url: "https://jess-louvel.com/logo-landing-black.webp",
+				width: 1800,
+				height: 1600,
+			},
+		],
+		locale: "en_US",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "Jess • Creative + Developer",
+		description: "Portfolio of Jess Louvel - Creative & Developer",
+		images: ["https://jess-louvel.com/logo-landing-black.webp"],
+	},
 };
 
 const sitedata = {
@@ -54,27 +62,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<Head>
-				<meta charSet="UTF-8" />
-				<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata) }} /> <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-				<meta name="description" content={metadata.description} />
-				<meta name="author" content={metadata.author} />
-				<meta name="keywords" content={metadata.keywords.join(", ")} />
-				<meta property="og:title" content={metadata.title} />
-				<meta property="og:description" content={metadata.description} />
-				<meta property="og:image" content={metadata.image} />
-				<meta property="og:url" content={metadata.url} />
-				<meta property="og:site_name" content={metadata.siteName} />
-				<meta property="og:type" content={metadata.type} />
-				<meta property="og:locale" content={metadata.locale} />
-				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:creator" content={metadata.twitterUsername} />
-				<meta name="twitter:description" content={metadata.description} />
-				<meta name="twitter:title" content={metadata.title} />
-				<title>{metadata.title}</title>
-      </Head>
-
-
+			<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata) }} />
 
 			<body className={` dark:bg-[#0d2c32]`}>
 				<Providers>
