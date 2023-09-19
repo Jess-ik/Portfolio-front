@@ -79,7 +79,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={` dark:bg-[#0d2c32]`}>
 
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WMNV7PW9"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
 
 				<Providers>
 					<Navbar />
