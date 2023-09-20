@@ -31,7 +31,8 @@ export default function Analytics() {
           style={{ display: "none", visibility: "hidden" }}
         />
       </noscript>
-      <Script
+          <Script
+              defer
         id="gtm-script"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
