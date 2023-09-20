@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import "./globals.css";
 import type { Metadata } from "next";
 //font awesome
@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import Head from "next/head";
+import Analytics from "./components/Analytics";
 
 export const metadata = {
 	title: "Jess • Creative + Developer",
@@ -62,8 +63,15 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-
 			<body className={` dark:bg-[#0d2c32]`}>
+				<Suspense>
+					<Analytics />
+        </Suspense>
+        <script
+        key="schema-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata, null, "\t") }}
+      />
 				<Providers>
 					<Navbar />
 					{children}
