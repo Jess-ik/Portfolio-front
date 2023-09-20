@@ -12,10 +12,5 @@ type WindowWithDataLayer = Window & {
         event: "pageview",
         page: url,
       })
-    } else {
-      console.log({
-        event: "pageview",
-        page: url,
-      })
-    }
+    } 
   }
