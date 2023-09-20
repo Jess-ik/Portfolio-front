@@ -4,6 +4,7 @@ import { BsArrowLeft, BsArrowLeftShort } from "react-icons/bs";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Link from "next/link";
 import useSWR from "swr";
+import React from "react";
 
 type Params = {
 	params: {

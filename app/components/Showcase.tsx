@@ -20,7 +20,6 @@ import { faChevronRight, faChevronLeft, faArrowRight, faArrowLeft } from "@forta
 
 import LandingLogo from "./LandingLogo";
 
-
 // Define a type for Project data
 interface Project {
 	id: string;
@@ -55,13 +54,11 @@ export default function App() {
 		fetchData();
 	}, []);
 
-	
 	React.useEffect(() => {
 		setTimeout(() => {
 			setLoad(false);
 		});
 	}, []);
-	
 
 	return (
 		<section className="showcase-section h-screen">
@@ -70,7 +67,6 @@ export default function App() {
 					<Swiper
 						modules={[Autoplay, Navigation, Parallax]}
 						loop={true}
-						
 						speed={1000}
 						mousewheel={true}
 						parallax={true}
@@ -118,11 +114,7 @@ export default function App() {
 											</stop>
 										</linearGradient>
 									</defs>
-									<path
-										d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z"
-										id="blob"
-										fill="url(#gradient)"
-									>
+									<path d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z" id="blob" fill="url(#gradient)">
 										<animate
 											attributeName="d"
 											dur="15s"
@@ -151,14 +143,12 @@ export default function App() {
 											<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id={`blobSvg${project.id}`}>
 												<defs>
 													<pattern id={project.id} patternUnits="userSpaceOnUse" width="500" height="500">
-														<image className="brightness-75" href={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} />
+														<link rel="preload" href={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} as="image" />
+
+														<image className="brightness-75" href={`${process.env.IMAGES_URL}${project.attributes.showcaseImage.data.attributes.url}`} width="100%" height="100%" />
 													</pattern>
 												</defs>
-												<path
-													d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z"
-													id={project.id}
-													fill={`url(#${project.id})`}
-												>
+												<path d="M439.5,309.5Q413,369,361.5,401.5Q310,434,251.5,430.5Q193,427,159.5,383.5Q126,340,105.5,295Q85,250,78.5,185Q72,120,131,93.5Q190,67,255.5,49.5Q321,32,367.5,81.5Q414,131,440,190.5Q466,250,439.5,309.5Z" id={project.id} fill={`url(#${project.id})`}>
 													<animate
 														attributeName="d"
 														dur="15s"
