@@ -585,16 +585,14 @@ nav {
 
 }
 
-.detail-hero a:hover {
-  text-decoration: underline;
-}
+
 
 
 .detail-hero .links a::before {
   background: #c0ccbb;
   content: "";
   inset: 0;
-
+left: -10px;
   position: absolute;
   transform: scaleX(0);
   transform-origin: right;
@@ -603,7 +601,7 @@ nav {
 }
 
 .detail-hero .links a:hover::before {
-  transform: scaleX(1);
+  transform: scaleX(1.1);
   transform-origin: left;
 }
 

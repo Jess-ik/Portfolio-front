@@ -66,12 +66,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			<body className={` dark:bg-[#0d2c32]`}>
 				<Suspense>
 					<Analytics />
-        </Suspense>
-        <script
-        key="schema-jsonld"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata, null, "\t") }}
-      />
+				</Suspense>
+				<script key="schema-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata, null, "\t") }} />
 				<Providers>
 					<Navbar />
 					{children}
