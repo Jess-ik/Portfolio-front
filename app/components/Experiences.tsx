@@ -62,7 +62,7 @@ export default function Experiences() {
 						<button className="lg:!hidden !flex items-center button dark:dark-button cursor-pointer mb-2" onClick={() => toggleJobDetails(item.id)}>
 							Job details {openDetails === item.id ? <BsChevronUp className="ml-2" /> : <BsChevronDown className="ml-2" />}
 						</button>
-						<div className={classNames("collapsible-content text text-[#555] dark:text-[#999]", { open: openDetails === item.id })}>
+						<div className={classNames("collapsible-content text text-[#555] dark:text-[#b0b0b0]", { open: openDetails === item.id })}>
 							<ReactMarkdown>{item.attributes.description}</ReactMarkdown>
 						</div>
 					</div>

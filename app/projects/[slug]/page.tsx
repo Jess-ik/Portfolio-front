@@ -34,7 +34,7 @@ export default function ProjectDetails({ params }: Params) {
 			{/* Details */}
 			<section className={`detail-hero w-full pt-24 md:pt-32 `}>
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
-					<Link className="flex flex-nowrap items-center gap-2 dark:text-[#999]" href="/projects" aria-label="Go back to all projects">
+					<Link className="flex flex-nowrap items-center gap-2 dark:text-[#b0b0b0]" href="/projects" aria-label="Go back to all projects">
 						<BsArrowLeft /> Back to all projects
 					</Link>
 
@@ -46,7 +46,7 @@ export default function ProjectDetails({ params }: Params) {
 					<ul className="py-10 flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
 						<li>
 							<span>Category</span>
-							<p className="dark:text-[#999]">{data?.data.attributes.category}</p>
+							<p className="dark:text-[#b0b0b0]">{data?.data.attributes.category}</p>
 						</li>
 						<li className="flex flex-col  pt-6 md:pt-0">
 							<span>Tech</span>
@@ -60,10 +60,10 @@ export default function ProjectDetails({ params }: Params) {
 							<span>Links</span>
 							<div className="links flex gap-10 cursor-pointer mt-2.5 ">
 								<a href={data?.data.attributes.link1} target="_blank" rel="noopener noreferrer">
-									<p className="m-0 dark:text-[#999] dark:hover:text-[#0d2c32]">{data?.data.attributes.link1Name}</p>
+									<p className="m-0 dark:text-[#b0b0b0] dark:hover:text-[#0d2c32]">{data?.data.attributes.link1Name}</p>
 								</a>
 								<a href={data?.data.attributes.link2} target="_blank" rel="noopener noreferrer">
-									<p className="m-0 dark:text-[#999] dark:hover:text-[#0d2c32]">{data?.data.attributes.link2Name}</p>
+									<p className="m-0 dark:text-[#b0b0b0] dark:hover:text-[#0d2c32]">{data?.data.attributes.link2Name}</p>
 								</a>
 							</div>
 						</li>
@@ -83,7 +83,7 @@ export default function ProjectDetails({ params }: Params) {
 					</div>
 					<div className=" lg:w-8/12 mt-10 lg:mt-0 mb-30">
 						<div className="text">
-							<ReactMarkdown className="dark:text-[#999]">{data?.data.attributes.description}</ReactMarkdown>
+							<ReactMarkdown className="dark:text-[#b0b0b0]">{data?.data.attributes.description}</ReactMarkdown>
 						</div>
 					</div>
 				</div>
