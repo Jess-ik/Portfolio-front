@@ -25,12 +25,12 @@ export const metadata = {
 		siteName: "Portfolio of Jess Louvel",
 		images: [
 			{
-				url: "https://jess-louvel.com/logo-landing-black.webp",
+				url: "https://jess-louvel.com/jess-louvel-preview.webp",
 				width: 800,
 				height: 600,
 			},
 			{
-				url: "https://jess-louvel.com/logo-landing-black.webp",
+				url: "https://jess-louvel.com/jess-louvel-preview.webp",
 				width: 1800,
 				height: 1600,
 			},
@@ -42,7 +42,7 @@ export const metadata = {
 		card: "summary_large_image",
 		title: "Jess • Creative + Developer",
 		description: "Portfolio of Jess Louvel - Creative & Developer",
-		images: ["https://jess-louvel.com/logo-landing-black.webp"],
+		images: ["https://jess-louvel.com/jess-louvel-preview.webp"],
 	},
 };
 
@@ -51,7 +51,7 @@ const sitedata = {
 	"@type": "Person",
 	name: "Jess Louvel",
 	url: "https://jess-louvel.com",
-	image: "https://jess-louvel.com/logo-landing-black.webp",
+	image: "https://jess-louvel.com/jess-louvel-preview.webp",
 	jobTitle: "Creative + Web Developer",
 	sameAs: ["https://www.linkedin.com/in/jesslouvel/", "https://github.com/Jess-ik", "https://www.instagram.com/jess_louvel/"],
 };
