@@ -56,17 +56,23 @@ export default function ProjectDetails({ params }: Params) {
 								))}
 							</div>
 						</li>
-						<li className="py-12 md:py-0 ">
-							<span>Links</span>
-							<div className="links flex gap-10 cursor-pointer mt-2.5 ">
-								<a href={data?.data.attributes.link1} target="_blank" rel="noopener noreferrer">
-									<p className="m-0 dark:text-[#b0b0b0] dark:hover:text-[#0d2c32]">{data?.data.attributes.link1Name}</p>
-								</a>
-								<a href={data?.data.attributes.link2} target="_blank" rel="noopener noreferrer">
-									<p className="m-0 dark:text-[#b0b0b0] dark:hover:text-[#0d2c32]">{data?.data.attributes.link2Name}</p>
-								</a>
-							</div>
-						</li>
+						{data?.data.attributes.link1 || data?.data.attributes.link2 ? (
+							<li className="py-12 md:py-0 ">
+								<span>Links</span>
+								<div className="links flex gap-10 cursor-pointer mt-2.5 ">
+									{data?.data.attributes.link1 && (
+										<a href={data?.data.attributes.link1} target="_blank" rel="noopener noreferrer">
+											<p className="m-0 dark:text-[#b0b0b0] dark:hover:text-[#0d2c32]">{data?.data.attributes.link1Name}</p>
+										</a>
+									)}
+									{data?.data.attributes.link2 && (
+										<a href={data?.data.attributes.link2} target="_blank" rel="noopener noreferrer">
+											<p className="m-0 dark:text-[#b0b0b0] dark:hover:text-[#0d2c32]">{data?.data.attributes.link2Name}</p>
+										</a>
+									)}
+								</div>
+							</li>
+						) : null}
 					</ul>
 				</div>
 				<img width={1920} height={1080} className="!hidden md:!block w-full max-w-screen-2xl m-auto" src={`${process.env.IMAGES_URL}${data?.data.attributes.heroImage.data.attributes.url}`} alt={data?.data.attributes.heroImage.data.attributes.alternativeText} />
@@ -110,7 +116,7 @@ export default function ProjectDetails({ params }: Params) {
 						<img key={image.id} className="w-full md:w-1/2" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
 				</div>
-				<div className="flex flex-wrap md:flex-nowrapgap-2 mt-2">
+				<div className="flex flex-wrap md:flex-nowrap gap-2 mt-2">
 					{data?.data.attributes.gallery.data.slice(10, 13).map((image: { id: string; attributes: { url: string; alternativeText: string } }) => (
 						<img key={image.id} className="w-full md:w-1/3" src={`${process.env.IMAGES_URL}${image.attributes.url}`} alt={image.attributes.alternativeText} />
 					))}
