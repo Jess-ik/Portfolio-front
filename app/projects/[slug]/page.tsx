@@ -32,7 +32,7 @@ export default function ProjectDetails({ params }: Params) {
 	return (
 		<>
 			{/* Details */}
-			<section className={`detail-hero w-full pt-24 md:pt-32 `}>
+			<section className={`detail-hero w-full px:2 pt-24 md:pt-32 `}>
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					<Link className="flex flex-nowrap items-center gap-2 dark:text-[#b0b0b0]" href="/projects" aria-label="Go back to all projects">
 						<BsArrowLeft /> Back to all projects
