@@ -16,6 +16,11 @@ const nextConfig = {
     experimental: {
         appDir: true,
     },
+    exportPathMap: function () {
+        return {
+            '/': { page: '/[lang]' },
+        }
+      },
 };
 
 module.exports = nextConfig;
