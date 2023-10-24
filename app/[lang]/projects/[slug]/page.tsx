@@ -10,18 +10,26 @@ import { Locale } from '@/i18n.config'
 type Params = {
 	params: {
 		slug: string;
-		lang: Locale; 
-	};
+		
+	};lang: string; 
 };
 
-export default function ProjectDetails({ params }: Params) {
+export default function ProjectDetails({ params, lang }: Params) {
 	const { slug } = params; // Extract the slug
 	const fetcher = async (url: string) => {
 		const response = await fetch(url);
 		return response.json();
 	};
 
-	const { data, error } = useSWR(`${process.env.API_URL}/projects/${slug}`, fetcher);
+	let apiUrl: string;
+
+	if (lang === "en") {
+	  apiUrl = `${process.env.API_URL}/projects/${slug}`;
+	} else {
+	  apiUrl = `${process.env.API_URL}/projects?locale=fr/${slug}`;
+	}
+
+	const { data, error } = useSWR(apiUrl, fetcher);
 
 	if (error) {
 		return <div>Erreur lors du chargement des données</div>;
@@ -37,7 +45,7 @@ export default function ProjectDetails({ params }: Params) {
 			<section className={`detail-hero w-full px:2 pt-24 md:pt-32 `}>
 				<div className="max-w-screen-2xl m-auto pt-20 px-6 md:px-10 lg:px-16 xl:px-32">
 					<Link className="flex flex-nowrap items-center gap-2 dark:text-[#b0b0b0]" href="/projects" aria-label="Go back to all projects">
-						<BsArrowLeft /> Back to all projects
+						<BsArrowLeft /> {lang === "en" ? "Back to all projects" : "Retour aux projets"}
 					</Link>
 
 					<h5 className={`yeseva dark:text-[#c0ccbb] pt-6`}>{data?.data.attributes.subtitle}</h5>
@@ -47,7 +55,7 @@ export default function ProjectDetails({ params }: Params) {
 
 					<ul className="py-10 flex flex-col md:flex-row flex-wrap justify-between dark:text-[#e7e6e2]">
 						<li>
-							<span>Category</span>
+							<span>{lang === "en" ? "Category" : "Catégorie"}</span>
 							<p className="dark:text-[#b0b0b0]">{data?.data.attributes.category}</p>
 						</li>
 						<li className="flex flex-col  pt-6 md:pt-0">
@@ -60,7 +68,7 @@ export default function ProjectDetails({ params }: Params) {
 						</li>
 						{data?.data.attributes.link1 || data?.data.attributes.link2 ? (
 							<li className="py-12 md:py-0 ">
-								<span>Links</span>
+								<span>{lang === "en" ? "Links" : "Liens"}</span>
 								<div className="links flex gap-10 cursor-pointer mt-2.5 ">
 									{data?.data.attributes.link1 && (
 										<a href={data?.data.attributes.link1} target="_blank" rel="noopener noreferrer">
@@ -85,7 +93,7 @@ export default function ProjectDetails({ params }: Params) {
 					<div className="lg:w-4/12">
 						<div className="flex flex-col lg:flex-row lg:items-baseline">
 							<div className="lg:w-10/12">
-								<h4 className="dark:text-[#E7E6E2]">Description</h4>
+								<h4 className="dark:text-[#E7E6E2]">{lang === "en" ? "Description" : "Déscription"}</h4>
 							</div>
 						</div>
 					</div>
