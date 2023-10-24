@@ -59,7 +59,7 @@ https://medium.com/@sidbentifraouine/responsive-animated-top-navigation-bar-with
 						<ThemeButton />
 					</li>
 					<li onClick={handleLinkClick}>
-						<LanguageButton />
+						<LanguageButton lang={ lang} />
 					</li>
 				</ul>
 			</div>

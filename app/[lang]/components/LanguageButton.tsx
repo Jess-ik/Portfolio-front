@@ -1,34 +1,30 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { i18n } from '@/i18n.config'
+import { i18n } from "@/i18n.config";
+import { useState } from "react";
+import { useRouter } from "next/router";
+interface Params {
+	lang: string;
+}
+export default function LanguageButton({ lang }: Params) {
+	const pathName = usePathname();
+	const [language, setLanguage] = useState("en"); // Initialize the theme state
 
-export default function LocaleSwitcher() {
-  const pathName = usePathname()
+	const redirectedPathName = (lang: string) => {
+		if (!pathName) return "/";
+		const segments = pathName.split("/");
+		segments[1] = lang;
+		return segments.join("/");
+	};
 
-  const redirectedPathName = (locale: string) => {
-    if (!pathName) return '/'
-    const segments = pathName.split('/')
-    segments[1] = locale
-    return segments.join('/')
-  }
-
-  return (
-    <ul className='flex gap-x-3'>
-      {i18n.locales.map(locale => {
-        return (
-          <li key={locale}>
-            <Link
-              href={redirectedPathName(locale)}
-              className='rounded-md border bg-black px-3 py-2 text-white'
-            >
-              {locale}
-            </Link>
-          </li>
-        )
-      })}
-    </ul>
-  )
+	return (
+		<div className="pb-10 md:pb-0">
+			<Link href={redirectedPathName(lang === "en" ? "fr" : "en")} className="text-base">
+				{lang === "en" ? `\ud83c\uddeb\ud83c\uddf7` : `\ud83c\uddfa\ud83c\uddf8`}
+			</Link>
+		</div>
+	);
 }
