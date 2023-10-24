@@ -8,14 +8,15 @@ import React from "react";
 import { Locale } from '@/i18n.config'
 
 type Params = {
-	params: {
+
 		slug: string;
+		lang: string; 
 		
-	};lang: string; 
+
 };
 
-export default function ProjectDetails({ params, lang }: Params) {
-	const { slug } = params; // Extract the slug
+export default function ProjectDetails({ slug, lang }: Params) {
+
 	const fetcher = async (url: string) => {
 		const response = await fetch(url);
 		return response.json();
