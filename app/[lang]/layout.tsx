@@ -1,5 +1,7 @@
 import React, { Suspense } from "react";
+
 import "./globals.css";
+import { Locale, i18n } from '@/i18n.config'
 import type { Metadata } from "next";
 //font awesome
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -60,19 +62,26 @@ interface RootLayoutProps {
 	children: React.ReactNode; // Define the type of children
 }
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export async function generateStaticParams() {
+	return i18n.locales.map(locale => ({ lang: locale }))
+  }
+
+export default function RootLayout({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
 	return (
-		<html lang="en" suppressHydrationWarning>
-			<body className={` dark:bg-[#0d2c32]`}>
+		<html lang={params.lang} suppressHydrationWarning>
+			<body lang={params.lang} className={` dark:bg-[#0d2c32]`}>
 				<Suspense>
 					<Analytics />
 				</Suspense>
 				<script key="schema-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(sitedata, null, "\t") }} />
-				<Providers>
-					<Navbar />
-					{children}
-					<ScrollToTopButton />
-					<Footer />
+				<Providers >
+					
+						<Navbar lang={params.lang}/>
+
+						{children}
+						<ScrollToTopButton />
+						<Footer />
+					
 				</Providers>
 			</body>
 		</html>

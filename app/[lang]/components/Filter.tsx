@@ -33,10 +33,11 @@ interface Props {
   activeFilter: string; 
   setFiltered: (projects: Project[]) => void; 
   portfolio: Project[];
+  lang: string;
 }
 
 // Composant Filter + props
-const Filter: React.FC<Props> = ({ setActiveFilter, activeFilter, setFiltered, portfolio }) => {
+const Filter: React.FC<Props> = ({ setActiveFilter, activeFilter, setFiltered, portfolio, lang }) => {
   useEffect(() => {
     
     // Si activeFilter est égal à "*", alors tous les projets du portfolio sont passés à la fonction setFiltered.
@@ -53,16 +54,16 @@ const Filter: React.FC<Props> = ({ setActiveFilter, activeFilter, setFiltered, p
   return (
     <div className="flex flex-wrap flex-col md:flex-row justify-start md:justify-end pt-16 md:pt-32 filtering">
       <span onClick={() => setActiveFilter("*")} data-filter="*" className={activeFilter === "*" || activeFilter === "" ? "text-[#17515c] dark:text-[#c0ccbb] after:bg-[#17515c] dark:after:bg-[#c0ccbb] pb-6 md:pb-0" : "text-[#555555] dark:text-[#E7E6E2] after:bg-[#17515c] dark:after:bg-[#c0ccbb] pb-6 md:pb-0"}>
-        All
+        {lang === "en" ? "All" : "Tout"}
       </span>
       <span onClick={() => setActiveFilter("web")} data-filter="web" className={activeFilter === "web" ? "text-[#17515c] dark:text-[#c0ccbb] after:bg-[#17515c] dark:after:bg-[#c0ccbb] pb-6 md:pb-0" : "text-[#555555] dark:text-[#E7E6E2] after:bg-[#17515c] dark:after:bg-[#c0ccbb] pb-6 md:pb-0"}>
-        Web Development
+      {lang === "en" ? "Web Development" : "Développement Web"}
       </span>
       <span onClick={() => setActiveFilter("design")} data-filter="design" className={activeFilter === "design" ? "text-[#17515c] dark:text-[#c0ccbb] after:bg-[#17515c] dark:after:bg-[#c0ccbb] pb-6 md:pb-0" : "text-[#555555] dark:text-[#E7E6E2] after:bg-[#17515c] dark:after:bg-[#c0ccbb] pb-6 md:pb-0"}>
-        Creative Design
+      {lang === "en" ? "Creative Design" : "Création Graphique"}
       </span>
       <span onClick={() => setActiveFilter("craft")} data-filter="craft" className={activeFilter === "craft" ? "text-[#17515c] dark:text-[#c0ccbb] after:bg-[#17515c] dark:after:bg-[#c0ccbb] " : "text-[#555555] dark:text-[#E7E6E2] after:bg-[#17515c] dark:after:bg-[#c0ccbb] "}>
-        Craft
+      {lang === "en" ? "Craft" : "Artisanat"}
       </span>
     </div>
   );

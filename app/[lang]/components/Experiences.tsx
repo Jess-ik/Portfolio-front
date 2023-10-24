@@ -3,11 +3,13 @@
 import React, { useEffect, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import classNames from "classnames";
+import { Locale } from "@/i18n.config";
 
 import { FaLocationDot } from "react-icons/fa6";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 interface Experience {
+	lang: string;
 	id: string;
 	attributes: {
 		date: string;
@@ -18,7 +20,18 @@ interface Experience {
 	};
 }
 
-export default function Experiences() {
+interface Params { 
+	lang: string;
+}
+
+export default function Experiences({ lang }: Params) {
+	let apiUrl: string;
+
+	if (lang === "en") {
+	  apiUrl = `${process.env.API_URL}/experiences?sort=order:desc`;
+	} else {
+	  apiUrl = `${process.env.API_URL}/experiences?locale=fr&sort=order:desc`;
+	}
 	const [data, setData] = useState<Experience[] | null>(null);
 	const [openDetails, setOpenDetails] = useState<string | null>(null);
 
@@ -29,7 +42,7 @@ export default function Experiences() {
 	useEffect(() => {
 		const getExperiences = async () => {
 			try {
-				const response = await fetch(`${process.env.API_URL}/experiences?sort=order:desc`, { cache: "no-store" });
+				const response = await fetch(apiUrl, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
 				// console.log(data);

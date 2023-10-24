@@ -13,13 +13,25 @@ interface Skill {
 	};
 }
 
-export default function Skills() {
+interface Params { 
+	lang: string;
+}
+
+export default function Skills({ lang }: Params) {
 	const [data, setData] = useState<Skill[]>([]);
+
+	let apiUrl: string;
+
+	if (lang === "en") {
+	  apiUrl = `${process.env.API_URL}/skills`;
+	} else {
+	  apiUrl = `${process.env.API_URL}/skills?locale=fr`;
+	}
 
 	useEffect(() => {
 		const getSkills = async () => {
 			try {
-				const response = await fetch(`${process.env.API_URL}/skills`, { cache: "no-store" });
+				const response = await fetch(apiUrl, { cache: "no-store" });
 				const responseData = await response.json();
 				setData(responseData.data);
 			} catch (error) {

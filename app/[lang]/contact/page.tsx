@@ -1,10 +1,11 @@
 "use client";
 import React, { useState, ChangeEvent, FormEvent } from "react";
+import { Locale } from "@/i18n.config";
 import axios from "axios";
 import PageHead from "../components/PageHead";
 import ReCAPTCHA from "react-google-recaptcha";
 
-const Contact = () => {
+export default function Contact({ params: { lang } }: { params: { lang: Locale } }) {
 	// Initialiser les données du formulaire
 	const initialFormData = {
 		name: "",
@@ -97,24 +98,18 @@ const Contact = () => {
 
 	return (
 		<>
-			<PageHead subtitle="Get in touch" title="Contact me" />
+			<PageHead subtitle={lang === "en" ? "Get in touch" : "Une question ?"} title={lang === "en" ? "Contact me" : "Me contacter"} />
 			<section className="max-w-screen-2xl m-auto contact-sec px-10 md:px-16 lg:px-32 xl:px-72 text-center">
 				<div className="py-20 md:py-32">
-					{isMailSent ? (
-						<p className="text-[#17515c] dark:text-[#c0ccbb] pb-20">
-							Your message has been sent successfully, <br /> I'll get back to you shortly!
-						</p>
-					) : (
-						""
-					)}
+					{isMailSent ? <p className="text-[#17515c] dark:text-[#c0ccbb] pb-20">{lang === "en" ? `Your message has been sent successfully,\nI'll get back to you shortly!` : `Votre message a été envoyé avec succès,\nJe vous répondrai bientôt !`}</p> : ""}
 					<form id="contact-form" onSubmit={handleSubmit}>
 						<div className="flex flex-col md:flex-row md:flex-wrap">
 							<div className="w-full md:w-6/12 md:pr-4 ">
 								<div className="form-group">
 									<label className="dark:text-white" htmlFor="name">
-										Name
+										{lang === "en" ? "Name" : "Nom"}
 									</label>
-									<input id="name" placeholder="Name" className={`border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white ${errors.name ? "border-red-500" : ""}`} type="text" name="name" value={modifiedData.name} onChange={handleChange} />
+									<input id="name" placeholder={lang === "en" ? "Name" : "Nom"} className={`border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white ${errors.name ? "border-red-500" : ""}`} type="text" name="name" value={modifiedData.name} onChange={handleChange} />
 									{errors.name && <p className="text-red-500">{errors.name}</p>}
 								</div>
 							</div>
@@ -128,8 +123,10 @@ const Contact = () => {
 								</div>
 							</div>
 							<div className="w-full md:pt-10">
-								<div className="form-group" >
-								<label className="dark:text-white" htmlFor="message">Message</label>
+								<div className="form-group">
+									<label className="dark:text-white" htmlFor="message">
+										Message
+									</label>
 									<textarea id="message" placeholder="Message" className={`border-b border-[#0d2c32] dark:border-[#E7E6E2] text-#0d2c32 dark:text-white ${errors.message ? "border-red-500" : ""}`} name="message" value={modifiedData.message} onChange={handleMessageChange} rows={4} />
 									{errors.message && <p className="text-red-500">{errors.message}</p>}
 								</div>
@@ -137,14 +134,16 @@ const Contact = () => {
 							<div className="w-full flex justify-center m-auto">
 								<div className="text-center mt-6">
 									{isSending ? (
-										<div className="loader dark:text-[#c0ccbb]">Sending...</div>
+										<div className="loader dark:text-[#c0ccbb]">{lang === "en" ? "Sending..." : "En cours d'envoi..."}</div>
 									) : (
 										<>
-											<label className="dark:text-white" htmlFor="g-recaptcha-response">Recaptcha</label>
-												<ReCAPTCHA id="recaptcha" className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
-											
+											<label className="dark:text-white" htmlFor="g-recaptcha-response">
+												Recaptcha
+											</label>
+											<ReCAPTCHA id="recaptcha" className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
+
 											<button type="submit" className="button dark:dark-button cursor-pointer">
-												Send message
+												{lang === "en" ? "About" : "À propos"}
 											</button>
 											{errorContact && <p className="text-red-500">{errorContact.message}</p>}
 										</>
@@ -157,6 +156,4 @@ const Contact = () => {
 			</section>
 		</>
 	);
-};
-
-export default Contact;
+}

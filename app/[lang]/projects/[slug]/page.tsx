@@ -5,10 +5,12 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Link from "next/link";
 import useSWR from "swr";
 import React from "react";
+import { Locale } from '@/i18n.config'
 
 type Params = {
 	params: {
 		slug: string;
+		lang: Locale; 
 	};
 };
 

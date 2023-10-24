@@ -1,6 +1,7 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { Locale } from "@/i18n.config";
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -35,11 +36,19 @@ interface Project {
 	};
 }
 
-export default function Projects() {
+export default function Projects({ params: { lang } }: { params: { lang: Locale } }) {
 	// On décalre les états pour stocker les projets, les projets filtrés et le filtre actif
 	const [portfolio, setPortfolio] = useState<Project[]>([]);
 	const [filtered, setFiltered] = useState<Project[]>([]);
 	const [activeFilter, setActiveFilter] = useState<string>("");
+
+	let apiUrl: string;
+
+	if (lang === "en") {
+	  apiUrl = `${process.env.API_URL}/projects?populate=*&sort=order:desc`;
+	} else {
+	  apiUrl = `${process.env.API_URL}/projects?locale=fr&populate=*&sort=order:desc`;
+	}
 
 	// On utilise useEffect pour charger les projets au moment du montage du composant
 	useEffect(() => {
@@ -49,7 +58,7 @@ export default function Projects() {
 	// On récupère les projets via l'API
 	const fetchProjects = async () => {
 		try {
-			const data = await fetch(`${process.env.API_URL}/projects?populate=*&sort=order:desc`, { cache: "no-store" });
+			const data = await fetch(apiUrl, { cache: "no-store" });
 			const projects = await data.json();
 			// On stocke tous les projets dans Portfolio
 			setPortfolio(projects.data);
@@ -67,12 +76,12 @@ export default function Projects() {
 
 	return (
 		<>
-			<PageHead subtitle="My works" title="Portfolio" />
+			{lang === "en" ? <PageHead subtitle="My works" title="Portfolio" /> : <PageHead subtitle="Mon travail" title="Portfolio" />}
 
 			<section className="max-w-screen-2xl m-auto portfolio-section md:pt-16">
 				<div className="px-4 md:px-9 lg:px-15 xl:px-28">
 					{/* On appelle le composant Filter avec ses props, qui permet la sélection de projets par catégorie */}
-					<Filter setActiveFilter={setActiveFilter} activeFilter={activeFilter} setFiltered={memoizedSetFiltered} portfolio={portfolio} />
+					<Filter lang={lang} setActiveFilter={setActiveFilter} activeFilter={activeFilter} setFiltered={memoizedSetFiltered} portfolio={portfolio} />
 
 					<motion.div layout className="projects pt-10 flex flex-col md:flex-row flex-wrap ">
 						<AnimatePresence>
@@ -80,7 +89,7 @@ export default function Projects() {
 							{filtered?.map((project) => (
 								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
 									<div className="cover cursor-pointer">
-										<Link rel="preload" href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
+										<Link rel="preload" href={`/${lang}/projects/[slug]`} as={`/${lang}/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
 											<img width={480} height={480} src={`${process.env.IMAGES_URL}${project.attributes.coverImage.data.attributes.url}`} alt={project.attributes.coverImage.data.attributes.alternativeText} />
 										</Link>
 									</div>

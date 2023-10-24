@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { Locale } from "@/i18n.config";
 
 interface Project {
 	id: string;
@@ -21,14 +22,23 @@ interface Project {
 	};
 }
 
+interface Params { 
+	lang: string;
+}
 
-export default function Projects() {
+export default function Projects({ lang }: Params) {
 	const [data, setData] = useState<Project[] | null>(null);
+	let apiUrl: string;
 
+	if (lang === "en") {
+	  apiUrl = `${process.env.API_URL}/projects?populate=*&sort=order:desc`;
+	} else {
+	  apiUrl = `${process.env.API_URL}/projects?locale=fr&populate=*&sort=order:desc`;
+	}
 	useEffect(() => {
 		const getProjects = async () => {
 			try {
-				const response = await fetch(`${process.env.API_URL}/projects?populate=*&sort=order:desc`, { cache: "no-store" });
+				const response = await fetch(apiUrl, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
 			} catch (error) {
@@ -45,9 +55,7 @@ export default function Projects() {
 				<div id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
 					<div className="cover cursor-pointer">
 						<Link rel="preload" href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
-							
-								<img width={480} height={480} src={`${process.env.IMAGES_URL}${project.attributes.coverImage.data.attributes.url}`} alt={project.attributes.coverImage.data.attributes.alternativeText} />
-							
+							<img width={480} height={480} src={`${process.env.IMAGES_URL}${project.attributes.coverImage.data.attributes.url}`} alt={project.attributes.coverImage.data.attributes.alternativeText} />
 						</Link>
 					</div>
 					<div className="flex justify-between items-center cursor-pointer">

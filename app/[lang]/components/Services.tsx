@@ -1,8 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { Locale } from "@/i18n.config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Service {
+	
 	id: string;
 	attributes: {
 		title: string;
@@ -11,13 +13,26 @@ interface Service {
 	};
 }
 
-export default function Services() {
-	const [data, setData] = useState<Service[]>([]);
+interface Params { 
+	lang: string;
+}
 
+
+
+export default function Services({ lang }: Params) {
+	const [data, setData] = useState<Service[]>([]);
+	
+	let apiUrl: string;
+
+	if (lang === "en") {
+	  apiUrl = `${process.env.API_URL}/services`;
+	} else {
+	  apiUrl = `${process.env.API_URL}/services?locale=fr&sort=id:desc`;
+	}
 	useEffect(() => {
 		const getServices = async () => {
 			try {
-				const response = await fetch(`${process.env.API_URL}/services`, { cache: "no-store" });
+				const response = await fetch(apiUrl, { cache: "no-store" });
 				const data = await response.json();
 				setData(data.data);
 				// console.log(data);
