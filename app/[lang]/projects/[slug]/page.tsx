@@ -46,8 +46,8 @@ interface Project  {
 	  };
 	};
   };
-type ApiResponse = Project[];
-type Params = {
+
+interface Params {
 	params: {
 		slug: string;
 	};
