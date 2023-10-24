@@ -141,9 +141,13 @@ export default function ProjectDetails({ params }: Params) {
 						</div>
 					</div>
 					<div className=" lg:w-8/12 mt-10 lg:mt-0 mb-30">
-						<div className="text">
-							<ReactMarkdown className="dark:text-[#b0b0b0]">{data?.data.attributes.description}</ReactMarkdown>
-						</div>
+					<div className="text">
+  {data && ( // Vérifiez si data est défini
+    <ReactMarkdown className="dark:text-[#b0b0b0]">
+      {data.data.attributes.description}
+    </ReactMarkdown>
+  )}
+</div>
 					</div>
 				</div>
 			</section>
