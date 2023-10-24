@@ -56,7 +56,7 @@ interface Params {
     slug: string;
 }
 
-export default function ProjectSlug({ lang, slug }: Params) {
+export default function ProjectSlug({slug }: Params) {
     const apiUrl =
     lang === "en"
       ? `${process.env.API_URL}/projects/${slug}`
