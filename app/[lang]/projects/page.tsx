@@ -89,7 +89,7 @@ export default function Projects({ params: { lang } }: { params: { lang: Locale 
 							{filtered?.map((project) => (
 								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
 									<div className="cover cursor-pointer">
-										<Link rel="preload" href={`/${lang}/projects/[slug]`} as={`/${lang}/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
+										<Link rel="preload" href={`/${lang}/projects/[slug]`} as={`/${lang}/projects/${project.attributes.slug.replace('-fr', '')}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
 											<img width={480} height={480} src={`${process.env.IMAGES_URL}${project.attributes.coverImage.data.attributes.url}`} alt={project.attributes.coverImage.data.attributes.alternativeText} />
 										</Link>
 									</div>
