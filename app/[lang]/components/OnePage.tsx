@@ -43,7 +43,7 @@ export default function OnePage({ lang }: Params) {
 					{lang === "en" ? "Let's connect and create something special together!" : "Faisons connaissance et créons quelque chose de spécial ensemble !"}
 						
 						</h6>
-					<a href="/about" className="button dark:dark-button">
+					<a href={`/${lang}/about`} className="button dark:dark-button">
 						{lang === "en" ? "Get to know me" : "En savoir plus"}
 					</a>
 				</div>
@@ -59,7 +59,7 @@ export default function OnePage({ lang }: Params) {
 					<h2 className="leading-none  dark:text-[#e7e6e2]">{lang === "en" ? "Latest works" : "Projets récents"}</h2>
 				</div>
 				<div className="md:w-10/21 pt-10 flex flex-col gap-10 justify-end items-start">
-					<a href="/projects" className="button dark:dark-button ">
+					<a href={`/${lang}/projects`} className="button dark:dark-button ">
 					{lang === "en" ? "See all works" : "Tous mes projets"}
 					</a>
 				</div>
@@ -72,7 +72,7 @@ export default function OnePage({ lang }: Params) {
 					<h5 className={`text-[#17515C] yeseva`}>{lang === "en" ? "Get in touch" : "Une question ?"}</h5>
 					<h2 className="leading-none ">{lang === "en" ? "Want to chat ?" : "Contactez-moi"}</h2>
 					<p className="button mt-12">
-						<a href="/contact" className="py-2.5 px-4 ">
+						<a href={`/${lang}/contact`} className="py-2.5 px-4 ">
 						{lang === "en" ? "Send me an email" : "Envoyer un message"}
 						</a>
 					</p>

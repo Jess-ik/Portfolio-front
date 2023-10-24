@@ -143,7 +143,7 @@ export default function Contact({ params: { lang } }: { params: { lang: Locale }
 											<ReCAPTCHA id="recaptcha" className="mb-6" sitekey={process.env.RECAPTCHA_SITE_KEY || ""} onChange={handleRecaptchaChange} />
 
 											<button type="submit" className="button dark:dark-button cursor-pointer">
-												{lang === "en" ? "About" : "À propos"}
+												{lang === "en" ? "Send message" : "Envoyer le message"}
 											</button>
 											{errorContact && <p className="text-red-500">{errorContact.message}</p>}
 										</>
