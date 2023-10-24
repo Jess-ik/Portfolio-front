@@ -29,7 +29,7 @@ https://medium.com/@sidbentifraouine/responsive-animated-top-navigation-bar-with
 	return (
 		<nav className="navbar flex justify-between items-center min-h-80  py-2 px-6 md:px-10 lg:px-16 xl:px-32 bg-[#e7e6e2] dark:bg-[#0d2c32]">
 			<Link href={`/${lang}`} className="logo">
-				<NavLogo lang={lang}/>
+				<NavLogo/>
 			</Link>
 
 			<button className="nav-toggle-btn px-6 py-2" onClick={handleClick} aria-label="Mobile menu">
