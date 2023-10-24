@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+const { generateStaticParams } = require('next-locale');
 const nextConfig = {
     reactStrictMode: true,
     i18n: {
@@ -16,11 +17,15 @@ const nextConfig = {
     experimental: {
         appDir: true,
     },
-    exportPathMap: function () {
-        return {
-            '/': { page: '/[lang]' },
-        }
+    async generateStaticParams() {
+        // Renvoie les paramètres de routage en fonction de vos besoins
+        return await generateStaticParams({
+          locales: ['en', 'fr'], // Liste de vos langues
+          defaultLocale: 'en', // Langue par défaut
+          // Autres options de configuration
+        });
       },
+    
 };
 
 module.exports = nextConfig;
