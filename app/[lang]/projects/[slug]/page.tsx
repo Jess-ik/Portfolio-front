@@ -132,7 +132,7 @@ export default function ProjectDetails({ params }: Params) {
 					<div className="lg:w-4/12">
 						<div className="flex flex-col lg:flex-row lg:items-baseline">
 							<div className="lg:w-10/12">
-								<h4 className="dark:text-[#E7E6E2]">{lang === "en" ? "Description" : "Déscription"}</h4>
+								<h4 className="dark:text-[#E7E6E2]">Description</h4>
 							</div>
 						</div>
 					</div>
