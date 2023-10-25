@@ -54,7 +54,7 @@ export default function Projects({ lang }: Params) {
 			{data?.slice(0, 6).map((project) => (
 				<div id={project.id} key={project.id} className={`items mb-10 px-5 ${project.attributes.size}`}>
 					<div className="cover cursor-pointer">
-						<Link rel="preload" href={`/projects/[slug]`} as={`/projects/${project.attributes.slug}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
+						<Link rel="preload" href={`/${lang}/projects/[slug]`} as={`/${lang}/projects/${project.attributes.slug.replace('-fr', '')}`} aria-label={`Hero photo for ${project.attributes.title} project`}>
 							<img width={480} height={480} src={`${process.env.IMAGES_URL}${project.attributes.coverImage.data.attributes.url}`} alt={project.attributes.coverImage.data.attributes.alternativeText} />
 						</Link>
 					</div>
