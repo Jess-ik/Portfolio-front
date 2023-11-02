@@ -102,6 +102,7 @@ export default function App() {
 						{/* LANDING SLIDE */}
 						<SwiperSlide className="h-full slide" data-swiper-autoplay="3000">
 							<Link href={`/projects/jess-louvel`} as={`/projects/jess-louvel`}>
+							<div className="slide">
 								<div className="blob">
 									<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns-xlink="http://www.w3.org/1999/xlink" width="100%" id="blobSvg">
 										<defs>
@@ -132,7 +133,8 @@ export default function App() {
 										</path>
 									</svg>
 								</div>
-								<LandingLogo />
+									<LandingLogo />
+									</div>
 							</Link>
 						</SwiperSlide>
 
